@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Barberboss — барбершоп на Фучика, 88а в Казани</title>
+<meta name="description" content="Барбершоп Barberboss в Казани, улица Юлиуса Фучика, 88а, красная вывеска. Мужская стрижка от 900 ₽, детская стрижка. Каждый день 09:00–22:00. Рейтинг 4,9 в 2ГИС.">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  html{overflow-x:clip}
+  :root{
+    --black:#0b0b0b;
+    --coal:#161616;
+    --line:#2a2a2a;
+    --white:#f5f5f2;
+    --grey:#9a9a96;
+    --red:#ff2d2d;
+    --red-dk:#c41616;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--black);color:var(--white);font:16px/1.5 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+    overflow-x:clip;padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  @media(min-width:860px){body{padding-bottom:0}}
+  a{color:inherit}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  h1,h2,h3,.os{font-family:"Oswald",Impact,sans-serif;text-transform:uppercase;margin:0;line-height:.95;letter-spacing:.005em}
+  h2{font-size:clamp(40px,11vw,84px);font-weight:700}
+  .mono{font-family:"IBM Plex Mono",monospace}
+  .tag{display:inline-block;font:600 12px/1 "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;background:var(--red);color:var(--black);padding:6px 8px}
+  section{padding:72px 0;position:relative}
+
+  .demo{background:var(--white);color:var(--black);text-align:center;font:600 13px/1.35 "IBM Plex Sans",sans-serif;padding:8px 16px}
+
+  header{position:sticky;top:0;z-index:20;background:var(--black);border-bottom:3px solid var(--red)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
+  .logo{font:700 24px/1 "Oswald",sans-serif;text-transform:uppercase;text-decoration:none;letter-spacing:.02em}
+  .logo span{color:var(--red)}
+  .h-tel{font:600 15px/1 "IBM Plex Mono",monospace;text-decoration:none;white-space:nowrap}
+  .h-nav{display:none;gap:24px;font:500 15px/1 "Oswald",sans-serif;text-transform:uppercase;letter-spacing:.06em}
+  .h-nav a{text-decoration:none}.h-nav a:hover{color:var(--red)}
+  @media(min-width:860px){.h-nav{display:flex}}
+
+  /* hero */
+  .hero{padding:40px 0 90px;overflow:hidden}
+  .slab{position:absolute;left:-10%;right:-10%;top:58%;height:44%;background:var(--red);transform:skewY(-6deg);z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .giant{font:700 clamp(64px,21vw,210px)/.82 "Oswald",sans-serif;text-transform:uppercase;letter-spacing:-.01em;margin:18px 0 0;
+    transform:skewX(-8deg);transform-origin:left}
+  .giant .o{color:transparent;-webkit-text-stroke:2px var(--white)}
+  .hero h1{font-size:clamp(26px,6.4vw,44px);margin-top:26px;max-width:16ch}
+  .hero h1 em{font-style:normal;background:var(--black);color:var(--white);padding:0 .15em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .hero .lead{font-size:17px;max-width:38ch;margin:16px 0 22px;color:var(--white)}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .pill{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:8px 14px;background:var(--black);border:2px solid var(--white);font:600 14px/1.2 "IBM Plex Mono",monospace}
+  .pill .dot{width:10px;height:10px;background:var(--grey)}
+  .is-open .pill .dot{background:#3dff7a}
+  .sticker{position:absolute;right:16px;top:118px;width:118px;height:118px;border-radius:50%;background:var(--white);color:var(--black);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;transform:rotate(12deg);
+    border:3px solid var(--black);box-shadow:6px 6px 0 var(--red)}
+  .sticker b{font:700 40px/1 "Oswald",sans-serif}
+  .sticker span{font:600 11px/1.2 "IBM Plex Mono",monospace;text-align:center;text-transform:uppercase}
+  @media(min-width:860px){.sticker{width:150px;height:150px;right:40px;top:30px}.sticker b{font-size:52px}}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 24px;font:700 18px/1 "Oswald",sans-serif;
+    text-transform:uppercase;letter-spacing:.04em;text-decoration:none;cursor:pointer;border:3px solid var(--white);background:var(--black);color:var(--white);
+    clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+  .btn.red{background:var(--red);border-color:var(--red);color:var(--black)}
+  .btn.white{background:var(--white);border-color:var(--white);color:var(--black)}
+  .btn:active{transform:translateY(2px)}
+
+  /* бегущая строка */
+  .tape{background:var(--white);color:var(--black);transform:rotate(-3deg);margin:-30px -20px 0;padding:12px 0;overflow:hidden;position:relative;z-index:2;border-block:3px solid var(--black)}
+  .tape-in{display:flex;width:max-content;animation:run 26s linear infinite;font:700 24px/1 "Oswald",sans-serif;text-transform:uppercase;white-space:nowrap}
+  .tape-in span{padding:0 18px}
+  .tape-in i{color:var(--red);font-style:normal}
+  @keyframes run{to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.tape-in{animation:none}}
+
+  /* босс-карта */
+  .boss .wrap{display:grid;gap:30px}
+  @media(min-width:940px){.boss .wrap{grid-template-columns:1fr 1fr;align-items:start}}
+  .boss .lead{color:var(--grey);max-width:40ch;margin:14px 0 0}
+  .q{font:600 12px/1 "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin:24px 0 10px}
+  .tiles{display:grid;gap:10px}
+  .tile{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:64px;padding:12px 18px;background:var(--coal);color:var(--white);
+    border:2px solid var(--line);cursor:pointer;text-align:left;font:inherit;transform:skewX(-6deg)}
+  .tile > *{transform:skewX(6deg)}
+  .tile b{font:700 22px/1.05 "Oswald",sans-serif;text-transform:uppercase}
+  .tile small{display:block;color:var(--grey);font-size:13px;margin-top:4px}
+  .tile .p{font:600 15px/1 "IBM Plex Mono",monospace;white-space:nowrap}
+  .tile[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:var(--black)}
+  .tile[aria-pressed="true"] small{color:var(--black)}
+  .seg{display:flex;flex-wrap:wrap;gap:8px}
+  .seg button{min-height:48px;padding:0 16px;background:transparent;color:var(--white);border:2px solid var(--line);font:600 14px/1 "IBM Plex Mono",monospace;text-transform:uppercase;cursor:pointer}
+  .seg button[aria-pressed="true"]{background:var(--white);color:var(--black);border-color:var(--white)}
+  .seg button:disabled{opacity:.3;cursor:not-allowed}
+  .field{display:block;width:100%;min-height:52px;background:var(--coal);border:2px solid var(--line);color:var(--white);font:500 17px/1 "IBM Plex Sans",sans-serif;padding:0 14px}
+  .field:focus{outline:none;border-color:var(--red)}
+  .fine{font-size:13px;color:var(--grey);margin-top:14px}
+
+  .card-col{position:relative}
+  @media(min-width:940px){.card-col{position:sticky;top:90px}}
+  .card{position:relative;background:var(--white);color:var(--black);border-radius:14px;padding:18px;overflow:hidden;transform:rotate(-2deg);
+    box-shadow:10px 10px 0 var(--red);max-width:480px;margin:0 auto}
+  .card::before{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;background:var(--red);transform:rotate(30deg)}
+  .card-top{position:relative;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .card-top .os{font-size:26px}
+  .card-top small{display:block;font:600 11px/1.2 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;margin-top:4px}
+  .card-top .no{font:600 12px/1.3 "IBM Plex Mono",monospace;text-align:right;color:var(--black)}
+  .card-body{position:relative;display:grid;grid-template-columns:84px 1fr;gap:14px;margin-top:16px}
+  .ava{width:84px;height:104px;background:var(--black);color:var(--red);display:flex;align-items:center;justify-content:center;font:700 54px/1 "Oswald",sans-serif;text-transform:uppercase}
+  .kv{display:grid;gap:7px;min-width:0}
+  .kv div{font:600 11px/1.1 "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:#666}
+  .kv b{display:block;font:700 18px/1.1 "Oswald",sans-serif;color:var(--black);letter-spacing:.02em;margin-top:2px;overflow-wrap:anywhere}
+  .bars{position:relative;height:34px;margin-top:16px;background:repeating-linear-gradient(90deg,#000 0 2px,transparent 2px 4px,#000 4px 7px,transparent 7px 9px,#000 9px 10px,transparent 10px 14px)}
+  .card-foot{position:relative;display:flex;justify-content:space-between;font:600 11px/1 "IBM Plex Mono",monospace;margin-top:6px;text-transform:uppercase}
+  .msg{margin:30px auto 0;max-width:480px;background:var(--coal);border-left:4px solid var(--red);padding:14px 16px;font-size:15px;color:var(--white)}
+  .msg::before{content:"Сообщение в WhatsApp";display:block;font:600 11px/1 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin-bottom:8px}
+  .card-col .btn{display:flex;width:100%;max-width:480px;margin:14px auto 0}
+  .card-col .alt{display:block;text-align:center;margin-top:12px;color:var(--grey);font-size:14px}
+
+  /* доступно всем */
+  .access{background:var(--red);color:var(--black);clip-path:polygon(0 4vw,100% 0,100% calc(100% - 4vw),0 100%);padding:calc(72px + 4vw) 0}
+  .access h2{color:var(--black)}
+  .access .grid{display:grid;gap:0;margin-top:28px;border-top:3px solid var(--black)}
+  @media(min-width:760px){.access .grid{grid-template-columns:1fr 1fr}}
+  .access .it{display:flex;gap:14px;align-items:baseline;padding:16px 0;border-bottom:3px solid var(--black);font:700 22px/1.15 "Oswald",sans-serif;text-transform:uppercase}
+  @media(min-width:760px){.access .it:nth-child(odd){padding-right:24px}}
+  .access .it span{font:600 13px/1 "IBM Plex Mono",monospace}
+  .pay{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+  .pay span{background:var(--black);color:var(--white);padding:10px 14px;font:600 14px/1 "IBM Plex Mono",monospace;text-transform:uppercase}
+
+  /* часы/адрес */
+  .info{display:grid;gap:30px}
+  @media(min-width:900px){.info{grid-template-columns:1fr 1.2fr}}
+  .week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:24px 0 10px}
+  .week div{background:var(--coal);border:2px solid var(--line);padding:10px 0;text-align:center;font:700 16px/1 "Oswald",sans-serif;text-transform:uppercase}
+  .week div.today{background:var(--red);border-color:var(--red);color:var(--black)}
+  .big-h{font:700 clamp(54px,15vw,96px)/.9 "Oswald",sans-serif;letter-spacing:-.01em}
+  .addr{font:700 clamp(30px,7vw,48px)/1 "Oswald",sans-serif;text-transform:uppercase;margin:12px 0 8px}
+  .info p{color:var(--grey);margin:0 0 14px}
+  .socials{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+  .socials a{display:inline-flex;align-items:center;min-height:48px;padding:0 16px;border:2px solid var(--white);text-decoration:none;font:600 14px/1 "IBM Plex Mono",monospace;text-transform:uppercase}
+  .socials a:hover{background:var(--white);color:var(--black)}
+  .map{border:3px solid var(--white);min-height:340px;margin-top:8px}
+  .map iframe{width:100%;height:340px;border:0;display:block;filter:grayscale(1) contrast(1.05)}
+
+  footer{border-top:3px solid var(--red);padding:26px 0;color:var(--grey);font:500 13px/1.5 "IBM Plex Mono",monospace}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--black);border-top:3px solid var(--red)}
+  .dock .btn{min-height:50px;padding:0 6px;font-size:15px;clip-path:none}
+  @media(min-width:860px){.dock{display:none}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Barber<span>boss</span></a>
+    <nav class="h-nav" aria-label="Разделы">
+      <a href="#card">Босс-карта</a>
+      <a href="#access">Удобства</a>
+      <a href="#where">Где мы</a>
+    </nav>
+    <a class="h-tel" href="tel:+79297232223">+7 929 723-22-23</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="slab" aria-hidden="true"></div>
+    <div class="wrap">
+      <a class="sticker" href="https://2gis.ru/kazan/firm/70000001069039178/tab/reviews" target="_blank" rel="noopener" aria-label="Рейтинг 4,9, 226 отзывов в 2ГИС">
+        <b>4,9</b><span>226 отзывов<br>в 2ГИС</span>
+      </a>
+      <span class="tag">Барбершоп · Казань</span>
+      <div class="giant" aria-hidden="true">Barber<br><span class="o">boss</span></div>
+      <h1>Стрижка на <em>Фучика, 88а</em></h1>
+      <p class="lead">Ищи красную вывеску, 1&nbsp;этаж. Работаем каждый день с&nbsp;9 утра до&nbsp;10 вечера.</p>
+      <div class="row">
+        <span class="pill"><i class="dot"></i><span data-status>09:00–22:00</span></span>
+      </div>
+      <div class="row" style="margin-top:14px">
+        <a class="btn white" href="#card">Записаться</a>
+        <a class="btn" href="tel:+79297232223">Позвонить</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="tape" aria-hidden="true">
+    <div class="tape-in">
+      <span>Мужская стрижка от 900 ₽</span><i>✕</i><span>Детская стрижка</span><i>✕</i><span>09:00–22:00</span><i>✕</i><span>Фучика 88а</span><i>✕</i><span>Можно с собакой</span><i>✕</i>
+      <span>Мужская стрижка от 900 ₽</span><i>✕</i><span>Детская стрижка</span><i>✕</i><span>09:00–22:00</span><i>✕</i><span>Фучика 88а</span><i>✕</i><span>Можно с собакой</span><i>✕</i>
+    </div>
+  </div>
+
+  <section class="boss" id="card">
+    <div class="wrap">
+      <div>
+        <span class="tag">Запись</span>
+        <h2 style="margin-top:14px">Собери<br>босс-карту</h2>
+        <p class="lead">Выбери услугу и время — карта заполнится сама, а мастеру уйдёт готовое сообщение в WhatsApp.</p>
+
+        <p class="q">01 / Услуга</p>
+        <div class="tiles" role="group" aria-label="Услуга">
+          <button class="tile" type="button" data-svc="0"><span><b>Мужская стрижка</b></span><span class="p">от 900 ₽</span></button>
+          <button class="tile" type="button" data-svc="1"><span><b>Детская стрижка</b></span><span class="p">≈ уточним</span></button>
+          <button class="tile" type="button" data-svc="2"><span><b>Отец + сын</b><small>мужская и детская подряд</small></span><span class="p">≈ уточним</span></button>
+        </div>
+
+        <p class="q">02 / Когда</p>
+        <div class="seg" role="group" aria-label="День">
+          <button type="button" data-day="сегодня">Сегодня</button>
+          <button type="button" data-day="завтра">Завтра</button>
+          <button type="button" data-day="на этой неделе">На неделе</button>
+        </div>
+        <div class="seg" role="group" aria-label="Время" style="margin-top:8px">
+          <button type="button" data-part="утром">Утро</button>
+          <button type="button" data-part="днём">День</button>
+          <button type="button" data-part="вечером">Вечер</button>
+          <button type="button" data-part="в любое время">Любое</button>
+        </div>
+
+        <p class="q">03 / Имя на карте <span style="text-transform:none;letter-spacing:0">(можно пропустить)</span></p>
+        <label class="sr" for="nm" style="position:absolute;left:-9999px">Ваше имя</label>
+        <input class="field" id="nm" data-name-input type="text" maxlength="40" autocomplete="given-name" placeholder="Как к тебе обращаться">
+        <p class="fine">Цены примерные, уточняются у владельца. В 2ГИС указано: мужская стрижка от 900 ₽.</p>
+      </div>
+
+      <div class="card-col">
+        <div class="card" aria-live="polite">
+          <div class="card-top">
+            <div><div class="os">Barberboss</div><small>Карта клиента</small></div>
+            <div class="no">Фучика<br>88а</div>
+          </div>
+          <div class="card-body">
+            <div class="ava" id="ava" aria-hidden="true">Б</div>
+            <div class="kv">
+              <div>Клиент<b data-name-out="Гость">Гость</b></div>
+              <div>Услуга<b data-svc-name>Мужская стрижка</b></div>
+              <div>Цена<b data-svc-price>от 900 ₽</b></div>
+              <div>Когда<b><span data-day-out>сегодня</span>, <span data-part-out>в любое время</span></b></div>
+            </div>
+          </div>
+          <div class="bars" aria-hidden="true"></div>
+          <div class="card-foot"><span>Ежедн. 09:00–22:00</span><span>★ 4,9</span></div>
+        </div>
+        <p class="msg" data-msg>Здравствуйте! Хочу записаться на мужскую стрижку.</p>
+        <a class="btn red" data-book href="https://wa.me/79297232223" target="_blank" rel="noopener">Записаться в WhatsApp</a>
+        <a class="alt" href="https://t.me/+79297232223" target="_blank" rel="noopener">или в Telegram</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="access" id="access">
+    <div class="wrap">
+      <span class="tag" style="background:var(--black);color:var(--white)">Удобства</span>
+      <h2 style="margin-top:14px">Заходи<br>как есть</h2>
+      <div class="grid">
+        <div class="it"><span>01</span>Вход с детской коляской</div>
+        <div class="it"><span>02</span>Пандус и подъёмник</div>
+        <div class="it"><span>03</span>Частично доступно на инвалидной коляске</div>
+        <div class="it"><span>04</span>Вызов персонала</div>
+        <div class="it"><span>05</span>Можно с собакой</div>
+        <div class="it"><span>06</span>Детская стрижка</div>
+      </div>
+      <div class="pay"><span>Карта</span><span>Наличные</span><span>Перевод с карты</span><span>QR-код</span></div>
+    </div>
+  </section>
+
+  <section id="where">
+    <div class="wrap info">
+      <div>
+        <span class="tag">Часы</span>
+        <div class="week" aria-label="Работаем без выходных">
+          <div data-wd="Mon">Пн</div><div data-wd="Tue">Вт</div><div data-wd="Wed">Ср</div><div data-wd="Thu">Чт</div><div data-wd="Fri">Пт</div><div data-wd="Sat">Сб</div><div data-wd="Sun">Вс</div>
+        </div>
+        <div class="big-h">09—22</div>
+        <p style="margin-top:10px">Без выходных. <span data-status></span></p>
+
+        <span class="tag" style="margin-top:28px">Адрес</span>
+        <div class="addr">Юлиуса Фучика, 88а</div>
+        <p>1 этаж, красная вывеска. Советский район, Казань.</p>
+        <div class="row">
+          <a class="btn red" href="https://yandex.ru/maps/?rtext=~55.76296,49.232601&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+          <a class="btn" href="https://2gis.ru/kazan/firm/70000001069039178" target="_blank" rel="noopener">2ГИС</a>
+        </div>
+        <div class="socials">
+          <a href="tel:+79297232223">+7 929 723-22-23</a>
+          <a href="https://wa.me/79297232223" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://t.me/+79297232223" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://vk.ru/id774868096" target="_blank" rel="noopener">ВК</a>
+          <a href="https://max.ru/u/f9LHodD0cOJF4lhnQEbhMpliH5c0xI1myTNhWQY6LuN1DPUyPwL1BxZlLdU" target="_blank" rel="noopener">MAX</a>
+        </div>
+      </div>
+      <div class="map">
+        <iframe title="Barberboss на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=49.232601%2C55.76296&z=16&pt=49.232601%2C55.76296%2Cpm2rdm"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Barberboss · ул. Юлиуса Фучика, 88а, Казань<br>Демо-версия сайта, подготовлена для владельца. Данные из 2ГИС.</div>
+</footer>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a class="btn" href="tel:+79297232223">Позвонить</a>
+  <a class="btn" href="https://yandex.ru/maps/?rtext=~55.76296,49.232601&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn red" href="https://wa.me/79297232223" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  window.SITE = {
+    open: "09:00", close: "22:00", wa: "79297232223",
+    services: [
+      { name: "Мужская стрижка", acc: "мужскую стрижку", price: "от 900 ₽" },
+      { name: "Детская стрижка", acc: "детскую стрижку", price: "уточняется" },
+      { name: "Отец + сын", acc: "мужскую и детскую стрижку", price: "уточняется" }
+    ]
+  };
+</script>
+<script>
+(function(){
+  var S = window.SITE;
+  function qa(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); }
+  function tm(s){ var a = s.split(":"); return (+a[0]) * 60 + (+a[1]); }
+  var O = tm(S.open), C = tm(S.close);
+  var st = { svc: 0, day: "сегодня", part: "в любое время" };
+
+  // Текущее время в Казани (Europe/Moscow)
+  function msk(){
+    var o = {};
+    new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Moscow", hour: "2-digit", minute: "2-digit", weekday: "short", hourCycle: "h23" })
+      .formatToParts(new Date()).forEach(function(p){ o[p.type] = p.value; });
+    return { min: (+o.hour) * 60 + (+o.minute), wd: o.weekday };
+  }
+
+  function status(){
+    var n = msk(), open = n.min >= O && n.min < C, t;
+    if (open) t = "Открыто сейчас, до " + S.close;
+    else t = "Закрыто, откроется " + (n.min < O ? "сегодня" : "завтра") + " в " + S.open;
+    document.documentElement.classList.toggle("is-open", open);
+    qa("[data-status]").forEach(function(e){ e.textContent = t; });
+    qa("[data-wd]").forEach(function(e){ e.classList.toggle("today", e.getAttribute("data-wd") === n.wd); });
+    // Сегодня записываться поздно, если до закрытия меньше часа
+    var late = n.min >= C - 60;
+    qa('[data-day="сегодня"]').forEach(function(b){ b.disabled = late; });
+    if (late && st.day === "сегодня") st.day = "завтра";
+    render();
+  }
+
+  function press(attr, val){
+    qa("[" + attr + "]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute(attr) === String(val))); });
+  }
+
+  function render(){
+    var s = S.services[st.svc];
+    press("data-svc", st.svc); press("data-day", st.day); press("data-part", st.part);
+    var name = "";
+    qa("[data-name-input]").forEach(function(i){ if (i.value.trim()) name = i.value.trim().slice(0, 40); });
+    var msg = "Здравствуйте! Хочу записаться на " + s.acc + " — " + st.day + ", " + st.part + ". Подскажете свободное время?";
+    if (name) msg += " Меня зовут " + name + ".";
+    qa("[data-msg]").forEach(function(e){ e.textContent = msg; });
+    qa("[data-book]").forEach(function(e){ e.href = "https://wa.me/" + S.wa + "?text=" + encodeURIComponent(msg); });
+    qa("[data-svc-name]").forEach(function(e){ e.textContent = s.name; });
+    qa("[data-svc-price]").forEach(function(e){ e.textContent = s.price; });
+    qa("[data-day-out]").forEach(function(e){ e.textContent = st.day; });
+    qa("[data-part-out]").forEach(function(e){ e.textContent = st.part; });
+    qa("[data-name-out]").forEach(function(e){ e.textContent = name || e.getAttribute("data-name-out"); });
+  }
+
+  document.addEventListener("click", function(ev){
+    var b = ev.target.closest("[data-svc],[data-day],[data-part]");
+    if (!b || b.disabled) return;
+    if (b.hasAttribute("data-svc")) st.svc = +b.getAttribute("data-svc");
+    if (b.hasAttribute("data-day")) st.day = b.getAttribute("data-day");
+    if (b.hasAttribute("data-part")) st.part = b.getAttribute("data-part");
+    render();
+  });
+  qa("[data-name-input]").forEach(function(i){ i.addEventListener("input", render); });
+
+  status();
+  setInterval(status, 30000);
+})();
+</script>
+<script>
+  // Буква на «фото» карты — первая буква имени
+  (function(){
+    var i = document.getElementById("nm"), a = document.getElementById("ava");
+    i.addEventListener("input", function(){ var v = i.value.trim(); a.textContent = v ? v.charAt(0) : "Б"; });
+  })();
+</script>
+</body>
+</html>
