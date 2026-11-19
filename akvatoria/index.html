@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Акватория — автомойка самообслуживания 24/7, Казань</title>
+<meta name="description" content="Тёплая автомойка самообслуживания в Казани на ул. Космонавтов, 48. Круглосуточно, 8 постов, бесконтактная мойка, пылесос. Оплата картой, наличными и по QR.">
+<meta name="theme-color" content="#101214">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#101214;
+    --panel:#181b1f;
+    --panel-2:#20242a;
+    --line:#2c3138;
+    --text:#eef0f2;
+    --muted:#99a1ab;
+    --amber:#ffb21e;
+    --amber-ink:#1a1200;
+    --lcd:#b8ff5c;
+    --lcd-bg:#0b1206;
+    /* цвета кнопок пульта — как на настоящем терминале мойки */
+    --m-water:#3aa0ff;
+    --m-foam:#ff4fa3;
+    --m-wax:#ffb21e;
+    --m-osmo:#4de3c3;
+    --m-vac:#c9ced6;
+    --r:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--text);
+    font:16px/1.5 "Golos Text",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:calc(84px + env(safe-area-inset-bottom));
+  }
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{font-family:"Unbounded",sans-serif;line-height:1.05;margin:0;letter-spacing:-.01em}
+  h2{font-size:clamp(26px,6vw,40px);font-weight:700}
+  .mono{font-family:"JetBrains Mono",monospace}
+  .eyebrow{font:500 12px/1 "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  section{padding:64px 0;border-top:1px solid var(--line)}
+
+  /* демо-плашка */
+  .demo{background:var(--amber);color:var(--amber-ink);font:600 13px/1.3 "Golos Text",sans-serif;text-align:center;padding:8px 16px}
+
+  /* шапка */
+  header{position:sticky;top:0;z-index:20;background:rgba(16,18,20,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
+  .logo{font:900 17px/1 "Unbounded",sans-serif;letter-spacing:.02em;text-decoration:none;display:flex;align-items:center;gap:10px}
+  .logo i{width:12px;height:12px;border-radius:50%;background:var(--lcd);box-shadow:0 0 12px var(--lcd);display:inline-block}
+  .h-tel{font:600 15px/1 "JetBrains Mono",monospace;text-decoration:none;white-space:nowrap}
+  .h-nav{display:none;gap:22px;font-size:14px;color:var(--muted)}
+  .h-nav a{text-decoration:none}.h-nav a:hover{color:var(--text)}
+  @media(min-width:860px){.h-nav{display:flex}}
+
+  /* первый экран */
+  .hero{padding:36px 0 56px;border-top:0}
+  .status{display:inline-flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:8px 14px 8px 12px;font-size:14px}
+  .status b{font-weight:600}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--lcd);box-shadow:0 0 10px var(--lcd);animation:pulse 2s infinite}
+  @keyframes pulse{50%{opacity:.35}}
+  .big247{font:900 clamp(96px,30vw,260px)/.85 "Unbounded",sans-serif;letter-spacing:-.04em;margin:26px 0 8px;
+    color:transparent;-webkit-text-stroke:2px var(--text);position:relative}
+  .big247 span{color:var(--amber);-webkit-text-stroke:0}
+  .hero h1{font-size:clamp(24px,5.4vw,40px);font-weight:700;max-width:16ch}
+  .hero p.lead{color:var(--muted);font-size:17px;max-width:36ch;margin:14px 0 26px}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;border-radius:14px;
+    font:600 16px/1 "Golos Text",sans-serif;text-decoration:none;border:1px solid var(--line);background:var(--panel);cursor:pointer;color:var(--text)}
+  .btn.primary{background:var(--amber);color:var(--amber-ink);border-color:var(--amber)}
+  .btn:active{transform:translateY(1px)}
+  .btn svg{width:18px;height:18px}
+
+  .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:36px}
+  @media(min-width:760px){.facts{grid-template-columns:repeat(4,1fr)}}
+  .fact{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+  .fact .n{font:700 30px/1 "Unbounded",sans-serif}
+  .fact .l{color:var(--muted);font-size:14px;margin-top:8px}
+
+  /* пульт режимов */
+  .console{margin-top:28px;background:linear-gradient(180deg,#22262c,#16191d);border:1px solid var(--line);border-radius:26px;padding:18px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 30px 60px -30px rgba(0,0,0,.8)}
+  @media(min-width:860px){.console{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;padding:24px}}
+  .lcd{background:var(--lcd-bg);border-radius:16px;padding:18px;border:1px solid #1f2b12;color:var(--lcd);
+    font-family:"JetBrains Mono",monospace;min-height:196px;position:relative;overflow:hidden;
+    box-shadow:inset 0 0 40px rgba(184,255,92,.06)}
+  .lcd:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px);pointer-events:none}
+  .lcd .row{display:flex;justify-content:space-between;font-size:12px;opacity:.7;letter-spacing:.08em}
+  .lcd .mode{font:700 clamp(28px,8vw,40px)/1.05 "JetBrains Mono",monospace;margin:18px 0 8px;text-transform:uppercase;text-shadow:0 0 12px rgba(184,255,92,.45)}
+  .lcd .desc{font-size:14px;line-height:1.45;opacity:.9;max-width:42ch}
+  .lcd .price{position:absolute;right:18px;bottom:16px;font-size:13px;opacity:.85}
+  .pads{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+  @media(min-width:860px){.pads{margin-top:0;align-content:center}}
+  .pad{appearance:none;border:0;cursor:pointer;background:#0e1013;border-radius:18px;padding:12px 6px 10px;display:flex;flex-direction:column;align-items:center;gap:9px;
+    color:var(--muted);font:600 12px/1.1 "Golos Text",sans-serif;box-shadow:inset 0 -3px 0 rgba(0,0,0,.6),0 1px 0 rgba(255,255,255,.05)}
+  .pad .cap{width:54px;height:54px;border-radius:50%;background:var(--c);
+    box-shadow:inset 0 -6px 0 rgba(0,0,0,.28),inset 0 3px 0 rgba(255,255,255,.35),0 0 0 4px #262a30;transition:transform .12s,box-shadow .2s}
+  .pad[aria-pressed="true"]{color:var(--text)}
+  .pad[aria-pressed="true"] .cap{transform:translateY(2px);box-shadow:inset 0 -2px 0 rgba(0,0,0,.28),inset 0 3px 0 rgba(255,255,255,.35),0 0 0 4px #262a30,0 0 22px var(--c)}
+  .pad.stop .cap{background:#2a2e34;display:grid;place-items:center}
+  .pad.stop .cap:after{content:"";width:16px;height:16px;border-radius:3px;background:#e5484d}
+  .note{color:var(--muted);font-size:13px;margin-top:14px}
+
+  /* как пользоваться */
+  .steps{display:grid;gap:12px;margin-top:28px;counter-reset:s}
+  @media(min-width:760px){.steps{grid-template-columns:repeat(4,1fr)}}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px;position:relative}
+  .step:before{counter-increment:s;content:"0" counter(s);font:700 13px/1 "JetBrains Mono",monospace;color:var(--amber)}
+  .step h3{font-size:17px;margin:14px 0 6px;font-weight:700}
+  .step p{margin:0;color:var(--muted);font-size:15px}
+
+  /* калькулятор */
+  .calc{margin-top:28px;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:6px 18px 18px}
+  .crow{display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px 14px;padding:14px 0;border-bottom:1px dashed var(--line)}
+  .crow .nm{display:flex;align-items:center;gap:10px;font-weight:600}
+  .crow .nm i{width:12px;height:12px;border-radius:50%;background:var(--c)}
+  .crow .pr{color:var(--muted);font-size:13px;font-weight:400}
+  .stepper{display:flex;align-items:center;gap:4px;background:#0e1013;border-radius:12px;padding:4px}
+  .stepper button{width:40px;height:40px;border:0;border-radius:9px;background:var(--panel-2);color:var(--text);font:600 20px/1 "Golos Text";cursor:pointer}
+  .stepper output{min-width:58px;text-align:center;font:700 15px/1 "JetBrains Mono",monospace}
+  .total{display:flex;justify-content:space-between;align-items:flex-end;padding-top:18px;gap:10px;flex-wrap:wrap}
+  .total .sum{font:700 clamp(34px,9vw,52px)/1 "JetBrains Mono",monospace;color:var(--amber)}
+  .presets{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .chip{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:999px;padding:9px 14px;font:500 14px "Golos Text";cursor:pointer}
+  .chip:hover{border-color:var(--amber)}
+
+  /* почему мы */
+  .why{display:grid;gap:12px;margin-top:28px}
+  @media(min-width:760px){.why{grid-template-columns:repeat(3,1fr)}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+  .card h3{font-size:18px;font-weight:700;margin-bottom:8px}
+  .card p{margin:0;color:var(--muted)}
+  .pay{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .pay span{font:500 13px "JetBrains Mono",monospace;border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+
+  /* рейтинг */
+  .rating{display:grid;gap:18px;margin-top:28px;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:22px}
+  @media(min-width:760px){.rating{grid-template-columns:auto 1fr auto;align-items:center;gap:32px}}
+  .rating .score{font:900 72px/1 "Unbounded",sans-serif}
+  .stars{color:var(--amber);font-size:22px;letter-spacing:3px}
+  .rating p{margin:0;color:var(--muted)}
+
+  /* контакты и карта */
+  .contact{display:grid;gap:14px;margin-top:28px}
+  @media(min-width:860px){.contact{grid-template-columns:1fr 1.3fr}}
+  .map{border-radius:22px;overflow:hidden;border:1px solid var(--line);min-height:320px;background:var(--panel)}
+  .map iframe{width:100%;height:100%;min-height:320px;border:0;display:block;filter:grayscale(.2)}
+  dl{margin:0;display:grid;gap:16px}
+  dt{font:500 12px/1 "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  dd{margin:6px 0 0;font-size:18px;font-weight:600}
+  dd a{text-decoration:none;border-bottom:1px solid var(--line)}
+
+  footer{padding:32px 0 24px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+
+  /* нижняя панель на телефоне */
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(16,18,20,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr 64px;gap:8px}
+  .dock .btn{min-height:50px;padding:0 10px;font-size:15px}
+  @media(min-width:860px){.dock{display:none}body{padding-bottom:0}}
+
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Цены примерные — уточняются у владельца.</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><i></i>АКВАТОРИЯ</a>
+    <nav class="h-nav">
+      <a href="#modes">Режимы</a><a href="#how">Как мыть</a><a href="#price">Цены</a><a href="#contacts">Как добраться</a>
+    </nav>
+    <a class="h-tel" href="tel:+79872888641">+7 987 288-86-41</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="status"><span class="dot"></span><span><b>Открыто сейчас</b> · <span id="clock" class="mono">--:--</span> в Казани</span></div>
+      <div class="big247" aria-label="Работаем 24 на 7">24<span>/</span>7</div>
+      <h1>Тёплая мойка самообслуживания на Космонавтов</h1>
+      <p class="lead">8 боксов, бесконтактная мойка и пылесос. Приезжайте в любое время: ночью, в мороз, перед работой.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://yandex.ru/maps/?rtext=~55.794228,49.198336&rtt=auto" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>Построить маршрут</a>
+        <a class="btn" href="tel:+79872888641">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Позвонить</a>
+      </div>
+
+      <div class="facts">
+        <div class="fact"><div class="n">24/7</div><div class="l">без выходных и перерывов</div></div>
+        <div class="fact"><div class="n">8</div><div class="l">боксов: очереди короче</div></div>
+        <div class="fact"><div class="n">+°C</div><div class="l">тёплые боксы зимой</div></div>
+        <div class="fact"><div class="n">4,8★</div><div class="l">643 отзыва в 2ГИС</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="modes">
+    <div class="wrap">
+      <div class="eyebrow">Пульт мойки</div>
+      <h2 style="margin-top:12px">Нажмите кнопку — узнайте, что делает режим</h2>
+
+      <div class="console">
+        <div class="lcd" aria-live="polite">
+          <div class="row"><span>ПОСТ 01–08</span><span id="lcdStep">РЕЖИМ 1/5</span></div>
+          <div class="mode" id="lcdMode">Вода</div>
+          <div class="desc" id="lcdDesc"></div>
+          <div class="price" id="lcdPrice"></div>
+        </div>
+        <div class="pads" role="group" aria-label="Режимы мойки" id="pads"></div>
+      </div>
+      <p class="note">Набор режимов и их названия на демо показаны для примера. На реальном сайте пульт повторит кнопки терминала «Акватории».</p>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="eyebrow">Первый раз на самомойке?</div>
+      <h2 style="margin-top:12px">Чистая машина за 4 шага</h2>
+      <div class="steps">
+        <div class="step"><h3>Заезжайте в свободный бокс</h3><p>Восемь постов, обычно место находится сразу.</p></div>
+        <div class="step"><h3>Пополните терминал</h3><p>Картой, наличными или по QR-коду. Платите только за время.</p></div>
+        <div class="step"><h3>Мойте по порядку</h3><p>Вода → пена → вода → воск. Пистолет держите в 30–50 см от кузова.</p></div>
+        <div class="step"><h3>Закончите осмосом</h3><p>Чистая вода без минералов: высыхает без пятен и разводов.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="price">
+    <div class="wrap">
+      <div class="eyebrow">Примерный расчёт</div>
+      <h2 style="margin-top:12px">Сколько выйдет помыть машину</h2>
+      <div class="calc">
+        <div id="calcRows"></div>
+        <div class="total">
+          <div><div class="eyebrow">Итого примерно</div><div class="sum mono" id="sum">0 ₽</div></div>
+          <div class="mono" style="color:var(--muted)" id="mins">0 мин</div>
+        </div>
+        <div class="presets">
+          <button class="chip" data-preset="quick">Быстро смыть грязь</button>
+          <button class="chip" data-preset="full">Полная мойка</button>
+          <button class="chip" data-preset="winter">Зимой после реагентов</button>
+        </div>
+      </div>
+      <p class="note">Цены за минуту условные, для демонстрации. Владелец подставит свои.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Почему сюда</div>
+      <h2 style="margin-top:12px">Удобно в любое время года</h2>
+      <div class="why">
+        <div class="card"><h3>Тепло в боксах</h3><p>Зимой вода не замерзает на кузове, а руки не мёрзнут.</p></div>
+        <div class="card"><h3>Без контакта со щётками</h3><p>Бесконтактная мойка не царапает лак: только вода под давлением и активная пена.</p></div>
+        <div class="card"><h3>Оплата как удобно</h3><p>Терминал принимает всё:</p><div class="pay"><span>КАРТА</span><span>НАЛИЧНЫЕ</span><span>QR-КОД</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <div class="eyebrow">Отзывы</div>
+      <div class="rating">
+        <div class="score">4,8</div>
+        <div>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p style="margin-top:6px"><b style="color:var(--text)">643 отзыва</b> в 2ГИС. Почитайте, что пишут водители о «Акватории».</p>
+        </div>
+        <a class="btn" href="https://2gis.ru/kazan/firm/70000001038508845/tab/reviews" target="_blank" rel="noopener">Читать отзывы в 2ГИС →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts">
+    <div class="wrap">
+      <div class="eyebrow">Как добраться</div>
+      <h2 style="margin-top:12px">Космонавтов, 48</h2>
+      <div class="contact">
+        <dl class="card">
+          <div><dt>Адрес</dt><dd>Казань, ул. Космонавтов, 48<br><span style="font-weight:400;color:var(--muted);font-size:15px">Советский район</span></dd></div>
+          <div><dt>Режим работы</dt><dd>Круглосуточно, без выходных</dd></div>
+          <div><dt>Телефон</dt><dd><a href="tel:+79872888641">+7 987 288-86-41</a></dd></div>
+          <div><dt>Соцсети</dt><dd><a href="https://vk.ru/akvatoria16" target="_blank" rel="noopener">ВКонтакте · akvatoria16</a></dd></div>
+          <div class="cta" style="margin-top:4px">
+            <a class="btn primary" href="https://yandex.ru/maps/?rtext=~55.794228,49.198336&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+            <a class="btn" href="https://2gis.ru/kazan/firm/70000001038508845" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+          </div>
+        </dl>
+        <div class="map">
+          <iframe title="Акватория на карте" loading="lazy"
+            src="https://yandex.ru/map-widget/v1/?ll=49.198336%2C55.794228&z=16&pt=49.198336%2C55.794228%2Cpm2orl"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© Акватория, автомойка самообслуживания. Демо-версия сайта, подготовлена для владельца.</div>
+</footer>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a class="btn" href="tel:+79872888641">Позвонить</a>
+  <a class="btn primary" href="https://yandex.ru/maps/?rtext=~55.794228,49.198336&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn" href="https://vk.ru/akvatoria16" target="_blank" rel="noopener" aria-label="ВКонтакте" style="font-family:'Unbounded';font-size:14px">VK</a>
+</nav>
+
+<script>
+  // Примерные цены за минуту — демо, не настоящие
+  const MODES = [
+    {id:"water", name:"Вода",    c:"var(--m-water)", ppm:30, desc:"Горячая вода под высоким давлением. Сбивает песок и крупную грязь перед пеной. С этого начинают."},
+    {id:"foam",  name:"Пена",    c:"var(--m-foam)",  ppm:40, desc:"Активная пена размягчает дорожную плёнку и реагенты. Нанесите снизу вверх и подождите 1–2 минуты."},
+    {id:"wax",   name:"Воск",    c:"var(--m-wax)",   ppm:40, desc:"Тонкий защитный слой: вода скатывается, грязь меньше прилипает, кузов блестит."},
+    {id:"osmo",  name:"Осмос",   c:"var(--m-osmo)",  ppm:40, desc:"Очищенная вода без солей. Финальное ополаскивание: высыхает без белых пятен."},
+    {id:"vac",   name:"Пылесос", c:"var(--m-vac)",   ppm:20, desc:"Мощный пылесос для салона и ковриков. Работает от того же терминала."}
+  ];
+  const $ = s => document.querySelector(s);
+
+  // Время в Казани
+  function tick(){
+    $("#clock").textContent = new Intl.DateTimeFormat("ru-RU",{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Moscow"}).format(new Date());
+  }
+  tick(); setInterval(tick, 15000);
+
+  // Пульт
+  const pads = $("#pads");
+  function select(i){
+    const m = MODES[i];
+    $("#lcdMode").textContent = m.name;
+    $("#lcdDesc").textContent = m.desc;
+    $("#lcdPrice").textContent = "≈ " + m.ppm + " ₽/мин";
+    $("#lcdStep").textContent = "РЕЖИМ " + (i+1) + "/" + MODES.length;
+    pads.querySelectorAll(".pad").forEach((p,j)=>p.setAttribute("aria-pressed", String(j===i)));
+  }
+  MODES.forEach((m,i)=>{
+    const b = document.createElement("button");
+    b.className = "pad"; b.type = "button"; b.style.setProperty("--c", m.c);
+    b.innerHTML = '<span class="cap"></span>' + m.name;
+    b.onclick = () => select(i);
+    pads.appendChild(b);
+  });
+  const stop = document.createElement("button");
+  stop.className = "pad stop"; stop.type = "button"; stop.innerHTML = '<span class="cap"></span>Пауза';
+  stop.onclick = () => {
+    $("#lcdMode").textContent = "Пауза";
+    $("#lcdDesc").textContent = "Таймер остановлен, деньги не списываются. Удобно, чтобы переставить пистолет или дать пене поработать.";
+    $("#lcdPrice").textContent = "0 ₽/мин";
+    pads.querySelectorAll(".pad").forEach(p=>p.setAttribute("aria-pressed", String(p===stop)));
+  };
+  pads.appendChild(stop);
+  select(0);
+
+  // Калькулятор
+  const mins = Object.fromEntries(MODES.map(m=>[m.id,0]));
+  const PRESETS = {
+    quick:{water:3, foam:0, wax:0, osmo:1, vac:0},
+    full:{water:3, foam:2, wax:1, osmo:1, vac:5},
+    winter:{water:4, foam:3, wax:1, osmo:2, vac:0}
+  };
+  const rows = $("#calcRows");
+  MODES.forEach(m=>{
+    const r = document.createElement("div"); r.className = "crow"; r.style.setProperty("--c", m.c);
+    r.innerHTML = `<div class="nm"><i></i><span>${m.name}<br><span class="pr">≈ ${m.ppm} ₽/мин</span></span></div>
+      <div class="stepper"><button type="button" aria-label="Меньше: ${m.name}">−</button><output id="o-${m.id}">0 мин</output><button type="button" aria-label="Больше: ${m.name}">+</button></div>`;
+    const [minus, plus] = r.querySelectorAll("button");
+    minus.onclick = () => { mins[m.id] = Math.max(0, mins[m.id]-1); render(); };
+    plus.onclick  = () => { mins[m.id] = Math.min(30, mins[m.id]+1); render(); };
+    rows.appendChild(r);
+  });
+  function render(){
+    let sum = 0, total = 0;
+    MODES.forEach(m=>{ sum += mins[m.id]*m.ppm; total += mins[m.id]; $("#o-"+m.id).textContent = mins[m.id]+" мин"; });
+    $("#sum").textContent = sum.toLocaleString("ru-RU") + " ₽";
+    $("#mins").textContent = total + " мин у терминала";
+  }
+  document.querySelectorAll("[data-preset]").forEach(b=>b.onclick=()=>{ Object.assign(mins, PRESETS[b.dataset.preset]); render(); });
+  Object.assign(mins, PRESETS.full); render();
+</script>
+</body>
+</html>
