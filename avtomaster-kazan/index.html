@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Автомастер — СТО на Седова, 16, Казань</title>
+<meta name="description" content="СТО «Автомастер» в Советском районе Казани: двигатель, АКПП и МКПП, ходовая, тормоза, проточка дисков, диагностика, развал-схождение. По записи, ежедневно 9:00–20:00.">
+<meta name="theme-color" content="#1c1d20">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Rubik:wght@400;500;700;800&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --bg:#1c1d20;
+    --panel:#26282c;
+    --panel-2:#2f3237;
+    --steel:#3b3f45;
+    --text:#f1efe9;
+    --muted:#a3a39d;
+    --or:#ff7a00;
+    --or-ink:#1a0d00;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 "Rubik",system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+    padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  @media(min-width:860px){body{padding-bottom:0}}
+  a{color:inherit}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{font-family:"Russo One",sans-serif;font-weight:400;margin:0;line-height:1.05}
+  h2{font-size:clamp(28px,7vw,46px);text-transform:uppercase}
+  .kicker{font:700 12px/1 "Rubik",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--or);margin-bottom:12px}
+
+  .demo{background:var(--or);color:var(--or-ink);font:500 13px/1.35 "Rubik",sans-serif;text-align:center;padding:8px 16px}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(28,29,32,.94);backdrop-filter:blur(8px);border-bottom:3px solid var(--or)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
+  .logo{font:400 18px/1 "Russo One",sans-serif;text-decoration:none;display:flex;align-items:center;gap:8px}
+  .logo b{background:var(--or);color:var(--or-ink);font-weight:400;padding:4px 6px;font-size:13px}
+  .h-nav{display:none;gap:22px;font-size:14px;color:var(--muted);font-weight:500}
+  .h-nav a{text-decoration:none}.h-nav a:hover{color:var(--or)}
+  .h-tel{font:700 15px/1 "Rubik",sans-serif;text-decoration:none;white-space:nowrap}
+  @media(min-width:860px){.h-nav{display:flex}}
+
+  /* рулетка */
+  .tape{position:relative;height:46px;margin:0;background:var(--or);overflow:hidden;border-top:2px solid #c95f00;border-bottom:2px solid #c95f00;
+    background-image:
+      repeating-linear-gradient(90deg,#111 0 2px,transparent 2px 80px),
+      repeating-linear-gradient(90deg,#111 0 1.5px,transparent 1.5px 40px),
+      repeating-linear-gradient(90deg,#111 0 1px,transparent 1px 8px);
+    background-size:100% 22px,100% 15px,100% 9px;background-repeat:repeat-x;background-position:40px 0,40px 0,40px 0}
+  .tape .nums{position:absolute;left:40px;top:20px;display:flex;font:800 15px/1 "Rubik",sans-serif;color:#111}
+  .tape .nums span{width:80px;flex:none;padding-left:4px}
+  .tape .hook{position:absolute;left:0;top:-2px;bottom:-2px;width:34px;background:linear-gradient(90deg,#8d9198,#c9ccd1 40%,#6e7278);border-right:3px solid #4a4d52}
+  .tape .lab{position:absolute;right:12px;top:22px;font:400 13px/1 "Russo One",sans-serif;color:var(--or-ink);background:var(--or);padding:2px 6px;letter-spacing:.06em}
+  .tape.thin{height:30px}
+  .tape.thin .nums{top:14px;font-size:12px}
+  .tape.thin .lab{top:12px;font-size:11px}
+
+  section{padding:60px 0}
+  .hero{padding:34px 0 46px}
+  .status{display:inline-flex;align-items:center;gap:10px;background:var(--panel);padding:9px 14px;font-size:14px;border-left:4px solid #3ddc84}
+  .status.closed{border-left-color:#ff5a4e}
+  .hero h1{font-size:clamp(38px,11.2vw,112px);text-transform:uppercase;margin:22px 0 4px;letter-spacing:-.01em;white-space:nowrap}
+  .hero h1 span{color:var(--or)}
+  .hero .sub{font:700 clamp(18px,4.6vw,26px)/1.25 "Rubik",sans-serif;max-width:28ch;margin:0 0 10px}
+  .hero .lead{color:var(--muted);max-width:46ch;margin:0 0 24px;font-size:17px}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;font:700 16px/1 "Rubik",sans-serif;
+    text-decoration:none;border:2px solid var(--steel);background:var(--panel);color:var(--text);cursor:pointer;border-radius:4px}
+  .btn.or{background:var(--or);border-color:var(--or);color:var(--or-ink)}
+  .btn:hover{border-color:var(--or)}
+  .btn svg{width:18px;height:18px}
+
+  .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:32px}
+  @media(min-width:760px){.facts{grid-template-columns:repeat(4,1fr)}}
+  .fact{background:var(--panel);padding:16px;border-top:4px solid var(--or);position:relative}
+  .fact .n{font:400 30px/1 "Russo One",sans-serif}
+  .fact .l{color:var(--muted);font-size:14px;margin-top:8px}
+  .fact a{text-decoration:none}
+
+  /* ящики */
+  .drawers{display:grid;gap:12px;margin-top:28px}
+  @media(min-width:700px){.drawers{grid-template-columns:1fr 1fr}}
+  @media(min-width:1000px){.drawers{grid-template-columns:repeat(3,1fr)}}
+  .drawer{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:2px solid #111;border-radius:6px;padding:28px 16px 16px;position:relative;
+    box-shadow:inset 0 2px 0 rgba(255,255,255,.05),0 6px 0 #111}
+  .drawer::before{content:"";position:absolute;top:10px;left:50%;transform:translateX(-50%);width:74px;height:8px;border-radius:4px;background:#111;
+    box-shadow:inset 0 -2px 0 #444}
+  .drawer h3{font-size:20px;text-transform:uppercase;margin-bottom:10px;color:var(--or)}
+  .drawer ul{list-style:none;margin:0;padding:0;font-size:15px}
+  .drawer li{padding:7px 0;border-top:1px dashed #44484e;display:flex;gap:10px}
+  .drawer li::before{content:"";flex:none;width:10px;height:2px;background:var(--or);margin-top:11px}
+
+  /* заказ-наряд */
+  .order{display:grid;gap:18px;margin-top:28px}
+  @media(min-width:900px){.order{grid-template-columns:1.3fr 1fr;align-items:start}}
+  .pickbox{background:var(--panel);border-radius:6px;padding:18px 14px}
+  .grp{margin-bottom:16px}
+  .grp b{display:block;font:400 13px/1 "Russo One",sans-serif;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{min-height:46px;padding:0 14px;border:2px solid var(--steel);background:var(--bg);color:var(--text);font:500 15px/1.15 "Rubik",sans-serif;cursor:pointer;border-radius:4px;text-align:left}
+  .chip[aria-pressed="true"]{background:var(--or);border-color:var(--or);color:var(--or-ink)}
+  .row2{display:grid;gap:12px;grid-template-columns:1fr}
+  @media(min-width:520px){.row2{grid-template-columns:1fr 1fr}}
+  label.f{display:block;font:700 12px/1 "Rubik",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  input,select{width:100%;min-height:50px;background:var(--bg);border:2px solid var(--steel);border-radius:4px;color:var(--text);font:500 16px "Rubik",sans-serif;padding:0 12px}
+  input:focus,select:focus{outline:none;border-color:var(--or)}
+  .ticket{background:#f1efe9;color:#1c1d20;border-radius:6px;padding:20px 18px;position:relative;
+    -webkit-mask:radial-gradient(circle 9px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 9px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat;
+            mask:radial-gradient(circle 9px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 9px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat}
+  .ticket h3{font-size:22px;text-transform:uppercase}
+  .ticket .meta{font-size:13px;color:#5c5d58;margin:4px 0 14px}
+  .ticket ol{margin:0;padding:0 0 0 22px;min-height:60px}
+  .ticket ol li{padding:4px 0;border-bottom:1px dashed #c8c5bb}
+  .ticket .empty{color:#8a8a84;font-size:15px}
+  .ticket .car{font-weight:700;margin-top:12px}
+  .ticket .note{font-size:13px;color:#5c5d58;margin:14px 0}
+  .ticket .btn{width:100%;margin-top:8px;border-color:#1c1d20}
+  .ticket .btn.dark{background:#1c1d20;color:#f1efe9}
+  .ticket .btn.ghost{background:transparent;color:#1c1d20}
+
+  /* марки */
+  .brands{display:flex;flex-wrap:wrap;gap:6px;margin-top:24px}
+  .brands span{background:var(--panel);padding:8px 12px;font-size:14px;border-radius:3px}
+  .brands.short span:nth-child(n+25){display:none}
+  .more{margin-top:14px}
+
+  .two{display:grid;gap:12px;margin-top:24px}
+  @media(min-width:760px){.two{grid-template-columns:1fr 1fr}}
+  .plate{background:var(--panel);padding:18px 16px;border-radius:6px}
+  .plate h3{font-size:18px;text-transform:uppercase;margin-bottom:10px}
+  .plate p{margin:0;color:var(--muted)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tags span{border:1px solid var(--steel);padding:6px 10px;font-size:14px;border-radius:3px}
+
+  .hours{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:24px}
+  .hours div{background:var(--panel);padding:12px 2px;text-align:center;font-size:13px;line-height:1.3;border-radius:3px}
+  .hours div b{display:block;font:400 15px/1 "Russo One",sans-serif;margin-bottom:6px}
+  .hours div.today{background:var(--or);color:var(--or-ink)}
+  .rec{margin-top:14px;font-weight:700;color:var(--or)}
+
+  .contacts{display:grid;gap:22px;margin-top:24px}
+  @media(min-width:860px){.contacts{grid-template-columns:1fr 1.2fr}}
+  .kv{margin:0}
+  .kv dt{font:700 12px/1 "Rubik",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px}
+  .kv dt:first-child{margin-top:0}
+  .kv dd{margin:6px 0 0;font-size:17px}
+  .map{min-height:320px;position:relative;border:3px solid var(--or);border-radius:6px;overflow:hidden}
+  .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  footer{padding:26px 0 34px;color:var(--muted);font-size:13px;border-top:1px solid var(--steel)}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--bg);border-top:3px solid var(--or)}
+  .dock .btn{padding:0 6px;font-size:14px}
+  @media(min-width:860px){.dock{display:none}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><b>СТО</b>Автомастер</a>
+    <nav class="h-nav"><a href="#works">Работы</a><a href="#order">Записаться</a><a href="#brands">Марки</a><a href="#contacts">Контакты</a></nav>
+    <a class="h-tel" href="tel:+78432391516">239-15-16</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="status" id="status"><span id="statusText">Ежедневно 09:00–20:00, по записи</span></div>
+      <h1>Авто<span>мастер</span></h1>
+      <p class="sub">СТО на Седова, 16. Двигатель, коробка, ходовая, тормоза — под одной крышей.</p>
+      <p class="lead">Советский район Казани. Работаем каждый день с 9 до 20 по предварительной записи — соберите список работ ниже и отправьте мастеру.</p>
+      <div class="cta">
+        <a class="btn or" href="#order">Собрать заказ-наряд</a>
+        <a class="btn" href="tel:+78432391516">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Позвонить</a>
+      </div>
+      <div class="facts">
+        <div class="fact"><a href="https://2gis.ru/kazan/firm/70000001033058984/tab/reviews" target="_blank" rel="noopener"><div class="n">4,9</div><div class="l">оценка, 90 отзывов в 2ГИС →</div></a></div>
+        <div class="fact"><div class="n">9–20</div><div class="l">без выходных</div></div>
+        <div class="fact"><div class="n">АКПП</div><div class="l">и МКПП — ремонт</div></div>
+        <div class="fact"><div class="n">Wi-Fi</div><div class="l">и кафе, пока ждёте</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tape" aria-hidden="true"><div class="hook"></div><div class="nums"></div><span class="lab">РАБОТЫ</span></div>
+
+  <section id="works">
+    <div class="wrap">
+      <div class="kicker">Что в ящике</div>
+      <h2>Работы по отделениям</h2>
+      <div class="drawers">
+        <div class="drawer"><h3>Двигатель</h3><ul><li>Ремонт бензиновых двигателей</li><li>Ремонт инжекторов</li><li>Замена масла и спецжидкостей</li></ul></div>
+        <div class="drawer"><h3>Трансмиссия</h3><ul><li>Ремонт АКПП</li><li>Ремонт МКПП</li></ul></div>
+        <div class="drawer"><h3>Тормоза</h3><ul><li>Замена колодок</li><li>Проточка тормозных дисков</li><li>Тормозная система</li></ul></div>
+        <div class="drawer"><h3>Подвеска и руль</h3><ul><li>Ремонт ходовой части</li><li>Рулевое управление</li><li>Развал-схождение</li></ul></div>
+        <div class="drawer"><h3>Электрика</h3><ul><li>Компьютерная диагностика</li><li>Стартеры и генераторы</li><li>Электрооборудование</li></ul></div>
+        <div class="drawer"><h3>Колёса, климат, выхлоп</h3><ul><li>Шиномонтаж</li><li>Обслуживание кондиционера</li><li>Ремонт выхлопной системы</li></ul></div>
+      </div>
+      <div class="two">
+        <div class="plate"><h3>Запчасти на месте</h3><p>Запчасти для иномарок и отечественных машин, расходники, автохимия и аксессуары.</p></div>
+        <div class="plate"><h3>Пока чинят</h3><p>Есть Wi-Fi и кафе.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tape thin" aria-hidden="true"><div class="hook"></div><div class="nums"></div><span class="lab">ЗАПИСЬ</span></div>
+
+  <section id="order">
+    <div class="wrap">
+      <div class="kicker">Работаем по записи</div>
+      <h2>Соберите заказ-наряд</h2>
+      <p style="color:var(--muted);max-width:52ch;margin:12px 0 0">Отметьте, что нужно сделать, — список уйдёт мастеру в WhatsApp. Цену и время работ мастер назовёт сам, на сайте их нет.</p>
+      <div class="order">
+        <div class="pickbox" id="picker"></div>
+        <div class="ticket" aria-live="polite">
+          <h3>Заказ-наряд</h3>
+          <div class="meta" id="tMeta">Автомастер · Седова, 16</div>
+          <ol id="tList"></ol>
+          <div class="car" id="tCar"></div>
+          <p class="note">Стоимость и сроки — у мастера. Запись подтверждается ответом.</p>
+          <a class="btn dark" id="waSend" href="https://wa.me/79274898569" target="_blank" rel="noopener">Отправить в WhatsApp</a>
+          <a class="btn ghost" href="tel:+78432391516">Записаться по телефону</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tape thin" aria-hidden="true"><div class="hook"></div><div class="nums"></div><span class="lab">МАРКИ</span></div>
+
+  <section id="brands">
+    <div class="wrap">
+      <div class="kicker">Марки</div>
+      <h2>С какими машинами работают</h2>
+      <p style="color:var(--muted);margin:12px 0 0">Список марок из карточки СТО в 2ГИС. Своей не нашли — позвоните и уточните.</p>
+      <div class="brands short" id="brandList"></div>
+      <button class="btn more" type="button" id="moreBtn">Показать все марки</button>
+    </div>
+  </section>
+
+  <div class="tape thin" aria-hidden="true"><div class="hook"></div><div class="nums"></div><span class="lab">ЧАСЫ</span></div>
+
+  <section id="hours">
+    <div class="wrap">
+      <div class="kicker">Режим</div>
+      <h2>Каждый день с 9 до 20</h2>
+      <div class="hours" id="hoursRow"></div>
+      <p class="rec">Приём по предварительной записи — позвоните или напишите заранее.</p>
+      <div class="two">
+        <div class="plate"><h3>Оплата</h3><div class="tags"><span>Картой</span><span>Наличными</span><span>По QR-коду</span><span>Переводом с карты</span><span>Через банк</span></div></div>
+        <div class="plate"><h3>Для клиентов</h3><div class="tags"><span>Wi-Fi</span><span>Кафе</span><span>Запись заранее</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tape thin" aria-hidden="true"><div class="hook"></div><div class="nums"></div><span class="lab">АДРЕС</span></div>
+
+  <section id="contacts">
+    <div class="wrap">
+      <div class="kicker">Как доехать</div>
+      <h2>Седова, 16</h2>
+      <div class="contacts">
+        <dl class="kv">
+          <dt>Адрес</dt><dd>Казань, улица Седова, 16, 1 этаж<br><span style="color:var(--muted);font-size:15px">Советский район</span></dd>
+          <dt>Телефоны</dt><dd><a href="tel:+78432391516">+7 (843) 239-15-16</a><br><a href="tel:+79274898569">+7 927 489-85-69</a></dd>
+          <dt>Написать</dt><dd><a href="https://wa.me/79274898569" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://t.me/+79274898569" target="_blank" rel="noopener">Telegram</a> · <a href="mailto:am.servis16@mail.ru">am.servis16@mail.ru</a></dd>
+          <dt>Отзывы</dt><dd><a href="https://2gis.ru/kazan/firm/70000001033058984/tab/reviews" target="_blank" rel="noopener">4,9 — 90 отзывов в 2ГИС</a></dd>
+          <dd style="margin-top:22px"><a class="btn or" href="https://yandex.ru/maps/?rtext=~55.786386,49.180196&rtt=auto" target="_blank" rel="noopener">Построить маршрут</a></dd>
+        </dl>
+        <div class="map"><iframe title="Автомастер на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=49.180196%2C55.786386&z=16&pt=49.180196%2C55.786386%2Cpm2rdm"></iframe></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Автомастер, СТО · Казань, ул. Седова, 16. Демо-версия сайта, подготовлена для владельца по данным 2ГИС.</div></footer>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a class="btn" href="tel:+78432391516">Позвонить</a>
+  <a class="btn" href="https://yandex.ru/maps/?rtext=~55.786386,49.180196&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn or" href="https://wa.me/79274898569" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  const $ = s => document.querySelector(s);
+
+  // насечки рулетки
+  document.querySelectorAll(".tape .nums").forEach(n=>{
+    let h = ""; for(let i=0;i<40;i++) h += "<span>" + i + "</span>"; n.innerHTML = h;
+  });
+
+  // работы для заказ-наряда — из карточки 2ГИС
+  const GROUPS = [
+    ["Двигатель", ["Ремонт двигателя","Ремонт инжектора","Замена масла","Замена спецжидкостей"]],
+    ["Коробка", ["Ремонт АКПП","Ремонт МКПП"]],
+    ["Тормоза", ["Замена колодок","Проточка тормозных дисков","Тормозная система"]],
+    ["Подвеска", ["Ходовая","Рулевое управление","Развал-схождение"]],
+    ["Электрика", ["Компьютерная диагностика","Стартер / генератор","Электрооборудование"]],
+    ["Ещё", ["Шиномонтаж","Кондиционер","Выхлопная система"]]
+  ];
+  const BRANDS = ["Lada (ВАЗ)","Kia","Hyundai","Toyota","Volkswagen","Skoda","Renault","Nissan","Chevrolet","Ford","Mitsubishi","Mazda","Haval","Chery","Geely","OMODA","Exeed","Changan","BMW","Mercedes-Benz","Audi","Lexus","Honda","Subaru",
+    "Acura","Bentley","Brilliance","Bugatti","BYD","Cadillac","Chrysler","Citroen","Daewoo","Daihatsu","Datsun","Dodge","Dongfeng","FAW","Ferrari","Fiat","GAC","GMC","Great Wall","Haima","Hawtai","Hummer","Infiniti","Isuzu","JAC","Jaguar","Jeep","Lancia","Land Rover","Lifan","Lincoln","Luxgen","Maserati","Maxus","MINI","Opel","Peugeot","Porsche","Ravon","Rolls-Royce","Rover","Saab","SEAT","Smart","Sollers","SsangYong","Suzuki","Tianye","Volvo","Vortex","Voyah","Zotye","ГАЗ","ЗАЗ","ТагАЗ","УАЗ","Москвич"];
+
+  const picked = new Set();
+  const box = $("#picker");
+  let html = "";
+  GROUPS.forEach(([g,items])=>{
+    html += `<div class="grp"><b>${g}</b><div class="chips">` + items.map(i=>`<button type="button" class="chip" aria-pressed="false" data-w="${i}">${i}</button>`).join("") + `</div></div>`;
+  });
+  html += `<div class="row2" style="margin-top:6px">
+    <div><label class="f" for="brand">Марка</label><select id="brand"><option value="">Выберите</option>${BRANDS.map(b=>`<option>${b}</option>`).join("")}<option value="Другая">Другая</option></select></div>
+    <div><label class="f" for="model">Модель и год</label><input id="model" placeholder="Например, Rio 2017" autocomplete="off"></div>
+  </div>
+  <div class="grp" style="margin-top:16px"><b>Когда удобно</b><div class="chips" id="day">
+    <button type="button" class="chip" aria-pressed="false">Сегодня</button><button type="button" class="chip" aria-pressed="true">Завтра</button><button type="button" class="chip" aria-pressed="false">В выходные</button><button type="button" class="chip" aria-pressed="false">Подберите время</button>
+  </div></div>`;
+  box.innerHTML = html;
+
+  box.querySelectorAll("[data-w]").forEach(b=>b.onclick=()=>{
+    const on = b.getAttribute("aria-pressed")!=="true";
+    b.setAttribute("aria-pressed", String(on));
+    on ? picked.add(b.dataset.w) : picked.delete(b.dataset.w);
+    render();
+  });
+  let day = "Завтра";
+  box.querySelectorAll("#day .chip").forEach(b=>b.onclick=()=>{
+    box.querySelectorAll("#day .chip").forEach(x=>x.setAttribute("aria-pressed", String(x===b)));
+    day = b.textContent; render();
+  });
+  $("#brand").onchange = render; $("#model").oninput = render;
+
+  function render(){
+    const list = [...picked];
+    $("#tList").innerHTML = list.length ? list.map(w=>`<li>${w}</li>`).join("") : `<li class="empty" style="list-style:none;margin-left:-22px">Отметьте нужные работы</li>`;
+    const car = [$("#brand").value, $("#model").value.trim()].filter(Boolean).join(" ");
+    $("#tCar").textContent = car ? "Машина: " + car : "";
+    $("#tMeta").textContent = "Автомастер · Седова, 16 · " + day.toLowerCase();
+    const msg = "Здравствуйте! Хочу записаться в Автомастер.\n" +
+      (car ? "Машина: " + car + "\n" : "") +
+      "Работы: " + (list.length ? list.join(", ") : "нужна консультация") + "\n" +
+      "Когда удобно: " + day + "\nПодскажите, пожалуйста, свободное время и стоимость.";
+    $("#waSend").href = "https://wa.me/79274898569?text=" + encodeURIComponent(msg);
+  }
+  render();
+
+  // марки
+  $("#brandList").innerHTML = BRANDS.map(b=>`<span>${b}</span>`).join("");
+  $("#moreBtn").onclick = function(){ const l=$("#brandList"); const s=l.classList.toggle("short"); this.textContent = s ? "Показать все марки" : "Свернуть"; };
+
+  // часы и статус по Москве
+  const OPEN = 9*60, CLOSE = 20*60;
+  const DAYS = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"], EN = {Mon:0,Tue:1,Wed:2,Thu:3,Fri:4,Sat:5,Sun:6};
+  function msk(){
+    const p = new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Moscow",weekday:"short",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());
+    const g = t => p.find(x=>x.type===t).value;
+    return {day:EN[g("weekday")], min:(+g("hour"))*60 + (+g("minute"))};
+  }
+  function status(){
+    const t = msk(), open = t.min>=OPEN && t.min<CLOSE;
+    $("#status").classList.toggle("closed", !open);
+    $("#statusText").textContent = open ? "Открыто сейчас · до 20:00, по записи"
+      : (t.min<OPEN ? "Закрыто, откроется сегодня в 09:00" : "Закрыто, откроется завтра в 09:00");
+    $("#hoursRow").innerHTML = DAYS.map((d,i)=>`<div class="${i===t.day?"today":""}"><b>${d}</b>9–20</div>`).join("");
+  }
+  status(); setInterval(status, 30000);
+</script>
+</body>
+</html>
