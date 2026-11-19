@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Робот Мойка — роботизированная автомойка 24/7, Казань</title>
+<meta name="description" content="Робот Мойка на улице Комиссара Габишева, 21а: бесконтактная мойка-автомат и тёплая самомойка для легковых и грузовых. Круглосуточно, оплата картой, наличными, по QR.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --grid:#eceef1;
+    --line:#d9dce1;
+    --ink:#14161a;
+    --muted:#6b717b;
+    --mag:#e0007a;
+    --mag-soft:#fde6f2;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;color:var(--ink);font:16px/1.55 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+    background-color:var(--bg);
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:32px 32px}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+  .mono{font-family:"IBM Plex Mono",monospace}
+  .label{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .label b{color:var(--mag);font-weight:500}
+  h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.02em;line-height:1.08}
+  h2{font-size:clamp(28px,6.4vw,44px);font-weight:400;margin:12px 0 22px}
+  section{padding:56px 0;border-top:1px solid var(--line);background:rgba(255,255,255,.72)}
+
+  .demo{background:var(--ink);color:#fff;font:500 12px/1.4 "IBM Plex Mono",monospace;text-align:center;padding:8px 16px}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:17px}
+  .logo i{width:14px;height:14px;border:2px solid var(--mag);display:inline-block;position:relative}
+  .logo i::after{content:"";position:absolute;inset:3px;background:var(--mag)}
+  .h-tel{font:500 15px/1 "IBM Plex Mono",monospace;text-decoration:none;white-space:nowrap}
+  .h-nav{display:none;gap:24px;font:400 13px/1 "IBM Plex Mono",monospace;color:var(--muted)}
+  .h-nav a{text-decoration:none}.h-nav a:hover{color:var(--mag)}
+  @media(min-width:860px){.h-nav{display:flex}}
+
+  .hero{border-top:0;padding:40px 0 48px;background:transparent}
+  .readout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--line);background:#fff;margin-bottom:28px}
+  @media(min-width:760px){.readout{grid-template-columns:repeat(4,1fr)}}
+  .readout>div{padding:12px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0}
+  .readout>div:nth-child(2n){border-right:0}
+  @media(min-width:760px){.readout>div{border-bottom:0}.readout>div:nth-child(2n){border-right:1px solid var(--line)}.readout>div:last-child{border-right:0}}
+  .readout .v{font:500 18px/1.2 "IBM Plex Mono",monospace;margin-top:6px;overflow-wrap:anywhere}
+  .readout .v.on{color:var(--mag)}
+  .hero h1{font-size:clamp(44px,12vw,104px);font-weight:300;letter-spacing:-.045em;line-height:.95}
+  .hero h1 span{color:var(--mag);font-weight:500}
+  .lead{font-size:18px;color:var(--muted);max-width:40ch;margin:20px 0 26px;font-weight:300}
+  .cta{display:flex;flex-wrap:wrap;gap:8px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 22px;font:500 15px/1 "IBM Plex Mono",monospace;text-decoration:none;border:1px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer}
+  .btn.mag{background:var(--mag);border-color:var(--mag);color:#fff}
+  .btn:active{transform:translateY(1px)}
+  .btn:focus-visible,.opt:focus-visible,.mode button:focus-visible{outline:2px solid var(--mag);outline-offset:2px}
+
+  /* программа */
+  .mode{display:inline-grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink);margin-bottom:22px;max-width:100%}
+  .mode button{min-height:48px;padding:0 18px;border:0;background:#fff;font:500 14px/1.2 "IBM Plex Mono",monospace;cursor:pointer;color:var(--ink)}
+  .mode button[aria-pressed="true"]{background:var(--ink);color:#fff}
+  .prog{border:1px solid var(--line);background:#fff}
+  .prog-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .total{font:600 30px/1 "IBM Plex Mono",monospace}
+  .total small{font-size:12px;font-weight:400;color:var(--muted);margin-left:6px}
+  .bar-line{display:flex;height:34px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  .seg{height:100%;border-right:1px solid #fff;background:var(--grid);transition:flex-grow .35s,background .2s;min-width:0}
+  .seg.opt-seg{background:var(--mag-soft)}
+  .seg.now{background:var(--mag)}
+  .cursor{position:absolute;top:0;bottom:0;width:2px;background:var(--mag);left:0;opacity:0}
+  ol.steps{list-style:none;margin:0;padding:0}
+  ol.steps li{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:baseline;padding:12px 14px;border-bottom:1px solid var(--line)}
+  ol.steps li:last-child{border-bottom:0}
+  ol.steps .no{font:500 13px "IBM Plex Mono",monospace;color:var(--muted)}
+  ol.steps .t{font-weight:500}
+  ol.steps .d{display:block;font-size:14px;color:var(--muted);font-weight:300;margin-top:2px}
+  ol.steps .m{font:500 13px "IBM Plex Mono",monospace;white-space:nowrap}
+  ol.steps li.now{background:var(--mag-soft)}
+  ol.steps li.now .no{color:var(--mag)}
+  .opts{display:grid;gap:8px;margin:18px 0}
+  @media(min-width:640px){.opts{grid-template-columns:1fr 1fr}}
+  .opt{display:flex;align-items:center;gap:12px;min-height:52px;padding:10px 14px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:15px}
+  .opt input{appearance:none;width:18px;height:18px;border:1.5px solid var(--ink);margin:0;flex:none;cursor:pointer}
+  .opt input:checked{background:var(--mag);border-color:var(--mag);box-shadow:inset 0 0 0 3px #fff}
+  .opt .m{margin-left:auto;font:400 12px "IBM Plex Mono",monospace;color:var(--muted);white-space:nowrap}
+  .fine{font:400 12px/1.5 "IBM Plex Mono",monospace;color:var(--muted);margin-top:12px}
+  .self{display:none}
+  .self .posts{display:grid;gap:0;border:1px solid var(--line);background:#fff}
+  @media(min-width:640px){.self .posts{grid-template-columns:1fr 1fr}}
+  .self .posts div{padding:16px 14px;border-bottom:1px solid var(--line)}
+  @media(min-width:640px){.self .posts div:nth-child(odd){border-right:1px solid var(--line)}}
+  .self .posts b{display:block;font-weight:500;margin-bottom:4px}
+  .self .posts span{font-size:14px;color:var(--muted);font-weight:300}
+  .is-self .robot{display:none}.is-self .self{display:block}
+
+  /* спецификация */
+  .spec{display:grid;border:1px solid var(--line);background:#fff}
+  @media(min-width:760px){.spec{grid-template-columns:repeat(3,1fr)}}
+  .spec>div{padding:18px 16px;border-bottom:1px solid var(--line)}
+  @media(min-width:760px){.spec>div{border-bottom:0;border-right:1px solid var(--line)}.spec>div:last-child{border-right:0}}
+  .spec ul{margin:10px 0 0;padding:0;list-style:none}
+  .spec li{padding:5px 0;font-size:15px}
+  .spec li::before{content:"— ";color:var(--mag)}
+
+  .visit{display:grid;gap:18px}
+  @media(min-width:860px){.visit{grid-template-columns:1fr 1.25fr}}
+  .big24{font:300 clamp(64px,18vw,120px)/.9 "IBM Plex Sans",sans-serif;letter-spacing:-.05em}
+  .big24 span{color:var(--mag)}
+  .addr{font-size:18px;margin:18px 0 4px}
+  .addr small{display:block;font:400 13px "IBM Plex Mono",monospace;color:var(--muted);margin-top:4px}
+  .rating{display:inline-flex;align-items:baseline;gap:10px;margin-top:20px;text-decoration:none;border-bottom:1px solid var(--mag);padding-bottom:4px}
+  .rating b{font:600 28px/1 "IBM Plex Mono",monospace;color:var(--mag)}
+  .rating span{font:400 13px "IBM Plex Mono",monospace}
+  .map{border:1px solid var(--line);min-height:320px;position:relative;background:#f6f7f8}
+  .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05)}
+  footer{border-top:1px solid var(--line);padding:24px 0 34px;font:400 12px/1.5 "IBM Plex Mono",monospace;color:var(--muted);background:#fff}
+
+  .mbar{display:none}
+  @media(max-width:760px){
+    body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
+    .mbar{display:grid;grid-template-columns:repeat(3,1fr);position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--ink);padding-bottom:env(safe-area-inset-bottom)}
+    .mbar a{min-height:58px;display:flex;align-items:center;justify-content:center;text-decoration:none;font:500 14px/1 "IBM Plex Mono",monospace;border-right:1px solid var(--line)}
+    .mbar a:last-child{border-right:0}
+    .mbar a.main{background:var(--mag);color:#fff}
+    .h-tel{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><i></i>Робот Мойка</a>
+    <nav class="h-nav"><a href="#program">/программа</a><a href="#spec">/параметры</a><a href="#visit">/адрес</a></nav>
+    <a class="h-tel" href="tel:+79872793402">+7‒987‒279‒34‒02</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="readout" aria-label="Состояние">
+        <div><div class="label">Статус</div><div class="v on" id="st">Открыто</div></div>
+        <div><div class="label">Время, МСК</div><div class="v" id="clock">--:--</div></div>
+        <div><div class="label">Режим</div><div class="v">24/7</div></div>
+        <div><div class="label">Рейтинг 2ГИС</div><div class="v"><a href="https://2gis.ru/kazan/firm/70000001100399757/tab/reviews" target="_blank" rel="noopener">4,7 / 82 отз.</a></div></div>
+      </div>
+      <h1>Мойка без рук. <span>Круглосуточно.</span></h1>
+      <p class="lead">Роботизированная бесконтактная мойка и тёплые посты самообслуживания для легковых и грузовых машин. Улица Комиссара Габишева, 21а.</p>
+      <div class="cta">
+        <a class="btn mag" href="https://yandex.ru/maps/?rtext=~55.75038,49.239998&rtt=auto" target="_blank" rel="noopener">Маршрут →</a>
+        <a class="btn" href="#program">Как моет робот</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="program">
+    <div class="wrap">
+      <div class="label"><b>01</b> / программа</div>
+      <h2>Что происходит в боксе</h2>
+      <div class="mode" role="group" aria-label="Режим мойки">
+        <button type="button" aria-pressed="true" data-m="robot">Робот-автомат</button>
+        <button type="button" aria-pressed="false" data-m="self">Самообслуживание</button>
+      </div>
+
+      <div id="modeBox">
+        <div class="robot">
+          <div class="prog">
+            <div class="prog-head">
+              <div><div class="label">Длительность программы</div><div class="total" id="total">≈ 0 мин<small>примерно</small></div></div>
+              <button class="btn mag" type="button" id="run">▶ Запустить</button>
+            </div>
+            <div class="bar-line" id="line"><div class="cursor" id="cursor"></div></div>
+            <ol class="steps" id="steps"></ol>
+          </div>
+          <div class="opts" id="opts"></div>
+          <p class="fine">Этапы и минуты — примерная схема бесконтактной мойки, для наглядности. Точный состав программ и время — на терминале мойки или по телефону. «Запуск» показывает ход программы в ускоренном виде.</p>
+        </div>
+
+        <div class="self">
+          <div class="posts">
+            <div><b>Легковые</b><span>Посты самообслуживания: моете сами, в своём темпе.</span></div>
+            <div><b>Грузовые</b><span>Отдельная самомойка для грузовых автомобилей.</span></div>
+            <div><b>Тёплая мойка</b><span>Посты самообслуживания в тепле.</span></div>
+            <div><b>Пылесос</b><span>Для салона и ковриков после мойки.</span></div>
+          </div>
+          <p class="fine">Стоимость минуты и набор режимов на постах уточняйте на месте — в карточке 2ГИС их нет.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="spec">
+    <div class="wrap">
+      <div class="label"><b>02</b> / параметры</div>
+      <h2>Коротко о мойке</h2>
+      <div class="spec">
+        <div><div class="label">Мойка</div><ul><li>Мойка-автомат</li><li>Бесконтактная</li><li>Мойка днища</li><li>Мойка двигателя</li><li>Мойка грузовиков</li></ul></div>
+        <div><div class="label">Самообслуживание</div><ul><li>Для легковых</li><li>Для грузовых</li><li>Тёплые посты</li><li>Пылесос</li></ul></div>
+        <div><div class="label">Оплата и прочее</div><ul><li>Картой</li><li>Наличными</li><li>По QR-коду</li><li>Через приложение</li><li>Wi-Fi для клиентов</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap">
+      <div class="label"><b>03</b> / адрес</div>
+      <h2>Приезжайте в любое время</h2>
+      <div class="visit">
+        <div>
+          <div class="big24">24<span>/</span>7</div>
+          <p class="addr">Казань, улица Комиссара Габишева, 21а<small>Приволжский район · 55.75038, 49.239998</small></p>
+          <div class="cta" style="margin-top:16px">
+            <a class="btn mag" href="https://yandex.ru/maps/?rtext=~55.75038,49.239998&rtt=auto" target="_blank" rel="noopener">Проложить маршрут</a>
+            <a class="btn" href="tel:+79872793402">Позвонить</a>
+            <a class="btn" href="https://wa.me/79872793402" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+          <a class="rating" href="https://2gis.ru/kazan/firm/70000001100399757/tab/reviews" target="_blank" rel="noopener"><b>4,7</b><span>подтверждённый рейтинг · 82 отзыва в 2ГИС →</span></a>
+        </div>
+        <div class="map">
+          <iframe src="https://yandex.ru/map-widget/v1/?ll=49.239998%2C55.75038&z=16&pt=49.239998%2C55.75038%2Cpm2rdm" title="Робот Мойка на карте" loading="lazy" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Робот Мойка — роботизированная автомойка · Казань, ул. Комиссара Габишева, 21а · Демо-версия сайта, данные из 2ГИС</div>
+</footer>
+
+<nav class="mbar" aria-label="Быстрые действия">
+  <a class="main" href="tel:+79872793402">Позвонить</a>
+  <a href="https://yandex.ru/maps/?rtext=~55.75038,49.239998&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a href="https://wa.me/79872793402" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  const $ = s => document.querySelector(s);
+
+  // Работает круглосуточно: статус всегда «открыто», время — по Москве через Intl
+  function tick(){
+    const t = new Intl.DateTimeFormat("ru-RU",{timeZone:"Europe/Moscow",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).format(new Date());
+    $("#clock").textContent = t;
+    $("#st").textContent = "Открыто сейчас";
+  }
+  tick(); setInterval(tick,15000);
+
+  // Режим
+  document.querySelectorAll(".mode button").forEach(b=>b.onclick = () => {
+    document.querySelectorAll(".mode button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));
+    $("#modeBox").classList.toggle("is-self", b.dataset.m==="self");
+  });
+
+  // Программа робота. Минуты — примерные, в карточке 2ГИС их нет.
+  const BASE = [
+    {t:"Ополаскивание", d:"Сбивает песок и крупную грязь водой.", m:1},
+    {t:"Активная пена", d:"Размягчает дорожную плёнку и реагенты.", m:2},
+    {t:"Мойка под давлением", d:"Смывает пену вместе с грязью, без щёток.", m:3},
+    {t:"Финальное ополаскивание", d:"Чистая вода по всему кузову.", m:1}
+  ];
+  const EXTRA = [
+    {id:"bottom", t:"Мойка днища", d:"Струи снизу: арки, пороги, днище.", m:2, at:3},
+    {id:"engine", t:"Мойка двигателя", d:"Отдельная услуга, уточните на месте.", m:5, at:0}
+  ];
+  const on = new Set();
+  EXTRA.forEach(x=>{
+    const l = document.createElement("label"); l.className = "opt";
+    const c = document.createElement("input"); c.type = "checkbox";
+    c.onchange = () => { c.checked ? on.add(x.id) : on.delete(x.id); build(); };
+    const s = document.createElement("span"); s.textContent = "+ " + x.t;
+    const m = document.createElement("span"); m.className = "m"; m.textContent = "≈ " + x.m + " мин";
+    l.append(c,s,m); $("#opts").appendChild(l);
+  });
+
+  let plan = [], timer = null;
+  function build(){
+    if(timer) stopRun();
+    plan = BASE.map(s=>({...s}));
+    EXTRA.filter(x=>on.has(x.id)).sort((a,b)=>b.at-a.at).forEach(x=>plan.splice(x.at,0,{...x,extra:true}));
+    const total = plan.reduce((a,s)=>a+s.m,0);
+    $("#total").innerHTML = "≈ " + total + " мин<small>примерно</small>";
+    const line = $("#line"); line.querySelectorAll(".seg").forEach(n=>n.remove());
+    const steps = $("#steps"); steps.innerHTML = "";
+    plan.forEach((s,i)=>{
+      const seg = document.createElement("div"); seg.className = "seg" + (s.extra?" opt-seg":""); seg.style.flexGrow = s.m;
+      line.insertBefore(seg,$("#cursor"));
+      const li = document.createElement("li");
+      li.innerHTML = '<span class="no"></span><span><span class="t"></span><span class="d"></span></span><span class="m"></span>';
+      li.querySelector(".no").textContent = String(i+1).padStart(2,"0");
+      li.querySelector(".t").textContent = s.t;
+      li.querySelector(".d").textContent = s.d;
+      li.querySelector(".m").textContent = "≈ " + s.m + " мин";
+      steps.appendChild(li);
+    });
+  }
+  build();
+
+  // Ускоренный прогон: 1 «минута» программы = 0,6 секунды
+  $("#run").onclick = () => {
+    if(timer){ stopRun(); return; }
+    const total = plan.reduce((a,s)=>a+s.m,0), ms = total*600, t0 = performance.now();
+    const segs = [...document.querySelectorAll("#line .seg")], lis = [...document.querySelectorAll("#steps li")];
+    const cur = $("#cursor"); cur.style.opacity = 1;
+    $("#run").textContent = "■ Стоп";
+    function frame(now){
+      const p = Math.min(1,(now-t0)/ms), at = p*total;
+      cur.style.left = "calc(" + (p*100) + "% - 1px)";
+      let acc = 0;
+      plan.forEach((s,i)=>{const act = at>=acc && at<acc+s.m; segs[i].classList.toggle("now",act); lis[i].classList.toggle("now",act); acc+=s.m;});
+      if(p<1){ timer = requestAnimationFrame(frame); }
+      else { stopRun(); $("#run").textContent = "✓ Готово · ещё раз"; }
+    }
+    timer = requestAnimationFrame(frame);
+  };
+  function stopRun(){
+    cancelAnimationFrame(timer); timer = null;
+    document.querySelectorAll(".now").forEach(n=>n.classList.remove("now"));
+    $("#cursor").style.opacity = 0; $("#run").textContent = "▶ Запустить";
+  }
+</script>
+</body>
+</html>
