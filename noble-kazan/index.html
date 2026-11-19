@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Noble — барбершоп на Салимжанова, 15/8в в Казани</title>
+<meta name="description" content="Барбершоп Noble в Казани, улица Марселя Салимжанова, 15/8в. Мужская стрижка от 1800 ₽, детская стрижка. Ежедневно 10:00–20:00. Рейтинг 5,0 в 2ГИС.">
+<meta name="theme-color" content="#0e3b2e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Golos+Text:wght@400;500;600&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --em:#0e3b2e;
+    --em-dk:#082419;
+    --em-2:#145040;
+    --brass:#b08d57;
+    --brass-hi:#d9bd88;
+    --brass-lo:#7d6136;
+    --ivory:#f3ecdc;
+    --muted:#a9b8ae;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;color:var(--ivory);font:16px/1.6 "Golos Text",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+    padding-bottom:calc(80px + env(safe-area-inset-bottom));
+    background:
+      linear-gradient(45deg,rgba(176,141,87,.05) 25%,transparent 25%,transparent 75%,rgba(176,141,87,.05) 75%),
+      linear-gradient(-45deg,rgba(176,141,87,.05) 25%,transparent 25%,transparent 75%,rgba(176,141,87,.05) 75%),
+      var(--em);
+    background-size:44px 44px}
+  @media(min-width:860px){body{padding-bottom:0}}
+  a{color:inherit}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;margin:0;line-height:1.05;font-weight:600}
+  h2{font-size:clamp(34px,8vw,54px)}
+  .eyebrow{font:600 12px/1 "Golos Text",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--brass)}
+  section{padding:64px 0}
+
+  .demo{background:var(--brass);color:var(--em-dk);text-align:center;font:600 13px/1.35 "Golos Text",sans-serif;padding:8px 16px}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(8,36,25,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(176,141,87,.4)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+  .logo{font:600 26px/1 "Cormorant Garamond",serif;letter-spacing:.18em;text-decoration:none;color:var(--brass-hi)}
+  .h-nav{display:none;gap:26px;font-size:14px;color:var(--muted)}
+  .h-nav a{text-decoration:none}.h-nav a:hover{color:var(--ivory)}
+  @media(min-width:860px){.h-nav{display:flex}}
+  .h-tel{font-weight:600;text-decoration:none;white-space:nowrap;font-size:15px}
+
+  /* hero */
+  .hero{text-align:center;padding:36px 0 56px;background:radial-gradient(ellipse at 50% 30%,rgba(20,80,64,.9),transparent 70%)}
+  .ribbon{width:100%;max-width:560px;display:block;margin:0 auto;overflow:visible}
+  .ribbon a:hover .scroll2{fill:#e7cf9f}
+  .hero h1{font-size:clamp(30px,7.4vw,50px);margin-top:20px}
+  .hero h1 i{color:var(--brass-hi)}
+  .hero .lead{color:var(--muted);font-size:17px;max-width:36ch;margin:14px auto 22px}
+  .row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .state{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:8px 16px;border:1px solid rgba(176,141,87,.5);font-size:15px;margin-bottom:22px}
+  .state i{width:9px;height:9px;transform:rotate(45deg);background:var(--muted)}
+  .is-open .state i{background:var(--brass-hi);box-shadow:0 0 10px var(--brass)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;font:600 16px/1 "Golos Text",sans-serif;text-decoration:none;cursor:pointer;
+    border:1px solid var(--brass);color:var(--ivory);background:transparent}
+  .btn.brass{background:linear-gradient(180deg,var(--brass-hi),var(--brass));color:var(--em-dk);border-color:var(--brass)}
+  .btn:active{transform:translateY(1px)}
+
+  /* разделитель-геральдика */
+  .divider{display:flex;align-items:center;gap:12px;max-width:420px;margin:0 auto;color:var(--brass)}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--brass),transparent)}
+
+  /* грамота: услуги + запись */
+  .charter{position:relative;background:var(--em-dk);border:1px solid var(--brass);padding:28px 18px;margin-top:28px}
+  .charter::before{content:"";position:absolute;inset:6px;border:1px solid rgba(176,141,87,.35);pointer-events:none}
+  @media(min-width:700px){.charter{padding:40px}}
+  .charter .grid{display:grid;gap:28px;position:relative}
+  @media(min-width:860px){.charter .grid{grid-template-columns:1fr 1fr;gap:40px}}
+  .svc{display:grid;gap:10px}
+  .svc button{position:relative;display:block;width:100%;text-align:left;min-height:72px;padding:14px 16px 14px 46px;cursor:pointer;font:inherit;color:var(--ivory);
+    background:rgba(20,80,64,.45);border:1px solid rgba(176,141,87,.35)}
+  .svc button::before{content:"";position:absolute;left:16px;top:22px;width:14px;height:14px;transform:rotate(45deg);border:1.5px solid var(--brass)}
+  .svc button[aria-pressed="true"]{border-color:var(--brass-hi);background:rgba(176,141,87,.16)}
+  .svc button[aria-pressed="true"]::before{background:var(--brass-hi)}
+  .svc b{display:block;font:600 22px/1.15 "Cormorant Garamond",serif}
+  .svc span{font-size:14px;color:var(--muted)}
+  .svc em{font-style:normal;color:var(--brass-hi);font-weight:600}
+  .q{font:600 12px/1 "Golos Text",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin:0 0 10px}
+  .seg{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+  .seg button{min-height:48px;padding:0 16px;border:1px solid rgba(176,141,87,.45);background:transparent;color:var(--ivory);font:500 15px/1 "Golos Text",sans-serif;cursor:pointer}
+  .seg button[aria-pressed="true"]{background:var(--ivory);color:var(--em-dk);border-color:var(--ivory)}
+  .seg button:disabled{opacity:.35;cursor:not-allowed}
+  .seal{background:var(--ivory);color:var(--em-dk);padding:18px 18px 16px;font:italic 500 19px/1.4 "Cormorant Garamond",serif;margin:4px 0 14px;position:relative}
+  .seal::after{content:"N";position:absolute;right:-10px;bottom:-14px;width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#c9a36a,#7d6136);
+    color:var(--ivory);font:600 20px/40px "Cormorant Garamond",serif;text-align:center;font-style:normal;box-shadow:0 2px 6px rgba(0,0,0,.35)}
+  .charter .btn{width:100%}
+  .alt{display:block;text-align:center;margin-top:12px;font-size:14px;color:var(--muted)}
+  .fine{font-size:13px;color:var(--muted);margin-top:16px}
+
+  /* оплата */
+  .pay{display:grid;grid-template-columns:1fr;gap:0;margin-top:26px;border-top:1px solid rgba(176,141,87,.4)}
+  @media(min-width:700px){.pay{grid-template-columns:1fr 1fr}}
+  .pay div{display:flex;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(176,141,87,.25);font:500 21px/1.2 "Cormorant Garamond",serif}
+  .pay div::before{content:"◆";color:var(--brass);font-size:10px}
+
+  /* часы и адрес */
+  .info{display:grid;gap:30px}
+  @media(min-width:860px){.info{grid-template-columns:1fr 1.25fr}}
+  .hrs{font:600 clamp(52px,14vw,80px)/1 "Cormorant Garamond",serif;color:var(--brass-hi);margin:16px 0 6px}
+  .week{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0}
+  .week span{min-width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(176,141,87,.4);font-size:13px}
+  .week span.today{background:var(--brass);color:var(--em-dk);border-color:var(--brass)}
+  .addr{font:600 clamp(26px,6.4vw,36px)/1.15 "Cormorant Garamond",serif;margin:14px 0 6px}
+  .info p{color:var(--muted);margin:0 0 16px}
+  .links{display:grid;gap:8px;margin:18px 0}
+  .links a{display:flex;justify-content:space-between;align-items:center;min-height:52px;padding:0 16px;border:1px solid rgba(176,141,87,.4);text-decoration:none}
+  .links a span{color:var(--brass-hi);font-size:14px}
+  .map{border:1px solid var(--brass);padding:6px;margin-top:22px}
+  .map iframe{width:100%;height:340px;border:0;display:block}
+
+  footer{border-top:1px solid rgba(176,141,87,.35);padding:26px 0;color:var(--muted);font-size:13px;text-align:center}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(8,36,25,.97);border-top:1px solid var(--brass)}
+  .dock .btn{min-height:50px;padding:0 6px;font-size:15px}
+  @media(min-width:860px){.dock{display:none}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">NOBLE</a>
+    <nav class="h-nav" aria-label="Разделы">
+      <a href="#zapis">Услуги и запись</a>
+      <a href="#pay">Оплата</a>
+      <a href="#where">Как найти</a>
+    </nav>
+    <a class="h-tel" href="tel:+79920770657">+7 992 077-06-57</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <svg class="ribbon" viewBox="0 0 360 206" role="img" aria-label="Noble, барбершоп. Рейтинг 5,0, 88 отзывов в 2ГИС">
+        <defs>
+          <linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2c896"/><stop offset=".5" stop-color="#b08d57"/><stop offset="1" stop-color="#8a6b3c"/></linearGradient>
+          <path id="mid" d="M40 113 Q180 13 320 113"/>
+        </defs>
+        <!-- геральдический ромб-корона над лентой -->
+        <g transform="translate(180 18)" fill="#d9bd88">
+          <path d="M0 -14 L10 0 L0 14 L-10 0 Z"/>
+          <circle cx="-22" cy="4" r="3"/><circle cx="22" cy="4" r="3"/>
+        </g>
+        <!-- хвосты -->
+        <path d="M58 106 L6 114 L24 138 L6 162 L58 152 Z" fill="#7d6136"/>
+        <path d="M302 106 L354 114 L336 138 L354 162 L302 152 Z" fill="#7d6136"/>
+        <path d="M40 134 L58 152 L58 128 Z" fill="#5a4426"/>
+        <path d="M320 134 L302 152 L302 128 Z" fill="#5a4426"/>
+        <!-- основная лента -->
+        <path d="M40 90 Q180 -10 320 90 L320 134 Q180 34 40 134 Z" fill="url(#b)"/>
+        <path d="M40 95 Q180 -5 320 95" fill="none" stroke="#0e3b2e" stroke-width=".8" opacity=".5"/>
+        <path d="M40 129 Q180 29 320 129" fill="none" stroke="#0e3b2e" stroke-width=".8" opacity=".5"/>
+        <text font-family="'Cormorant Garamond',Georgia,serif" font-weight="700" font-size="34" letter-spacing="12" fill="#082419" dy="11">
+          <textPath href="#mid" startOffset="50%" text-anchor="middle">NOBLE</textPath>
+        </text>
+        <!-- вторая лента: рейтинг -->
+        <a href="https://2gis.ru/kazan/firm/70000001094715004/tab/reviews" target="_blank" rel="noopener">
+          <path d="M84 158 L72 172 L84 186 L96 186 L96 158 Z M276 158 L288 172 L276 186 L264 186 L264 158 Z" fill="#7d6136"/>
+          <path class="scroll2" d="M92 152 H268 V182 H92 Z" fill="#d9bd88"/>
+          <text x="180" y="172" text-anchor="middle" font-family="'Golos Text',sans-serif" font-weight="600" font-size="13" fill="#082419">★ 5,0 · 88 отзывов в 2ГИС</text>
+        </a>
+      </svg>
+
+      <h1>Барбершоп <i>Noble</i><br>на Салимжанова</h1>
+      <p class="lead">Мужские и детские стрижки в Вахитовском районе. Каждый день с&nbsp;10 до&nbsp;20.</p>
+      <div class="state"><i></i><span data-status>10:00–20:00</span></div>
+      <div class="row">
+        <a class="btn brass" href="#zapis">Выбрать услугу</a>
+        <a class="btn" href="tel:+79920770657">Позвонить</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">◆</div>
+
+  <section id="zapis">
+    <div class="wrap">
+      <p class="eyebrow">Услуги и запись</p>
+      <h2 style="margin-top:10px">Выберите, что нужно</h2>
+      <div class="charter">
+        <div class="grid">
+          <div>
+            <p class="q">Услуга</p>
+            <div class="svc" role="group" aria-label="Услуга">
+              <button type="button" data-svc="0"><b>Мужская стрижка</b><span><em>от 1800 ₽</em></span></button>
+              <button type="button" data-svc="1"><b>Детская стрижка</b><span>цена уточняется</span></button>
+              <button type="button" data-svc="2"><b>Отец и сын</b><span>мужская и детская подряд · цена уточняется</span></button>
+            </div>
+            <p class="fine">Цены примерные, уточняются у владельца. В 2ГИС указано: мужская стрижка от 1800 ₽.</p>
+          </div>
+          <div>
+            <p class="q">День</p>
+            <div class="seg" role="group" aria-label="День">
+              <button type="button" data-day="сегодня">Сегодня</button>
+              <button type="button" data-day="завтра">Завтра</button>
+              <button type="button" data-day="на этой неделе">На неделе</button>
+            </div>
+            <p class="q">Время</p>
+            <div class="seg" role="group" aria-label="Время">
+              <button type="button" data-part="утром">Утром</button>
+              <button type="button" data-part="днём">Днём</button>
+              <button type="button" data-part="вечером">Вечером</button>
+              <button type="button" data-part="в любое время">Всё равно</button>
+            </div>
+            <p class="seal" data-msg>Здравствуйте! Хочу записаться на мужскую стрижку.</p>
+            <a class="btn brass" data-book href="https://wa.me/79920770657" target="_blank" rel="noopener">Записаться в WhatsApp</a>
+            <a class="alt" href="https://t.me/+79920770657" target="_blank" rel="noopener">или написать в Telegram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pay" style="padding-top:20px">
+    <div class="wrap">
+      <p class="eyebrow">Оплата</p>
+      <h2 style="margin-top:10px">Платите, как привыкли</h2>
+      <div class="pay">
+        <div>Наличными</div>
+        <div>Переводом с карты</div>
+        <div>По QR-коду</div>
+        <div>Через банк</div>
+        <div>Через приложение</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="where">
+    <div class="wrap info">
+      <div>
+        <p class="eyebrow">Часы работы</p>
+        <div class="hrs">10:00–20:00</div>
+        <p>Ежедневно, без выходных. <span data-status></span></p>
+        <div class="week" aria-label="Без выходных">
+          <span data-wd="Mon">Пн</span><span data-wd="Tue">Вт</span><span data-wd="Wed">Ср</span><span data-wd="Thu">Чт</span><span data-wd="Fri">Пт</span><span data-wd="Sat">Сб</span><span data-wd="Sun">Вс</span>
+        </div>
+        <p class="eyebrow" style="margin-top:30px">Адрес</p>
+        <p class="addr">улица Марселя Салимжанова, 15/8в</p>
+        <p>1 этаж · Вахитовский район, Казань</p>
+        <div class="links">
+          <a href="tel:+79920770657">+7 992 077-06-57 <span>Позвонить</span></a>
+          <a href="https://wa.me/79920770657" target="_blank" rel="noopener">WhatsApp <span>Написать</span></a>
+          <a href="https://t.me/+79920770657" target="_blank" rel="noopener">Telegram <span>Написать</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="row" style="justify-content:flex-start">
+          <a class="btn brass" href="https://yandex.ru/maps/?rtext=~55.776556,49.133531&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+          <a class="btn" href="https://2gis.ru/kazan/firm/70000001094715004" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+        </div>
+        <div class="map">
+          <iframe title="Noble на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=49.133531%2C55.776556&z=16&pt=49.133531%2C55.776556%2Cpm2rdm"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Noble, барбершоп · улица Марселя Салимжанова, 15/8в, Казань<br>Демо-версия сайта, подготовлена для владельца. Данные из 2ГИС.</div>
+</footer>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a class="btn" href="tel:+79920770657">Позвонить</a>
+  <a class="btn" href="https://yandex.ru/maps/?rtext=~55.776556,49.133531&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn brass" href="https://wa.me/79920770657" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  window.SITE = {
+    open: "10:00", close: "20:00", wa: "79920770657",
+    services: [
+      { name: "Мужская стрижка", acc: "мужскую стрижку", price: "от 1800 ₽" },
+      { name: "Детская стрижка", acc: "детскую стрижку", price: "уточняется" },
+      { name: "Отец и сын", acc: "мужскую и детскую стрижку", price: "уточняется" }
+    ]
+  };
+</script>
+<script>
+(function(){
+  var S = window.SITE;
+  function qa(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); }
+  function tm(s){ var a = s.split(":"); return (+a[0]) * 60 + (+a[1]); }
+  var O = tm(S.open), C = tm(S.close);
+  var st = { svc: 0, day: "сегодня", part: "в любое время" };
+
+  // Текущее время в Казани (Europe/Moscow)
+  function msk(){
+    var o = {};
+    new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Moscow", hour: "2-digit", minute: "2-digit", weekday: "short", hourCycle: "h23" })
+      .formatToParts(new Date()).forEach(function(p){ o[p.type] = p.value; });
+    return { min: (+o.hour) * 60 + (+o.minute), wd: o.weekday };
+  }
+
+  function status(){
+    var n = msk(), open = n.min >= O && n.min < C, t;
+    if (open) t = "Открыто сейчас, до " + S.close;
+    else t = "Закрыто, откроется " + (n.min < O ? "сегодня" : "завтра") + " в " + S.open;
+    document.documentElement.classList.toggle("is-open", open);
+    qa("[data-status]").forEach(function(e){ e.textContent = t; });
+    qa("[data-wd]").forEach(function(e){ e.classList.toggle("today", e.getAttribute("data-wd") === n.wd); });
+    // Сегодня записываться поздно, если до закрытия меньше часа
+    var late = n.min >= C - 60;
+    qa('[data-day="сегодня"]').forEach(function(b){ b.disabled = late; });
+    if (late && st.day === "сегодня") st.day = "завтра";
+    render();
+  }
+
+  function press(attr, val){
+    qa("[" + attr + "]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute(attr) === String(val))); });
+  }
+
+  function render(){
+    var s = S.services[st.svc];
+    press("data-svc", st.svc); press("data-day", st.day); press("data-part", st.part);
+    var name = "";
+    qa("[data-name-input]").forEach(function(i){ if (i.value.trim()) name = i.value.trim().slice(0, 40); });
+    var msg = "Здравствуйте! Хочу записаться на " + s.acc + " — " + st.day + ", " + st.part + ". Подскажете свободное время?";
+    if (name) msg += " Меня зовут " + name + ".";
+    qa("[data-msg]").forEach(function(e){ e.textContent = msg; });
+    qa("[data-book]").forEach(function(e){ e.href = "https://wa.me/" + S.wa + "?text=" + encodeURIComponent(msg); });
+    qa("[data-svc-name]").forEach(function(e){ e.textContent = s.name; });
+    qa("[data-svc-price]").forEach(function(e){ e.textContent = s.price; });
+    qa("[data-day-out]").forEach(function(e){ e.textContent = st.day; });
+    qa("[data-part-out]").forEach(function(e){ e.textContent = st.part; });
+    qa("[data-name-out]").forEach(function(e){ e.textContent = name || e.getAttribute("data-name-out"); });
+  }
+
+  document.addEventListener("click", function(ev){
+    var b = ev.target.closest("[data-svc],[data-day],[data-part]");
+    if (!b || b.disabled) return;
+    if (b.hasAttribute("data-svc")) st.svc = +b.getAttribute("data-svc");
+    if (b.hasAttribute("data-day")) st.day = b.getAttribute("data-day");
+    if (b.hasAttribute("data-part")) st.part = b.getAttribute("data-part");
+    render();
+  });
+  qa("[data-name-input]").forEach(function(i){ i.addEventListener("input", render); });
+
+  status();
+  setInterval(status, 30000);
+})();
+</script>
+</body>
+</html>
