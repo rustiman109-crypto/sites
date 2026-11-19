@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Нано Мойка — автомойка и детейлинг, Центральная улица, 3а</title>
+<meta name="description" content="Нано Мойка: комплексная мойка от 1400 ₽, мойка паром, бесконтактная мойка, химчистка салона, полировка. Ежедневно 09:00–20:30 по предварительной записи. Рейтинг 4,8 в 2ГИС.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#101413;
+    --muted:#8a918f;
+    --hair:#e6e9e8;
+    --mint:#3ddc97;
+    --mint-d:#17a86a;
+    --mint-soft:#eafbf3;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.6 "Manrope",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit}
+  .wrap{max-width:980px;margin:0 auto;padding:0 16px}
+  .micro{font:600 10px/1.3 "Manrope",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .micro.mint{color:var(--mint-d)}
+  h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.02em;line-height:1.15}
+  h2{font-size:clamp(22px,5vw,30px);margin:8px 0 22px}
+  section{padding:52px 0;border-top:1px solid var(--hair)}
+
+  .demo{border-bottom:1px solid var(--hair);font:600 11px/1.4 "Manrope",sans-serif;letter-spacing:.04em;text-align:center;padding:8px 16px;color:var(--ink);background:var(--mint-soft)}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:54px;gap:12px}
+  .logo{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:-.01em}
+  .logo i{width:7px;height:7px;border-radius:50%;background:var(--mint);display:inline-block}
+  .h-tel{font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap}
+  .h-nav{display:none;gap:22px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .h-nav a{text-decoration:none}.h-nav a:hover{color:var(--ink)}
+  @media(min-width:820px){.h-nav{display:flex}}
+
+  /* прибор */
+  .hero{border-top:0;padding:28px 0 44px}
+  .hero-grid{display:grid;gap:28px}
+  @media(min-width:820px){.hero-grid{grid-template-columns:1.1fr 1fr;align-items:end;gap:48px}}
+  .gauge{border:1px solid var(--hair);padding:16px;position:relative}
+  .gauge-top{display:flex;justify-content:space-between;gap:10px}
+  .reading{display:flex;align-items:flex-start;gap:6px;margin:14px 0 6px;text-decoration:none}
+  .reading b{font:200 clamp(108px,34vw,180px)/.82 "Manrope",sans-serif;letter-spacing:-.06em}
+  .reading sup{font:600 12px/1 "Manrope",sans-serif;color:var(--mint-d);margin-top:10px;letter-spacing:.08em}
+  .scale{position:relative;height:30px;margin:14px 0 6px}
+  .scale .ticks{position:absolute;left:0;right:0;top:0;height:12px;background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 10%);opacity:.5}
+  .scale .ticks.fine{height:6px;background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 2%);opacity:.25}
+  .scale .needle{position:absolute;top:-4px;width:2px;height:22px;background:var(--mint);left:calc(96% - 1px);box-shadow:0 0 0 3px var(--mint-soft)}
+  .scale .nums{position:absolute;left:0;right:0;top:16px;display:flex;justify-content:space-between;font:600 9px/1 "Manrope",sans-serif;color:var(--muted)}
+  .gauge-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid var(--hair)}
+  .gauge-foot a{font-weight:600;font-size:13px;text-underline-offset:3px}
+  .hero h1{font-size:clamp(30px,7.4vw,46px);font-weight:400;letter-spacing:-.035em;margin:12px 0 12px}
+  .hero h1 em{font-style:normal;color:var(--mint-d)}
+  .lead{color:var(--muted);max-width:40ch;margin:0 0 20px;font-size:15px}
+  .status{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--muted);flex:none}
+  .status.open .dot{background:var(--mint);box-shadow:0 0 0 4px var(--mint-soft)}
+  .cta{display:flex;flex-wrap:wrap;gap:8px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:600 14px/1 "Manrope",sans-serif;text-decoration:none;cursor:pointer}
+  .btn.mint{background:var(--mint);border-color:var(--mint);color:#06301d}
+  .btn:active{transform:translateY(1px)}
+  .btn[aria-disabled="true"]{opacity:.4;pointer-events:none}
+
+  /* спецификация услуг */
+  .spec{border-top:1px solid var(--ink)}
+  .spec .r{display:grid;grid-template-columns:26px 1fr auto;gap:10px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--hair)}
+  .spec .i{font:600 10px "Manrope",sans-serif;color:var(--muted)}
+  .spec .n{font-size:16px;font-weight:500}
+  .spec .p{font-size:13px;font-weight:600;white-space:nowrap}
+  .spec .p.q{color:var(--muted);font-weight:500}
+
+  /* запись */
+  .book{display:grid;gap:24px}
+  @media(min-width:820px){.book{grid-template-columns:1fr 1fr;gap:40px}}
+  .grp{margin-bottom:20px}
+  .grp .micro{margin-bottom:8px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{min-height:48px;padding:0 14px;border-radius:999px;border:1px solid var(--hair);background:#fff;font:500 13px/1 "Manrope",sans-serif;color:var(--ink);cursor:pointer}
+  .chip[aria-pressed="true"]{border-color:var(--mint);background:var(--mint-soft);color:#06301d;box-shadow:inset 0 0 0 1px var(--mint)}
+  .chip:disabled{color:#c4c9c7;cursor:not-allowed;text-decoration:line-through}
+  .chips.days .chip{min-height:52px;line-height:1.2;padding:6px 16px;text-align:left}
+  .chips.days .chip small{display:block;font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+  .slip{border:1px solid var(--hair);padding:18px 16px;position:relative}
+  .slip::before{content:"";position:absolute;left:-1px;top:-1px;width:12px;height:12px;border-left:2px solid var(--mint);border-top:2px solid var(--mint)}
+  .slip::after{content:"";position:absolute;right:-1px;bottom:-1px;width:12px;height:12px;border-right:2px solid var(--mint);border-bottom:2px solid var(--mint)}
+  .slip dl{margin:10px 0 16px;display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:14px}
+  .slip dt{font:600 10px/1.9 "Manrope",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .slip dd{margin:0;font-weight:500}
+  .slip .btn{width:100%;margin-top:6px}
+  .slip p{font-size:12px;color:var(--muted);margin:12px 0 0;line-height:1.5}
+
+  .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--hair);border-left:1px solid var(--hair)}
+  @media(min-width:760px){.facts{grid-template-columns:repeat(4,1fr)}}
+  .facts div{padding:14px 12px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);min-width:0}
+  .facts b{display:block;font-weight:500;font-size:14px;margin-top:6px}
+
+  .visit{display:grid;gap:20px}
+  @media(min-width:820px){.visit{grid-template-columns:1fr 1.3fr}}
+  .hrs{font:200 clamp(44px,13vw,64px)/1 "Manrope",sans-serif;letter-spacing:-.04em;margin:6px 0 8px}
+  .addr{font-size:17px;font-weight:500;margin:18px 0 2px}
+  .addr small{display:block;font-size:12px;color:var(--muted);font-weight:500}
+  .map{border:1px solid var(--hair);min-height:300px;position:relative;background:#f7f8f8}
+  .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.6)}
+  footer{border-top:1px solid var(--hair);padding:22px 0 32px;font-size:11px;color:var(--muted)}
+
+  .bar{display:none}
+  @media(max-width:760px){
+    body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
+    .bar{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--hair)}
+    .bar a{min-height:50px;border-radius:999px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--ink)}
+    .bar a.main{background:var(--mint);border-color:var(--mint);color:#06301d}
+    .h-tel{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><i></i>Нано Мойка</a>
+    <nav class="h-nav"><a href="#spec">Услуги</a><a href="#book">Запись</a><a href="#visit">Адрес</a></nav>
+    <a class="h-tel" href="tel:+79172622996">+7‒917‒262‒29‒96</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="gauge">
+        <div class="gauge-top"><span class="micro">Прибор: 2ГИС</span><span class="micro mint">Подтверждённый рейтинг</span></div>
+        <a class="reading" href="https://2gis.ru/kazan/firm/70000001044024050/tab/reviews" target="_blank" rel="noopener" aria-label="Рейтинг 4,8 из 5, 75 отзывов в 2ГИС">
+          <b>4,8</b><sup>/ 5,0</sup>
+        </a>
+        <div class="scale" aria-hidden="true">
+          <div class="ticks fine"></div><div class="ticks"></div><div class="needle"></div>
+          <div class="nums"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+        </div>
+        <div class="gauge-foot">
+          <span class="micro">Выборка: 75 отзывов</span>
+          <a href="https://2gis.ru/kazan/firm/70000001044024050/tab/reviews" target="_blank" rel="noopener">Читать отзывы →</a>
+        </div>
+      </div>
+      <div>
+        <div class="status" id="status"><span class="dot"></span><span id="statusText">Ежедневно 09:00–20:30</span></div>
+        <h1>Чистота до <em>мелочей</em>. По записи.</h1>
+        <p class="lead">Мойка паром и бесконтактная, химчистка салона, полировка. Центральная улица, 3а — работаем по предварительной записи.</p>
+        <div class="cta">
+          <a class="btn mint" href="#book">Выбрать время</a>
+          <a class="btn" href="tel:+79172622996">Позвонить</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="spec">
+    <div class="wrap">
+      <div class="micro">01 · Спецификация</div>
+      <h2>Что делаем</h2>
+      <div class="spec">
+        <div class="r"><span class="i">01</span><span class="n">Комплексная мойка</span><span class="p">от 1400 ₽</span></div>
+        <div class="r"><span class="i">02</span><span class="n">Мойка паром</span><span class="p q">цена по запросу</span></div>
+        <div class="r"><span class="i">03</span><span class="n">Бесконтактная мойка</span><span class="p q">цена по запросу</span></div>
+        <div class="r"><span class="i">04</span><span class="n">Мойка днища</span><span class="p q">цена по запросу</span></div>
+        <div class="r"><span class="i">05</span><span class="n">Химчистка салона</span><span class="p q">цена по запросу</span></div>
+        <div class="r"><span class="i">06</span><span class="n">Полировка кузова</span><span class="p q">цена по запросу</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="book">
+    <div class="wrap">
+      <div class="micro">02 · Запись</div>
+      <h2>Соберите заявку за полминуты</h2>
+      <div class="book">
+        <div>
+          <div class="grp"><div class="micro">Услуги</div><div class="chips" id="svc"></div></div>
+          <div class="grp"><div class="micro">День</div><div class="chips days" id="days"></div></div>
+          <div class="grp"><div class="micro">Время, примерно</div><div class="chips" id="slots"></div></div>
+        </div>
+        <div class="slip">
+          <div class="micro mint">Заявка</div>
+          <dl>
+            <dt>Услуги</dt><dd id="oSvc">не выбрано</dd>
+            <dt>День</dt><dd id="oDay">—</dd>
+            <dt>Время</dt><dd id="oTime">—</dd>
+          </dl>
+          <a class="btn mint" id="wa" href="https://wa.me/79172622996" target="_blank" rel="noopener">Отправить в WhatsApp</a>
+          <a class="btn" href="https://t.me/nanomoika_vg" target="_blank" rel="noopener">Telegram</a>
+          <p>Время предварительное: мойка подтвердит запись в ответ. Слоты внутри рабочего дня 09:00–20:30 по Москве.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="facts">
+    <div class="wrap">
+      <div class="micro">03 · Параметры</div>
+      <h2>Мелочи, которые важны</h2>
+      <div class="facts">
+        <div><span class="micro">Вместимость</span><b>До 2 машин</b></div>
+        <div><span class="micro">Ожидание</span><b>Зал ожидания, Wi-Fi</b></div>
+        <div><span class="micro">С собой</span><b>Кофе и чай</b></div>
+        <div><span class="micro">Оплата</span><b>Карта, наличные, QR</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="micro">04 · Адрес и часы</div>
+        <div class="hrs">09:00–20:30</div>
+        <div class="micro">Ежедневно · по предварительной записи</div>
+        <p class="addr">Центральная улица, 3а<small>1 этаж · 55.920733, 49.307896</small></p>
+        <div class="cta" style="margin-top:16px">
+          <a class="btn mint" href="https://yandex.ru/maps/?rtext=~55.920733,49.307896&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+          <a class="btn" href="tel:+79172622996">+7‒917‒262‒29‒96</a>
+          <a class="btn" href="https://wa.me/79172622996" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn" href="https://t.me/nanomoika_vg" target="_blank" rel="noopener">Telegram</a>
+        </div>
+      </div>
+      <div class="map">
+        <iframe src="https://yandex.ru/map-widget/v1/?ll=49.307896%2C55.920733&z=16&pt=49.307896%2C55.920733%2Cpm2rdm" title="Нано Мойка на карте" loading="lazy" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Нано Мойка, автомойка · Центральная улица, 3а · Демо-версия сайта, данные из 2ГИС</div>
+</footer>
+
+<nav class="bar" aria-label="Быстрые действия">
+  <a class="main" href="tel:+79172622996">Позвонить</a>
+  <a href="https://yandex.ru/maps/?rtext=~55.920733,49.307896&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a href="https://wa.me/79172622996" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  const $ = s => document.querySelector(s);
+  const TZ = "Europe/Moscow";
+
+  // Ежедневно 09:00–20:30 по Москве
+  const OPEN = 9*60, CLOSE = 20*60+30;
+  function mskMinutes(){
+    const p = new Intl.DateTimeFormat("ru-RU",{timeZone:TZ,hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());
+    return +p.find(x=>x.type==="hour").value*60 + +p.find(x=>x.type==="minute").value;
+  }
+  function updateStatus(){
+    const m = mskMinutes(), open = m>=OPEN && m<CLOSE;
+    $("#status").classList.toggle("open",open);
+    $("#statusText").textContent = open ? "Открыто сейчас · до 20:30" : (m<OPEN ? "Закрыто, откроется сегодня в 09:00" : "Закрыто, откроется завтра в 09:00");
+  }
+  updateStatus(); setInterval(updateStatus,30000);
+
+  // Запись
+  const SERVICES = ["Комплексная мойка","Мойка паром","Бесконтактная мойка","Мойка днища","Химчистка салона","Полировка кузова"];
+  const SLOTS = ["09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00"];
+  const picked = new Set();
+  let dayIdx = 0, slot = null;
+
+  function chip(text, onClick){
+    const b = document.createElement("button"); b.type = "button"; b.className = "chip";
+    b.setAttribute("aria-pressed","false"); b.textContent = text; b.onclick = onClick; return b;
+  }
+  SERVICES.forEach(s=>{
+    const b = chip(s, () => {
+      const on = !picked.has(s); on ? picked.add(s) : picked.delete(s);
+      b.setAttribute("aria-pressed",String(on)); render();
+    });
+    $("#svc").appendChild(b);
+  });
+
+  const dayFmt = new Intl.DateTimeFormat("ru-RU",{timeZone:TZ,day:"numeric",month:"long"});
+  const wdFmt = new Intl.DateTimeFormat("ru-RU",{timeZone:TZ,weekday:"short"});
+  const DAYS = [0,1,2].map(i=>{
+    const d = new Date(Date.now()+i*864e5);
+    return {name:["Сегодня","Завтра","Послезавтра"][i], date:dayFmt.format(d), wd:wdFmt.format(d)};
+  });
+  DAYS.forEach((d,i)=>{
+    const b = chip("", () => { dayIdx = i; drawSlots(); render(); });
+    b.innerHTML = "<small></small><span></span>";
+    b.querySelector("small").textContent = d.name;
+    b.querySelector("span").textContent = d.date + ", " + d.wd;
+    $("#days").appendChild(b);
+  });
+
+  function drawSlots(){
+    document.querySelectorAll("#days .chip").forEach((b,i)=>b.setAttribute("aria-pressed",String(i===dayIdx)));
+    const now = mskMinutes(), box = $("#slots"); box.innerHTML = "";
+    SLOTS.forEach(t=>{
+      const [h,m] = t.split(":").map(Number), past = dayIdx===0 && h*60+m <= now + 30;
+      if(past && slot===t) slot = null;
+      const b = chip(t, () => { slot = t; drawSlots(); render(); });
+      b.disabled = past; b.setAttribute("aria-pressed",String(slot===t));
+      box.appendChild(b);
+    });
+  }
+  drawSlots();
+
+  function render(){
+    const arr = [...picked], d = DAYS[dayIdx];
+    $("#oSvc").textContent = arr.length ? arr.join(", ") : "не выбрано";
+    $("#oDay").textContent = d.name + ", " + d.date;
+    $("#oTime").textContent = slot ? "около " + slot : "—";
+    let msg = "Здравствуйте! Хочу записаться в Нано Мойку.";
+    if(arr.length) msg += "\nУслуги: " + arr.join(", ") + ".";
+    msg += "\nДень: " + d.name.toLowerCase() + ", " + d.date + ".";
+    if(slot) msg += "\nВремя: около " + slot + ".";
+    msg += "\nПодтвердите, пожалуйста, есть ли окно.";
+    $("#wa").href = "https://wa.me/79172622996?text=" + encodeURIComponent(msg);
+  }
+  render();
+</script>
+</body>
+</html>
