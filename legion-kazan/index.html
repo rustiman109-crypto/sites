@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Легион — барбершоп на Чистопольской, 55 в Казани</title>
+<meta name="description" content="Барбершоп «Легион» в Казани, Чистопольская улица, 55. Мужская стрижка от 800 ₽, детская стрижка. Ежедневно 10:00–21:00. Рейтинг 5,0 в 2ГИС.">
+<meta name="theme-color" content="#7a0e10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@500;600;700&family=PT+Sans:wght@400;700&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --stone:#e8e3da;
+    --stone-2:#d8d1c4;
+    --stone-ink:#2a2420;
+    --vein:#8d8478;
+    --red:#7a0e10;
+    --red-dk:#4e0809;
+    --gold:#c3a052;
+    --gold-hi:#e6cd8a;
+    --muted:#6b625a;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;color:var(--stone-ink);font:17px/1.55 "PT Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+    padding-bottom:calc(80px + env(safe-area-inset-bottom));background:var(--stone)}
+  @media(min-width:860px){body{padding-bottom:0}}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+  h1,h2,h3,.sc{font-family:"Cormorant SC",Georgia,serif;margin:0;line-height:1;font-weight:700;letter-spacing:.04em}
+  h2{font-size:clamp(36px,9vw,60px)}
+  section{padding:68px 0;position:relative}
+
+  /* мрамор: CSS-прожилки + шум из SVG-фильтра */
+  .marble{
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.004 .018' numOctaves='5' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .42 0 0 0 0 .38 0 0 0 -2.2 1.25'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)' opacity='.55'/%3E%3C/svg%3E"),
+      linear-gradient(118deg,transparent 38%,rgba(120,108,96,.22) 38.6%,transparent 39.4%),
+      linear-gradient(152deg,transparent 64%,rgba(120,108,96,.16) 64.4%,transparent 65.2%),
+      linear-gradient(72deg,transparent 18%,rgba(140,124,108,.12) 18.5%,transparent 20%),
+      radial-gradient(ellipse at 15% 20%,rgba(255,255,255,.75),transparent 55%),
+      radial-gradient(ellipse at 85% 80%,rgba(196,186,170,.6),transparent 60%),
+      var(--stone);
+    background-size:600px 600px,auto,auto,auto,auto,auto,auto;
+  }
+  .porphyry{background:radial-gradient(ellipse at 30% 0%,#93171a,transparent 60%),radial-gradient(ellipse at 100% 100%,var(--red-dk),transparent 60%),var(--red);color:var(--stone)}
+
+  .demo{background:var(--red-dk);color:var(--gold-hi);text-align:center;font:700 13px/1.35 "PT Sans",sans-serif;padding:8px 16px}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(232,227,218,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--stone-2)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 24px/1 "Cormorant SC",serif;letter-spacing:.12em;color:var(--red)}
+  .logo svg{width:26px;height:30px}
+  .h-tel{font-weight:700;text-decoration:none;white-space:nowrap;font-size:15px}
+  .h-nav{display:none;gap:24px;font:600 18px/1 "Cormorant SC",serif;letter-spacing:.06em}
+  .h-nav a{text-decoration:none}.h-nav a:hover{color:var(--red)}
+  .h-nav b{color:var(--gold);margin-right:4px}
+  @media(min-width:860px){.h-nav{display:flex}}
+
+  /* hero */
+  .hero{padding:40px 0 60px;text-align:center}
+  .shield{width:min(240px,62vw);display:block;margin:0 auto;filter:drop-shadow(0 16px 24px rgba(60,20,10,.35))}
+  .hero h1{font-size:clamp(54px,16vw,120px);color:var(--red);letter-spacing:.14em;margin-top:18px;padding-left:.14em}
+  .hero .sub{font:600 clamp(20px,5vw,26px)/1.2 "Cormorant SC",serif;letter-spacing:.08em;color:var(--muted);margin:6px 0 22px}
+  .rule{display:flex;align-items:center;gap:14px;justify-content:center;color:var(--gold);margin:0 auto 22px;max-width:360px}
+  .rule::before,.rule::after{content:"";flex:1;height:1px;background:var(--gold)}
+  .badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:24px}
+  .badge{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:8px 16px;border:1px solid var(--gold);background:rgba(255,255,255,.45);font-size:15px;text-decoration:none}
+  .badge b{color:var(--red)}
+  .badge .dot{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+  .is-open .badge .dot{background:#2f7d3a;box-shadow:0 0 0 4px rgba(47,125,58,.18)}
+  .cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;font:700 20px/1 "Cormorant SC",serif;letter-spacing:.08em;
+    text-decoration:none;cursor:pointer;border:1px solid var(--red);color:var(--red);background:transparent}
+  .btn.red{background:var(--red);color:var(--gold-hi);border-color:var(--red);box-shadow:inset 0 0 0 3px var(--red),inset 0 0 0 4px var(--gold)}
+  .btn.gold{background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:var(--red-dk);border-color:var(--gold)}
+  .btn:active{transform:translateY(1px)}
+
+  /* заголовки разделов с римской цифрой */
+  .num{display:flex;align-items:baseline;gap:16px;margin-bottom:26px}
+  .num .r{font:700 clamp(44px,11vw,72px)/1 "Cormorant SC",serif;color:var(--gold)}
+  .num .t small{display:block;font:700 12px/1 "PT Sans",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .porphyry .num .t small{color:var(--gold-hi);opacity:.8}
+
+  /* услуги */
+  .ordo{display:grid;gap:14px}
+  @media(min-width:800px){.ordo{grid-template-columns:repeat(3,1fr)}}
+  .unit{position:relative;display:block;width:100%;text-align:left;cursor:pointer;font:inherit;color:var(--stone);
+    background:rgba(0,0,0,.18);border:1px solid rgba(230,205,138,.5);padding:22px 20px 20px;min-height:150px}
+  .unit .rn{font:700 22px/1 "Cormorant SC",serif;color:var(--gold-hi)}
+  .unit h3{font-size:28px;margin:12px 0 8px;color:var(--stone)}
+  .unit p{margin:0;font-size:15px;opacity:.85}
+  .unit .pr{position:absolute;right:16px;top:20px;font:700 20px/1 "Cormorant SC",serif;color:var(--gold-hi)}
+  .unit[aria-pressed="true"]{background:var(--stone);color:var(--stone-ink);border-color:var(--gold);box-shadow:0 0 0 3px var(--gold)}
+  .unit[aria-pressed="true"] h3{color:var(--red)}
+  .unit[aria-pressed="true"] .rn,.unit[aria-pressed="true"] .pr{color:var(--red)}
+  .unit[aria-pressed="true"]::after{content:"выбрано";position:absolute;right:16px;bottom:14px;font:700 11px/1 "PT Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+  .fine{font-size:14px;opacity:.8;margin-top:18px}
+
+  /* запись: каменная табличка */
+  .tabula{background:var(--stone-2);border:1px solid var(--vein);padding:24px 18px;box-shadow:inset 0 2px 10px rgba(0,0,0,.12)}
+  @media(min-width:700px){.tabula{padding:34px}}
+  .tabula .grid{display:grid;gap:22px}
+  @media(min-width:860px){.tabula .grid{grid-template-columns:1fr 1fr}}
+  .q{font:700 12px/1 "PT Sans",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .seg{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+  .seg button{min-height:48px;padding:0 16px;border:1px solid var(--vein);background:var(--stone);color:var(--stone-ink);font:600 19px/1 "Cormorant SC",serif;letter-spacing:.04em;cursor:pointer}
+  .seg button[aria-pressed="true"]{background:var(--red);color:var(--gold-hi);border-color:var(--red)}
+  .seg button:disabled{opacity:.35;cursor:not-allowed}
+  .inscr{background:var(--stone);border:1px solid var(--vein);padding:20px;font:600 21px/1.35 "Cormorant SC",serif;letter-spacing:.02em;color:var(--stone-ink);
+    text-shadow:0 1px 0 rgba(255,255,255,.8),0 -1px 0 rgba(0,0,0,.12);margin:0 0 14px}
+  .inscr-l{font:700 11px/1 "PT Sans",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+  .tabula .btn{width:100%}
+  .alt{display:block;text-align:center;margin-top:12px;font-size:15px;color:var(--muted)}
+
+  /* удобства */
+  .virtus{display:grid;gap:0;border-top:1px solid var(--gold)}
+  @media(min-width:760px){.virtus{grid-template-columns:repeat(3,1fr)}}
+  .virtus div{padding:18px 0;border-bottom:1px solid var(--gold)}
+  @media(min-width:760px){.virtus div{padding:22px 20px;border-bottom:0;border-right:1px solid var(--gold)}.virtus div:last-child{border-right:0}}
+  .virtus b{display:block;font:700 26px/1.1 "Cormorant SC",serif;color:var(--red);margin-bottom:4px}
+  .virtus span{color:var(--muted);font-size:16px}
+
+  /* часы */
+  .hours-wrap{display:grid;gap:26px;align-items:center}
+  @media(min-width:860px){.hours-wrap{grid-template-columns:1fr 1fr}}
+  .roman-h{font:700 clamp(72px,22vw,150px)/.9 "Cormorant SC",serif;color:var(--gold-hi);letter-spacing:.02em}
+  .roman-h small{display:block;font:700 15px/1 "PT Sans",sans-serif;letter-spacing:.2em;color:var(--stone);margin-top:12px;opacity:.8}
+  .days{list-style:none;margin:0;padding:0;border-top:1px solid rgba(230,205,138,.4)}
+  .days li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(230,205,138,.25);font-size:16px}
+  .days li.today{color:var(--gold-hi);font-weight:700}
+  .days li.today span:first-child::after{content:" · сегодня";font-weight:400;opacity:.8}
+
+  /* где */
+  .where{display:grid;gap:26px}
+  @media(min-width:860px){.where{grid-template-columns:1fr 1.2fr}}
+  .addr{font:700 clamp(30px,8vw,44px)/1.05 "Cormorant SC",serif;color:var(--red);margin:0 0 10px}
+  .where p{margin:0 0 16px;color:var(--muted)}
+  .contacts{display:grid;gap:8px;margin:20px 0}
+  .contacts a{display:flex;justify-content:space-between;align-items:center;min-height:52px;padding:0 16px;border:1px solid var(--vein);background:rgba(255,255,255,.4);text-decoration:none;font-weight:700}
+  .contacts a span{font:600 18px/1 "Cormorant SC",serif;color:var(--red);letter-spacing:.06em}
+  .map{border:1px solid var(--gold);padding:6px;background:var(--stone)}
+  .map iframe{width:100%;height:360px;border:0;display:block}
+
+  footer{background:var(--red-dk);color:var(--gold-hi);padding:26px 0;font-size:13px;text-align:center;opacity:.95}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    background:var(--red-dk);border-top:2px solid var(--gold)}
+  .dock .btn{min-height:50px;padding:0 6px;font-size:18px;border-color:var(--gold);color:var(--gold-hi)}
+  .dock .btn.gold{color:var(--red-dk)}
+  @media(min-width:860px){.dock{display:none}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 200 220" aria-hidden="true"><path d="M20 14H180V100C180 160 145 192 100 210 55 192 20 160 20 100Z" fill="#7a0e10" stroke="#c3a052" stroke-width="12"/></svg>
+      Легион
+    </a>
+    <nav class="h-nav" aria-label="Разделы">
+      <a href="#ordo"><b>I</b>Услуги</a>
+      <a href="#zapis"><b>II</b>Запись</a>
+      <a href="#hours"><b>IV</b>Часы</a>
+      <a href="#where"><b>V</b>Где мы</a>
+    </nav>
+    <a class="h-tel" href="tel:+79992654545">+7 999 265-45-45</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero marble">
+    <div class="wrap">
+      <svg class="shield" viewBox="0 0 200 250" role="img" aria-label="Щит-эмблема барбершопа «Легион»">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ecd596"/><stop offset=".55" stop-color="#c3a052"/><stop offset="1" stop-color="#8f6f2c"/></linearGradient>
+          <radialGradient id="f" cx=".5" cy=".3" r=".8"><stop offset="0" stop-color="#9a1a1c"/><stop offset="1" stop-color="#4e0809"/></radialGradient>
+          <g id="leaf" fill="url(#g)">
+            <ellipse cx="-7" cy="-2" rx="8" ry="2.8" transform="rotate(35 -7 -2)"/>
+            <ellipse cx="7" cy="-2" rx="8" ry="2.8" transform="rotate(-35 7 -2)"/>
+          </g>
+          <g id="branch">
+            <path d="M74 190 C56 168 42 140 43 108 C44 90 48 78 54 66" fill="none" stroke="url(#g)" stroke-width="2"/>
+            <g transform="translate(70 182) rotate(-35)"><use href="#leaf"/></g><g transform="translate(58 166) rotate(-28)"><use href="#leaf"/></g><g transform="translate(49 148) rotate(-18)"><use href="#leaf"/></g><g transform="translate(44 128) rotate(-8)"><use href="#leaf"/></g><g transform="translate(43 108) rotate(2)"><use href="#leaf"/></g><g transform="translate(46 88) rotate(12)"><use href="#leaf"/></g><g transform="translate(52 70) rotate(22)"><use href="#leaf"/></g>
+          </g>
+        </defs>
+        <path d="M20 14H180V100C180 160 145 192 100 210 55 192 20 160 20 100Z" fill="url(#f)" stroke="url(#g)" stroke-width="8" stroke-linejoin="round"/>
+        <path d="M32 26H168V100C168 152 138 180 100 196 62 180 32 152 32 100Z" fill="none" stroke="#c3a052" stroke-width="1.2"/>
+        <use href="#branch"/>
+        <use href="#branch" transform="translate(200 0) scale(-1 1)"/>
+        <g fill="#e6cd8a" font-family="Georgia,serif" font-size="13" text-anchor="middle"><text x="80" y="52">✦</text><text x="100" y="46">✦</text><text x="120" y="52">✦</text></g>
+        <text x="100" y="150" text-anchor="middle" font-family="'Cormorant SC',Georgia,serif" font-weight="700" font-size="92" fill="url(#g)">Л</text>
+        <path d="M14 206H186L176 222L186 238H14L24 222Z" fill="url(#g)"/>
+        <path d="M14 206L4 214L14 222Z M186 206L196 214L186 222Z" fill="#8f6f2c"/>
+        <text x="100" y="228" text-anchor="middle" font-family="'Cormorant SC',Georgia,serif" font-weight="700" font-size="20" letter-spacing="6" fill="#4e0809">ЛЕГИОН</text>
+      </svg>
+      <h1>Легион</h1>
+      <p class="sub">барбершоп на Чистопольской, 55</p>
+      <div class="rule">✦</div>
+      <div class="badges">
+        <a class="badge" href="https://2gis.ru/kazan/firm/70000001068078675/tab/reviews" target="_blank" rel="noopener"><b>★ 5,0</b> высший балл · 176 отзывов в 2ГИС</a>
+        <span class="badge"><i class="dot"></i><span data-status>Ежедневно 10:00–21:00</span></span>
+      </div>
+      <div class="cta">
+        <a class="btn red" href="#zapis">Записаться</a>
+        <a class="btn" href="tel:+79992654545">Позвонить</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="porphyry" id="ordo">
+    <div class="wrap">
+      <div class="num"><span class="r">I</span><div class="t"><small>Раздел первый</small><h2>Услуги</h2></div></div>
+      <div class="ordo" role="group" aria-label="Выберите услугу">
+        <button class="unit" type="button" data-svc="0"><span class="rn">I</span><span class="pr">от 800 ₽</span><h3>Мужская стрижка</h3><p>Цена «от» — по данным 2ГИС.</p></button>
+        <button class="unit" type="button" data-svc="1"><span class="rn">II</span><span class="pr">≈ ?</span><h3>Детская стрижка</h3><p>Стоимость уточним при записи.</p></button>
+        <button class="unit" type="button" data-svc="2"><span class="rn">III</span><span class="pr">≈ ?</span><h3>Отец и сын</h3><p>Мужская и детская стрижка подряд.</p></button>
+      </div>
+      <p class="fine">Цены примерные, уточняются у владельца. Нажмите на услугу — она перейдёт в запись ниже.</p>
+    </div>
+  </section>
+
+  <section class="marble" id="zapis">
+    <div class="wrap">
+      <div class="num"><span class="r">II</span><div class="t"><small>Раздел второй</small><h2>Запись</h2></div></div>
+      <div class="tabula">
+        <div class="grid">
+          <div>
+            <p class="q">Услуга</p>
+            <div class="seg" role="group" aria-label="Услуга">
+              <button type="button" data-svc="0">Мужская</button>
+              <button type="button" data-svc="1">Детская</button>
+              <button type="button" data-svc="2">Отец и сын</button>
+            </div>
+            <p class="q">День</p>
+            <div class="seg" role="group" aria-label="День">
+              <button type="button" data-day="сегодня">Сегодня</button>
+              <button type="button" data-day="завтра">Завтра</button>
+              <button type="button" data-day="на этой неделе">На неделе</button>
+            </div>
+            <p class="q">Время</p>
+            <div class="seg" role="group" aria-label="Время">
+              <button type="button" data-part="утром">Утро</button>
+              <button type="button" data-part="днём">День</button>
+              <button type="button" data-part="вечером">Вечер</button>
+              <button type="button" data-part="в любое время">Любое</button>
+            </div>
+          </div>
+          <div>
+            <p class="inscr-l">Текст сообщения</p>
+            <p class="inscr" data-msg>Здравствуйте! Хочу записаться на мужскую стрижку.</p>
+            <a class="btn red" data-book href="https://wa.me/79992654545" target="_blank" rel="noopener">Записаться в WhatsApp</a>
+            <a class="alt" href="https://t.me/+79992654545" target="_blank" rel="noopener">или написать в Telegram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="marble" style="padding-top:20px">
+    <div class="wrap">
+      <div class="num"><span class="r">III</span><div class="t"><small>Раздел третий</small><h2>Удобства</h2></div></div>
+      <div class="virtus">
+        <div><b>Wi-Fi</b><span>Сеть для клиентов — пока ждёте своей очереди.</span></div>
+        <div><b>Можно с собакой</b><span>Питомцу не придётся ждать на улице.</span></div>
+        <div><b>Оплата</b><span>Наличными, переводом с карты или по QR-коду.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="porphyry" id="hours">
+    <div class="wrap">
+      <div class="num"><span class="r">IV</span><div class="t"><small>Раздел четвёртый</small><h2>Часы</h2></div></div>
+      <div class="hours-wrap">
+        <div class="roman-h">X–XXI<small>С 10:00 до 21:00, без выходных · <span data-status></span></small></div>
+        <ul class="days">
+          <li data-wd="Mon"><span>Понедельник</span><span>10:00–21:00</span></li>
+          <li data-wd="Tue"><span>Вторник</span><span>10:00–21:00</span></li>
+          <li data-wd="Wed"><span>Среда</span><span>10:00–21:00</span></li>
+          <li data-wd="Thu"><span>Четверг</span><span>10:00–21:00</span></li>
+          <li data-wd="Fri"><span>Пятница</span><span>10:00–21:00</span></li>
+          <li data-wd="Sat"><span>Суббота</span><span>10:00–21:00</span></li>
+          <li data-wd="Sun"><span>Воскресенье</span><span>10:00–21:00</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="marble" id="where">
+    <div class="wrap">
+      <div class="num"><span class="r">V</span><div class="t"><small>Раздел пятый</small><h2>Где мы</h2></div></div>
+      <div class="where">
+        <div>
+          <p class="addr">Чистопольская улица, 55</p>
+          <p>1 этаж · Ново-Савиновский район, Казань</p>
+          <div class="cta" style="justify-content:flex-start">
+            <a class="btn red" href="https://yandex.ru/maps/?rtext=~55.819718,49.129487&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+            <a class="btn" href="https://2gis.ru/kazan/firm/70000001068078675" target="_blank" rel="noopener">2ГИС</a>
+          </div>
+          <div class="contacts">
+            <a href="tel:+79992654545">+7 999 265-45-45 <span>Позвонить</span></a>
+            <a href="https://wa.me/79992654545" target="_blank" rel="noopener">WhatsApp <span>Написать</span></a>
+            <a href="https://t.me/+79992654545" target="_blank" rel="noopener">Telegram <span>Написать</span></a>
+          </div>
+        </div>
+        <div class="map">
+          <iframe title="«Легион» на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=49.129487%2C55.819718&z=16&pt=49.129487%2C55.819718%2Cpm2rdm"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">«Легион», барбершоп · Чистопольская улица, 55, Казань<br>Демо-версия сайта, подготовлена для владельца. Данные из 2ГИС.</div>
+</footer>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a class="btn" href="tel:+79992654545">Позвонить</a>
+  <a class="btn" href="https://yandex.ru/maps/?rtext=~55.819718,49.129487&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn gold" href="https://wa.me/79992654545" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  window.SITE = {
+    open: "10:00", close: "21:00", wa: "79992654545",
+    services: [
+      { name: "Мужская стрижка", acc: "мужскую стрижку", price: "от 800 ₽" },
+      { name: "Детская стрижка", acc: "детскую стрижку", price: "уточняется" },
+      { name: "Отец и сын", acc: "мужскую и детскую стрижку", price: "уточняется" }
+    ]
+  };
+</script>
+<script>
+(function(){
+  var S = window.SITE;
+  function qa(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); }
+  function tm(s){ var a = s.split(":"); return (+a[0]) * 60 + (+a[1]); }
+  var O = tm(S.open), C = tm(S.close);
+  var st = { svc: 0, day: "сегодня", part: "в любое время" };
+
+  // Текущее время в Казани (Europe/Moscow)
+  function msk(){
+    var o = {};
+    new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Moscow", hour: "2-digit", minute: "2-digit", weekday: "short", hourCycle: "h23" })
+      .formatToParts(new Date()).forEach(function(p){ o[p.type] = p.value; });
+    return { min: (+o.hour) * 60 + (+o.minute), wd: o.weekday };
+  }
+
+  function status(){
+    var n = msk(), open = n.min >= O && n.min < C, t;
+    if (open) t = "Открыто сейчас, до " + S.close;
+    else t = "Закрыто, откроется " + (n.min < O ? "сегодня" : "завтра") + " в " + S.open;
+    document.documentElement.classList.toggle("is-open", open);
+    qa("[data-status]").forEach(function(e){ e.textContent = t; });
+    qa("[data-wd]").forEach(function(e){ e.classList.toggle("today", e.getAttribute("data-wd") === n.wd); });
+    // Сегодня записываться поздно, если до закрытия меньше часа
+    var late = n.min >= C - 60;
+    qa('[data-day="сегодня"]').forEach(function(b){ b.disabled = late; });
+    if (late && st.day === "сегодня") st.day = "завтра";
+    render();
+  }
+
+  function press(attr, val){
+    qa("[" + attr + "]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute(attr) === String(val))); });
+  }
+
+  function render(){
+    var s = S.services[st.svc];
+    press("data-svc", st.svc); press("data-day", st.day); press("data-part", st.part);
+    var name = "";
+    qa("[data-name-input]").forEach(function(i){ if (i.value.trim()) name = i.value.trim().slice(0, 40); });
+    var msg = "Здравствуйте! Хочу записаться на " + s.acc + " — " + st.day + ", " + st.part + ". Подскажете свободное время?";
+    if (name) msg += " Меня зовут " + name + ".";
+    qa("[data-msg]").forEach(function(e){ e.textContent = msg; });
+    qa("[data-book]").forEach(function(e){ e.href = "https://wa.me/" + S.wa + "?text=" + encodeURIComponent(msg); });
+    qa("[data-svc-name]").forEach(function(e){ e.textContent = s.name; });
+    qa("[data-svc-price]").forEach(function(e){ e.textContent = s.price; });
+    qa("[data-day-out]").forEach(function(e){ e.textContent = st.day; });
+    qa("[data-part-out]").forEach(function(e){ e.textContent = st.part; });
+    qa("[data-name-out]").forEach(function(e){ e.textContent = name || e.getAttribute("data-name-out"); });
+  }
+
+  document.addEventListener("click", function(ev){
+    var b = ev.target.closest("[data-svc],[data-day],[data-part]");
+    if (!b || b.disabled) return;
+    if (b.hasAttribute("data-svc")) st.svc = +b.getAttribute("data-svc");
+    if (b.hasAttribute("data-day")) st.day = b.getAttribute("data-day");
+    if (b.hasAttribute("data-part")) st.part = b.getAttribute("data-part");
+    render();
+  });
+  qa("[data-name-input]").forEach(function(i){ i.addEventListener("input", render); });
+
+  status();
+  setInterval(status, 30000);
+})();
+</script>
+</body>
+</html>
