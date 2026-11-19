@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MK — барбершоп на Павлюхина, 104 в Казани</title>
+<meta name="description" content="Барбершоп MK в Казани, улица Павлюхина, 104, офис 5. Мужская стрижка от 1700 ₽, детская стрижка. Ежедневно 10:00–20:00 по предварительному звонку. Рейтинг 5,0 в 2ГИС.">
+<meta name="theme-color" content="#fafaf8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fafaf8;
+    --graphite:#2b2d2f;
+    --g2:#5c5f63;
+    --g3:#9a9da1;
+    --line:#e2e2df;
+    --rose:#d9a5a0;
+    --p:38%;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--graphite);font:17px/1.6 "Manrope",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+    padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  @media(min-width:860px){body{padding-bottom:0}}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+  @media(min-width:860px){.wrap{padding:0 48px}}
+  h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.02em;line-height:1.05}
+  h2{font-size:clamp(30px,7vw,48px)}
+  .lbl{font:700 12px/1 "Manrope",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--g3)}
+
+  /* инициалы MK: контур + заливка, которая растёт при прокрутке */
+  .mk{font-weight:800;letter-spacing:-.06em;line-height:.78;color:transparent;-webkit-text-stroke:2px var(--graphite);
+    background:linear-gradient(to top,var(--rose) var(--p),transparent var(--p));-webkit-background-clip:text;background-clip:text;user-select:none}
+  .mk.dark{background:linear-gradient(to top,var(--graphite) var(--p),transparent var(--p));-webkit-background-clip:text;background-clip:text}
+
+  .demo{background:var(--graphite);color:var(--paper);text-align:center;font:500 13px/1.35 "Manrope",sans-serif;padding:8px 16px}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(250,250,248,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+  .logo{text-decoration:none;font-size:30px;-webkit-text-stroke-width:1.2px}
+  .h-nav{display:none;gap:28px;font-size:14px;font-weight:500;color:var(--g2)}
+  .h-nav a{text-decoration:none}.h-nav a:hover{color:var(--graphite)}
+  @media(min-width:860px){.h-nav{display:flex}}
+  .h-tel{font-weight:700;text-decoration:none;white-space:nowrap;font-size:15px}
+
+  /* layout: слева большие инициалы (липкие на десктопе), справа контент */
+  .layout{display:grid;gap:0}
+  @media(min-width:980px){.layout{grid-template-columns:5fr 6fr;gap:64px}}
+  .mono-col{padding:28px 0 0}
+  @media(min-width:980px){.mono-col{position:sticky;top:60px;height:calc(100vh - 60px);display:flex;align-items:center;padding:0}}
+  .giant{font-size:clamp(150px,52vw,420px);display:block;margin-left:-.04em}
+  @media(min-width:980px){.giant{font-size:min(30vw,62vh);-webkit-text-stroke-width:3px}}
+
+  .block{padding:56px 0;border-top:1px solid var(--line)}
+  .block:first-child{border-top:0;padding-top:28px}
+  @media(min-width:980px){.block{padding:96px 0}.block:first-child{padding-top:96px}}
+  .head{display:flex;gap:14px;align-items:baseline;margin-bottom:26px}
+  .head .lbl{min-width:28px}
+
+  .intro h1{font-size:clamp(32px,8vw,56px)}
+  .intro h1 span{color:var(--g3)}
+  .intro p{color:var(--g2);max-width:34ch;margin:18px 0 22px}
+  .call-note{display:flex;gap:12px;align-items:flex-start;border-left:3px solid var(--rose);padding:6px 0 6px 14px;margin:0 0 24px;font-weight:500}
+  .meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin-bottom:26px;font-size:15px}
+  .meta a,.meta span{text-decoration:none}
+  .meta b{font-weight:800}
+  .st{display:inline-flex;align-items:center;gap:8px}
+  .st i{width:8px;height:8px;border-radius:50%;background:var(--g3)}
+  .is-open .st i{background:var(--graphite);box-shadow:0 0 0 4px var(--rose)}
+  .rev{border-bottom:1px solid var(--graphite)}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:999px;font:700 16px/1 "Manrope",sans-serif;
+    text-decoration:none;cursor:pointer;border:1.5px solid var(--graphite);color:var(--graphite);background:transparent}
+  .btn.solid{background:var(--graphite);color:var(--paper)}
+  .btn.rose{background:var(--rose);border-color:var(--rose);color:var(--graphite)}
+  .btn:active{transform:translateY(1px)}
+
+  /* запись */
+  .svc{list-style:none;margin:0;padding:0;border-top:1px solid var(--graphite)}
+  .svc button{display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:baseline;width:100%;min-height:64px;padding:16px 0;border:0;border-bottom:1px solid var(--line);
+    background:none;font:inherit;color:inherit;text-align:left;cursor:pointer}
+  .svc .n{font-size:12px;font-weight:700;color:var(--g3)}
+  .svc b{font-size:20px;font-weight:700;letter-spacing:-.01em}
+  .svc small{display:block;color:var(--g3);font-size:14px}
+  .svc .pr{font-weight:700;white-space:nowrap}
+  .svc .pr.q{color:var(--g3);font-weight:500}
+  .svc button[aria-pressed="true"] b{box-shadow:inset 0 -.45em 0 var(--rose)}
+  .svc button[aria-pressed="true"] .n{color:var(--graphite)}
+  .q{margin:26px 0 10px}
+  .pills{display:flex;flex-wrap:wrap;gap:8px}
+  .pills button{min-height:48px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--graphite);font:600 15px/1 "Manrope",sans-serif;cursor:pointer}
+  .pills button[aria-pressed="true"]{border-color:var(--graphite);background:var(--graphite);color:var(--paper)}
+  .pills button:disabled{opacity:.35;cursor:not-allowed}
+  .bubble{margin:28px 0 14px;padding:18px 20px;background:#f0efec;border-radius:20px 20px 20px 4px;font-size:16px;line-height:1.5}
+  .fine{font-size:13px;color:var(--g3);margin-top:14px}
+
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--graphite)}
+  .facts div{padding:18px 12px 18px 0;border-bottom:1px solid var(--line)}
+  .facts b{display:block;font-size:18px}
+  .facts span{color:var(--g2);font-size:14px}
+
+  .hours{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+  .hours .big{font-size:clamp(56px,15vw,96px);font-weight:800;letter-spacing:-.04em;line-height:.9}
+  .week{display:flex;gap:6px;margin-top:22px;flex-wrap:wrap}
+  .week span{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+  .week span.today{background:var(--rose);border-color:var(--rose)}
+  .addr{font-size:clamp(24px,5.6vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin:0 0 6px}
+  .sub{color:var(--g2);margin:0 0 22px}
+  .map{margin-top:26px;border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+  .map iframe{width:100%;height:340px;border:0;display:block;filter:grayscale(1)}
+
+  .outro{padding:40px 0 30px;border-top:1px solid var(--line);overflow:hidden}
+  .outro .mk{font-size:clamp(120px,40vw,360px);display:block;text-align:right}
+  footer{color:var(--g3);font-size:13px;padding:0 0 28px}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(250,250,248,.96);border-top:1px solid var(--line);backdrop-filter:blur(8px)}
+  .dock .btn{min-height:50px;padding:0 6px;font-size:15px}
+  @media(min-width:860px){.dock{display:none}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo mk" href="#top" aria-label="MK, на главную">MK</a>
+    <nav class="h-nav" aria-label="Разделы">
+      <a href="#zapis">Запись</a>
+      <a href="#hours">Часы</a>
+      <a href="#where">Адрес</a>
+    </nav>
+    <a class="h-tel" href="tel:+79872071919">+7 987 207-19-19</a>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+  <div class="layout">
+    <div class="mono-col"><span class="giant mk" aria-hidden="true">MK</span></div>
+
+    <div>
+      <section class="block intro">
+        <p class="lbl">Барбершоп · Казань</p>
+        <h1 style="margin-top:14px">MK на Павлюхина, 104 <span>— барбершоп в Приволжском районе</span></h1>
+        <p>Мужские и детские стрижки. Каждый день с 10 до 20.</p>
+        <div class="call-note">Приём по предварительному звонку — лучше договориться о времени заранее.</div>
+        <div class="meta">
+          <span class="st"><i></i><span data-status>10:00–20:00</span></span>
+          <a class="rev" href="https://2gis.ru/kazan/firm/70000001054151391/tab/reviews" target="_blank" rel="noopener"><b>5,0</b> · 129 отзывов в 2ГИС</a>
+        </div>
+        <div class="cta">
+          <a class="btn solid" href="tel:+79872071919">Позвонить</a>
+          <a class="btn" href="#zapis">Выбрать услугу</a>
+        </div>
+      </section>
+
+      <section class="block" id="zapis">
+        <div class="head"><span class="lbl">01</span><h2>Запись</h2></div>
+        <div class="svc" role="group" aria-label="Услуга">
+          <button type="button" data-svc="0"><span class="n">A</span><span><b>Мужская стрижка</b></span><span class="pr">от 1700 ₽</span></button>
+          <button type="button" data-svc="1"><span class="n">B</span><span><b>Детская стрижка</b></span><span class="pr q">уточняется</span></button>
+          <button type="button" data-svc="2"><span class="n">C</span><span><b>Две стрижки</b><small>мужская и детская подряд</small></span><span class="pr q">уточняется</span></button>
+        </div>
+        <p class="lbl q">День</p>
+        <div class="pills" role="group" aria-label="День">
+          <button type="button" data-day="сегодня">Сегодня</button>
+          <button type="button" data-day="завтра">Завтра</button>
+          <button type="button" data-day="на этой неделе">На неделе</button>
+        </div>
+        <p class="lbl q">Время</p>
+        <div class="pills" role="group" aria-label="Время">
+          <button type="button" data-part="утром">Утро</button>
+          <button type="button" data-part="днём">День</button>
+          <button type="button" data-part="вечером">Вечер</button>
+          <button type="button" data-part="в любое время">Любое</button>
+        </div>
+        <p class="bubble" data-msg>Здравствуйте! Хочу записаться на мужскую стрижку.</p>
+        <div class="cta">
+          <a class="btn rose" data-book href="https://wa.me/79872071919" target="_blank" rel="noopener">Записаться в WhatsApp</a>
+          <a class="btn" href="tel:+79872071919">Или позвонить</a>
+        </div>
+        <p class="fine">Цены примерные, уточняются у владельца. В 2ГИС указано: мужская стрижка от 1700 ₽.</p>
+      </section>
+
+      <section class="block">
+        <div class="head"><span class="lbl">02</span><h2>Удобно</h2></div>
+        <div class="facts">
+          <div><b>Детская стрижка</b><span>Можно прийти с ребёнком</span></div>
+          <div><b>Можно с собакой</b><span>Ждать на улице не нужно</span></div>
+          <div><b>Wi-Fi</b><span>Для клиентов</span></div>
+          <div><b>Оплата</b><span>Карта, наличные, QR-код</span></div>
+        </div>
+      </section>
+
+      <section class="block" id="hours">
+        <div class="head"><span class="lbl">03</span><h2>Часы</h2></div>
+        <div class="hours"><span class="big">10—20</span><span class="sub" style="margin:0 0 8px">ежедневно,<br>по предварительному звонку</span></div>
+        <div class="week" aria-label="Без выходных">
+          <span data-wd="Mon">Пн</span><span data-wd="Tue">Вт</span><span data-wd="Wed">Ср</span><span data-wd="Thu">Чт</span><span data-wd="Fri">Пт</span><span data-wd="Sat">Сб</span><span data-wd="Sun">Вс</span>
+        </div>
+        <p class="st" style="margin-top:18px"><i></i><span data-status>10:00–20:00</span></p>
+      </section>
+
+      <section class="block" id="where">
+        <div class="head"><span class="lbl">04</span><h2>Адрес</h2></div>
+        <p class="addr">улица Павлюхина, 104<br>офис 5, 1 этаж</p>
+        <p class="sub">Приволжский район, Казань</p>
+        <div class="cta">
+          <a class="btn solid" href="https://yandex.ru/maps/?rtext=~55.770522,49.143382&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+          <a class="btn" href="https://2gis.ru/kazan/firm/70000001054151391" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+          <a class="btn" href="https://wa.me/79872071919" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div class="map">
+          <iframe title="MK на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=49.143382%2C55.770522&z=16&pt=49.143382%2C55.770522%2Cpm2rdm"></iframe>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="outro"><span class="mk dark" aria-hidden="true">MK</span></div>
+  <footer>MK, барбершоп · улица Павлюхина, 104, Казань · +7 987 207-19-19<br>Демо-версия сайта, подготовлена для владельца. Данные из 2ГИС.</footer>
+</main>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a class="btn solid" href="tel:+79872071919">Позвонить</a>
+  <a class="btn" href="https://yandex.ru/maps/?rtext=~55.770522,49.143382&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn rose" href="https://wa.me/79872071919" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  window.SITE = {
+    open: "10:00", close: "20:00", wa: "79872071919",
+    services: [
+      { name: "Мужская стрижка", acc: "мужскую стрижку", price: "от 1700 ₽" },
+      { name: "Детская стрижка", acc: "детскую стрижку", price: "уточняется" },
+      { name: "Две стрижки", acc: "мужскую и детскую стрижку", price: "уточняется" }
+    ]
+  };
+</script>
+<script>
+(function(){
+  var S = window.SITE;
+  function qa(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); }
+  function tm(s){ var a = s.split(":"); return (+a[0]) * 60 + (+a[1]); }
+  var O = tm(S.open), C = tm(S.close);
+  var st = { svc: 0, day: "сегодня", part: "в любое время" };
+
+  // Текущее время в Казани (Europe/Moscow)
+  function msk(){
+    var o = {};
+    new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Moscow", hour: "2-digit", minute: "2-digit", weekday: "short", hourCycle: "h23" })
+      .formatToParts(new Date()).forEach(function(p){ o[p.type] = p.value; });
+    return { min: (+o.hour) * 60 + (+o.minute), wd: o.weekday };
+  }
+
+  function status(){
+    var n = msk(), open = n.min >= O && n.min < C, t;
+    if (open) t = "Открыто сейчас, до " + S.close;
+    else t = "Закрыто, откроется " + (n.min < O ? "сегодня" : "завтра") + " в " + S.open;
+    document.documentElement.classList.toggle("is-open", open);
+    qa("[data-status]").forEach(function(e){ e.textContent = t; });
+    qa("[data-wd]").forEach(function(e){ e.classList.toggle("today", e.getAttribute("data-wd") === n.wd); });
+    // Сегодня записываться поздно, если до закрытия меньше часа
+    var late = n.min >= C - 60;
+    qa('[data-day="сегодня"]').forEach(function(b){ b.disabled = late; });
+    if (late && st.day === "сегодня") st.day = "завтра";
+    render();
+  }
+
+  function press(attr, val){
+    qa("[" + attr + "]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute(attr) === String(val))); });
+  }
+
+  function render(){
+    var s = S.services[st.svc];
+    press("data-svc", st.svc); press("data-day", st.day); press("data-part", st.part);
+    var name = "";
+    qa("[data-name-input]").forEach(function(i){ if (i.value.trim()) name = i.value.trim().slice(0, 40); });
+    var msg = "Здравствуйте! Хочу записаться на " + s.acc + " — " + st.day + ", " + st.part + ". Подскажете свободное время?";
+    if (name) msg += " Меня зовут " + name + ".";
+    qa("[data-msg]").forEach(function(e){ e.textContent = msg; });
+    qa("[data-book]").forEach(function(e){ e.href = "https://wa.me/" + S.wa + "?text=" + encodeURIComponent(msg); });
+    qa("[data-svc-name]").forEach(function(e){ e.textContent = s.name; });
+    qa("[data-svc-price]").forEach(function(e){ e.textContent = s.price; });
+    qa("[data-day-out]").forEach(function(e){ e.textContent = st.day; });
+    qa("[data-part-out]").forEach(function(e){ e.textContent = st.part; });
+    qa("[data-name-out]").forEach(function(e){ e.textContent = name || e.getAttribute("data-name-out"); });
+  }
+
+  document.addEventListener("click", function(ev){
+    var b = ev.target.closest("[data-svc],[data-day],[data-part]");
+    if (!b || b.disabled) return;
+    if (b.hasAttribute("data-svc")) st.svc = +b.getAttribute("data-svc");
+    if (b.hasAttribute("data-day")) st.day = b.getAttribute("data-day");
+    if (b.hasAttribute("data-part")) st.part = b.getAttribute("data-part");
+    render();
+  });
+  qa("[data-name-input]").forEach(function(i){ i.addEventListener("input", render); });
+
+  status();
+  setInterval(status, 30000);
+})();
+</script>
+<script>
+  // Инициалы MK заполняются розовым (и графитом в конце) по мере прокрутки
+  (function(){
+    var root = document.documentElement, raf = 0;
+    function upd(){
+      raf = 0;
+      var max = Math.max(1, root.scrollHeight - innerHeight);
+      var p = Math.min(1, Math.max(0, scrollY / max));
+      root.style.setProperty("--p", (12 + p * 88).toFixed(1) + "%");
+    }
+    addEventListener("scroll", function(){ if (!raf) raf = requestAnimationFrame(upd); }, { passive: true });
+    addEventListener("resize", upd);
+    upd();
+  })();
+</script>
+</body>
+</html>
