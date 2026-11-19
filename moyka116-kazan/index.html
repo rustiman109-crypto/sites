@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Мойка116 — мойка самообслуживания 24/7 на проспекте Победы, Казань</title>
+<meta name="description" content="Мойка самообслуживания «Мойка116» в Казани, проспект Победы, 116а, 1 этаж. Круглосуточно, легковые и грузовые, тёплая бесконтактная мойка, пылесос, полировка кузова. Оплата картой и наличными.">
+<meta name="theme-color" content="#f3e6cc">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Nunito:wght@400;600;800;900&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f4e7cd;
+    --cream-2:#ead8b4;
+    --mustard:#d9a22b;
+    --orange:#df7a2e;
+    --terra:#b5502f;
+    --brown:#4a2c1d;
+    --olive:#7d7a3a;
+    --ink:#3a2316;
+    --r:26px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:clip}
+  body{margin:0;background:var(--cream);color:var(--ink);font:600 16px/1.55 "Nunito",system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+    padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{font-family:"Comfortaa",sans-serif;font-weight:700;margin:0;line-height:1.02;letter-spacing:-.02em}
+  h2{font-size:clamp(30px,8vw,52px)}
+
+  .demo{background:var(--brown);color:var(--cream);font:600 13px/1.35 "Nunito";text-align:center;padding:8px 16px}
+
+  /* полосы 70-х */
+  .stripes{height:30px;background:linear-gradient(180deg,var(--mustard) 0 25%,var(--orange) 25% 50%,var(--terra) 50% 75%,var(--brown) 75% 100%)}
+
+  header{position:sticky;top:0;z-index:20;background:var(--cream);box-shadow:0 2px 0 var(--brown)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+  .logo{font:700 21px/1 "Comfortaa";text-decoration:none;display:flex;align-items:center;gap:10px}
+  .logo i{display:inline-block;width:30px;height:15px;border-radius:30px 30px 0 0;
+    background:radial-gradient(circle at 50% 100%,var(--cream) 0 22%,var(--brown) 22% 38%,var(--terra) 38% 56%,var(--orange) 56% 74%,var(--mustard) 74% 100%)}
+  .h-tel{font:800 15px/1 "Nunito";text-decoration:none;white-space:nowrap}
+
+  /* первый экран с солнцем-радугой */
+  .hero{position:relative;padding:34px 0 0;overflow:hidden}
+  .sun{position:absolute;left:50%;bottom:-2px;width:min(760px,150vw);aspect-ratio:2/1;transform:translateX(-50%);border-radius:999px 999px 0 0;
+    background:radial-gradient(circle at 50% 100%,var(--cream) 0 30%,var(--brown) 30% 42%,var(--terra) 42% 56%,var(--orange) 56% 70%,var(--mustard) 70% 84%,var(--cream-2) 84% 100%);
+    opacity:.95;z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:var(--brown);color:var(--cream);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:800}
+  .pill i{width:10px;height:10px;border-radius:50%;background:#9ccf5a;animation:glow 2.4s ease-in-out infinite}
+  @keyframes glow{50%{opacity:.4}}
+  .hero h1{font-size:clamp(54px,16vw,128px);margin:20px 0 0;color:var(--brown);letter-spacing:-.05em}
+  .hero h1 span{color:var(--terra)}
+  .hero p.lead{font-size:clamp(18px,4.8vw,21px);max-width:30ch;margin:14px 0 22px}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 24px;border-radius:999px;border:3px solid var(--brown);
+    background:var(--cream);color:var(--brown);font:800 16px/1 "Nunito";text-decoration:none;cursor:pointer}
+  .btn.t{background:var(--terra);border-color:var(--terra);color:var(--cream)}
+  .btn.b{background:var(--brown);color:var(--cream)}
+  .btn:hover{filter:brightness(1.06)}
+  .hero-space{height:clamp(150px,40vw,300px)}
+
+  /* билетик */
+  .ticket-wrap{background:var(--brown);padding:40px 0 48px}
+  .ticket{position:relative;display:grid;background:var(--cream);color:var(--brown);border-radius:18px;max-width:760px;margin:0 auto;overflow:hidden;
+    box-shadow:0 14px 0 -6px rgba(0,0,0,.25)}
+  @media(min-width:720px){.ticket{grid-template-columns:1fr 220px}}
+  .ticket .main{padding:22px 20px 20px;position:relative}
+  .ticket .main:before{content:"";position:absolute;left:0;right:0;top:0;height:12px;
+    background:linear-gradient(90deg,var(--mustard) 0 25%,var(--orange) 25% 50%,var(--terra) 50% 75%,var(--olive) 75%)}
+  .ticket .t-top{display:flex;justify-content:space-between;gap:10px;font:800 12px/1 "Nunito";letter-spacing:.14em;text-transform:uppercase;margin-top:10px;opacity:.75}
+  .ticket h2{font-size:clamp(34px,10vw,56px);margin-top:14px;color:var(--terra)}
+  .ticket .days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:16px}
+  .ticket .days span{text-align:center;font:800 12px/1 "Nunito";padding:9px 0;border-radius:999px;background:var(--cream-2)}
+  .ticket .days span.today{background:var(--terra);color:var(--cream)}
+  .ticket .hours{font:700 clamp(28px,8vw,40px)/1 "Comfortaa";margin-top:16px;letter-spacing:-.03em}
+  .ticket .note{font-size:14px;margin-top:8px;opacity:.85}
+  .stub{position:relative;padding:20px;border-top:3px dashed var(--brown);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:6px;background:var(--mustard)}
+  @media(min-width:720px){.stub{border-top:0;border-left:3px dashed var(--brown);align-items:center;text-align:center}}
+  .stub:before,.stub:after{content:"";position:absolute;width:28px;height:28px;border-radius:50%;background:var(--brown)}
+  .stub:before{left:-14px;top:-14px}.stub:after{right:-14px;top:-14px}
+  @media(min-width:720px){.stub:before{left:-14px;top:-14px}.stub:after{left:-14px;right:auto;top:auto;bottom:-14px}}
+  .stub .no{font:700 clamp(44px,12vw,60px)/1 "Comfortaa";letter-spacing:-.04em}
+  .stub small{font:800 12px/1.2 "Nunito";letter-spacing:.12em;text-transform:uppercase}
+  .stub .clock{font:800 16px/1 "Nunito";margin-top:4px}
+
+  section{padding:60px 0}
+
+  /* что есть */
+  .cards{display:grid;gap:14px;margin-top:26px}
+  @media(min-width:760px){.cards{grid-template-columns:repeat(3,1fr)}}
+  .card{border-radius:var(--r);padding:22px 20px;background:var(--cream-2);position:relative;overflow:hidden}
+  .card h3{font-size:22px}
+  .card p{margin:8px 0 0;font-weight:600}
+  .card.m{background:var(--mustard)}
+  .card.o{background:var(--orange);color:#2b170c}
+  .card.t{background:var(--terra);color:var(--cream)}
+  .card.b{background:var(--brown);color:var(--cream)}
+  .card.l{background:var(--olive);color:var(--cream)}
+  .card .big{font:700 clamp(40px,11vw,56px)/1 "Comfortaa";letter-spacing:-.04em;margin-bottom:10px}
+
+  /* вопрос-ответ */
+  .qa{display:grid;gap:10px;margin-top:24px}
+  @media(min-width:760px){.qa{grid-template-columns:1fr 1fr}}
+  .qa details{background:var(--cream);border:3px solid var(--brown);border-radius:22px;overflow:hidden}
+  .qa summary{list-style:none;cursor:pointer;min-height:58px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;font:800 17px/1.25 "Nunito"}
+  .qa summary::-webkit-details-marker{display:none}
+  .qa summary:after{content:"+";flex:none;width:34px;height:34px;border-radius:50%;background:var(--mustard);display:grid;place-items:center;font:700 22px/1 "Comfortaa"}
+  .qa details[open] summary:after{content:"–";background:var(--terra);color:var(--cream)}
+  .qa .ans{padding:0 18px 16px;display:flex;gap:12px;align-items:flex-start}
+  .qa .ans b{flex:none;border-radius:999px;padding:4px 12px;font:800 13px/1.4 "Nunito"}
+  .qa .yes{background:#a9c46a;color:#22300c}
+  .qa .ask{background:var(--cream-2);color:var(--brown)}
+  .qa .ans span{font-weight:600}
+
+  /* рейтинг */
+  .rate{margin-top:24px;background:var(--mustard);border-radius:var(--r);padding:24px 20px;display:grid;gap:16px;align-items:center}
+  @media(min-width:760px){.rate{grid-template-columns:auto 1fr auto;padding:30px 36px;gap:32px}}
+  .rate .score{font:700 clamp(80px,22vw,120px)/.9 "Comfortaa";letter-spacing:-.06em;color:var(--brown)}
+  .rate p{margin:0;font-size:17px}
+
+  /* контакты */
+  .contact{display:grid;gap:14px;margin-top:24px}
+  @media(min-width:860px){.contact{grid-template-columns:1fr 1.3fr}}
+  .info{background:var(--cream-2);border-radius:var(--r);padding:22px 20px;display:grid;gap:16px;align-content:start}
+  .info dt{font:800 12px/1 "Nunito";letter-spacing:.12em;text-transform:uppercase;color:var(--terra)}
+  .info dd{margin:6px 0 0;font:700 19px/1.3 "Comfortaa"}
+  .info dd small{display:block;font:600 14px/1.4 "Nunito";opacity:.8}
+  .info dd a{text-decoration:none;border-bottom:3px solid var(--mustard)}
+  .map{border-radius:var(--r);overflow:hidden;min-height:340px;border:3px solid var(--brown);background:var(--cream-2)}
+  .map iframe{width:100%;height:100%;min-height:340px;border:0;display:block;filter:sepia(.35) saturate(.9)}
+
+  footer{padding:26px 0 30px;font-size:13px}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:10px 10px calc(10px + env(safe-area-inset-bottom));
+    background:var(--cream);box-shadow:0 -3px 0 var(--brown)}
+  .dock .btn{min-height:50px;padding:0 6px;font-size:15px}
+  @media(min-width:860px){.dock{display:none}body{padding-bottom:0}}
+
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+<div class="stripes" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><i aria-hidden="true"></i>Мойка116</a>
+    <a class="h-tel" href="tel:+79961251116">+7 996 125-11-16</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="sun" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="pill" aria-live="polite"><i></i><span id="status">Открыто круглосуточно</span></div>
+      <h1>Мойка<span>116</span></h1>
+      <p class="lead">Тёплая мойка самообслуживания на проспекте Победы. Легковые и грузовые, днём и ночью.</p>
+      <div class="cta">
+        <a class="btn t" href="https://yandex.ru/maps/?rtext=~55.771267,49.221697&rtt=auto" target="_blank" rel="noopener">Построить маршрут</a>
+        <a class="btn" href="tel:+79961251116">Позвонить</a>
+      </div>
+      <div class="hero-space" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div class="ticket-wrap" id="chasy">
+    <div class="wrap">
+      <div class="ticket" role="group" aria-label="Билетик: часы работы">
+        <div class="main">
+          <div class="t-top"><span>Билет на мойку</span><span>Казань</span></div>
+          <h2>Без выходных</h2>
+          <div class="days" id="days">
+            <span data-d="1">Пн</span><span data-d="2">Вт</span><span data-d="3">Ср</span><span data-d="4">Чт</span><span data-d="5">Пт</span><span data-d="6">Сб</span><span data-d="0">Вс</span>
+          </div>
+          <div class="hours">00:00 — 24:00</div>
+          <div class="note">Проспект Победы, 116а, 1 этаж. Действителен в любой день и час.</div>
+        </div>
+        <div class="stub">
+          <small>До</small>
+          <div class="no">2</div>
+          <small>машины одновременно</small>
+          <div class="clock" id="clock"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="stripes" aria-hidden="true" style="transform:scaleY(-1)"></div>
+
+  <section id="uslugi">
+    <div class="wrap">
+      <h2>Что тут есть</h2>
+      <div class="cards">
+        <div class="card m"><div class="big">24/7</div><h3>Круглосуточно</h3><p>Ночью, рано утром, в выходные — приезжайте, когда удобно.</p></div>
+        <div class="card t"><h3>Тёплая мойка</h3><p>Самообслуживание в тепле — зимой это особенно кстати.</p></div>
+        <div class="card o"><h3>Бесконтактная</h3><p>Без щёток: моете сами, водой и пеной.</p></div>
+        <div class="card b"><h3>Грузовики тоже</h3><p>Самообслуживание для легковых и грузовых машин.</p></div>
+        <div class="card l"><h3>Пылесос</h3><p>Чтобы заодно навести порядок в салоне.</p></div>
+        <div class="card"><h3>Полировка кузова</h3><p>Есть в списке услуг. Подробности — по телефону.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="voprosy" style="padding-top:0">
+    <div class="wrap">
+      <h2>«А у вас есть…?»</h2>
+      <p style="margin:10px 0 0;max-width:52ch">Нажмите на вопрос. Отвечаем по карточке в 2ГИС, а где данных нет — честно говорим «уточните».</p>
+      <div class="qa">
+        <details open><summary>Можно приехать ночью?</summary><div class="ans"><b class="yes">Да</b><span>Работаем круглосуточно, без выходных.</span></div></details>
+        <details><summary>Помоете грузовик?</summary><div class="ans"><b class="yes">Да</b><span>Есть самообслуживание для грузовых машин. Одновременно моют до 2 машин — перед поездкой лучше позвонить.</span></div></details>
+        <details><summary>Зимой тепло?</summary><div class="ans"><b class="yes">Да</b><span>Мойка тёплая.</span></div></details>
+        <details><summary>Есть пылесос?</summary><div class="ans"><b class="yes">Да</b><span>Пылесос есть.</span></div></details>
+        <details><summary>Можно оплатить картой?</summary><div class="ans"><b class="yes">Да</b><span>Картой или наличными.</span></div></details>
+        <details><summary>Сколько стоит?</summary><div class="ans"><b class="ask">Уточните</b><span>Цен в карточке 2ГИС нет. Спросите по телефону или в Telegram.</span></div></details>
+        <details><summary>Делаете полировку?</summary><div class="ans"><b class="yes">Да</b><span>Полировка кузова есть в списке услуг. Сроки и цену уточните заранее.</span></div></details>
+        <details><summary>А химчистку салона?</summary><div class="ans"><b class="ask">Уточните</b><span>В 2ГИС этого нет. Лучше спросить напрямую.</span></div></details>
+      </div>
+      <div class="cta" style="margin-top:20px">
+        <a class="btn b" href="https://t.me/+79961251116" target="_blank" rel="noopener">Спросить в Telegram</a>
+        <a class="btn" href="tel:+79961251116">Позвонить</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="otzyvy" style="padding-top:0">
+    <div class="wrap">
+      <h2>Отзывы</h2>
+      <div class="rate">
+        <div class="score">4,9</div>
+        <p><b>152 отзыва</b> в 2ГИС, рейтинг подтверждён. Загляните, что пишут водители.</p>
+        <a class="btn b" href="https://2gis.ru/kazan/firm/70000001100867315/tab/reviews" target="_blank" rel="noopener">Читать отзывы</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakty" style="padding-top:0">
+    <div class="wrap">
+      <h2>Как найти</h2>
+      <div class="contact">
+        <dl class="info">
+          <div><dt>Адрес</dt><dd>Казань, проспект Победы, 116а<small>1 этаж · Советский район</small></dd></div>
+          <div><dt>Часы</dt><dd>Круглосуточно, каждый день</dd></div>
+          <div><dt>Телефон</dt><dd><a href="tel:+79961251116">+7 996 125-11-16</a></dd></div>
+          <div><dt>Написать</dt><dd><a href="https://t.me/+79961251116" target="_blank" rel="noopener">Telegram</a><small><a href="mailto:moika-116@yandex.ru" style="border:0">moika-116@yandex.ru</a></small></dd></div>
+          <div class="cta">
+            <a class="btn t" href="https://yandex.ru/maps/?rtext=~55.771267,49.221697&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+            <a class="btn" href="https://2gis.ru/kazan/firm/70000001100867315" target="_blank" rel="noopener">2ГИС</a>
+          </div>
+        </dl>
+        <div class="map">
+          <iframe title="Мойка116 на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=49.221697%2C55.771267&z=16&pt=49.221697%2C55.771267%2Cpm2rdm"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="stripes" aria-hidden="true"></div>
+<footer>
+  <div class="wrap">«Мойка116», мойка самообслуживания, Казань. Демо-версия сайта, подготовлена для владельца по данным 2ГИС.</div>
+</footer>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a class="btn" href="tel:+79961251116">Позвонить</a>
+  <a class="btn t" href="https://yandex.ru/maps/?rtext=~55.771267,49.221697&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn b" href="https://t.me/+79961251116" target="_blank" rel="noopener">Telegram</a>
+</nav>
+
+<script>
+  // 24/7 — всегда открыто. Время и день недели — по Казани (Europe/Moscow).
+  function tick(){
+    const now = new Date();
+    const t = new Intl.DateTimeFormat("ru-RU",{hour:"2-digit",minute:"2-digit",hourCycle:"h23",timeZone:"Europe/Moscow"}).format(now);
+    const wd = new Intl.DateTimeFormat("en-US",{weekday:"short",timeZone:"Europe/Moscow"}).format(now);
+    const idx = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[wd];
+    document.getElementById("status").textContent = "Открыто сейчас · круглосуточно";
+    document.getElementById("clock").textContent = "в Казани " + t;
+    document.querySelectorAll("#days span").forEach(s=>s.classList.toggle("today", +s.dataset.d === idx));
+  }
+  tick(); setInterval(tick, 20000);
+
+  // в вопросах держим открытым один ответ
+  const qs = document.querySelectorAll(".qa details");
+  qs.forEach(d=>d.addEventListener("toggle",()=>{ if(d.open) qs.forEach(o=>{ if(o!==d) o.open=false; }); }));
+</script>
+</body>
+</html>
