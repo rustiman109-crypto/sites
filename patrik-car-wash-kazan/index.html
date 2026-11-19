@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Patrik car wash — автомойка 24/7 на Назарбаева, Казань</title>
+<meta name="description" content="Автомойка Patrik car wash в Казани, улица Нурсултана Назарбаева, 41Б. Круглосуточно: комплексная мойка от 1200 ₽, бесконтактная мойка, химчистка салона, полировка кузова, самообслуживание. Можно записаться.">
+<meta name="theme-color" content="#ffd400">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800;900&family=Rubik:wght@400;500;700&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --y:#ffd400;
+    --y-2:#ffe45c;
+    --k:#111111;
+    --w:#ffffff;
+    --pink:#ff5aa5;
+    --r:28px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:clip}
+  body{margin:0;background:var(--y);color:var(--k);font:500 16px/1.5 "Rubik",system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+    padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{font-family:"Unbounded",sans-serif;margin:0;line-height:.95;letter-spacing:-.02em}
+  h2{font-size:clamp(32px,9vw,64px);font-weight:900;text-transform:uppercase}
+
+  .demo{background:var(--k);color:var(--y);font:500 13px/1.35 "Rubik";text-align:center;padding:8px 16px}
+
+  header{position:sticky;top:0;z-index:20;background:var(--y);border-bottom:3px solid var(--k)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:10px}
+  .logo{font:900 20px/1 "Unbounded";text-decoration:none;letter-spacing:-.03em;display:flex;align-items:center;gap:8px}
+  .logo span{background:var(--k);color:var(--y);border-radius:999px;padding:6px 10px;font-size:12px;letter-spacing:0}
+  .h-tel{font:700 15px/1 "Rubik";text-decoration:none;white-space:nowrap;background:var(--k);color:var(--y);border-radius:999px;padding:10px 14px}
+
+  /* первый экран */
+  .hero{position:relative;padding:28px 0 36px}
+  .status{display:inline-flex;align-items:center;gap:8px;background:var(--w);border:3px solid var(--k);border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px}
+  .status i{width:10px;height:10px;border-radius:50%;background:#18b34a;animation:pop 1.2s infinite}
+  @keyframes pop{50%{transform:scale(.6)}}
+  .hero h1{white-space:nowrap;font-size:clamp(48px,16.5vw,220px);font-weight:900;line-height:.82;letter-spacing:-.06em;margin:22px 0 0;text-transform:uppercase}
+  .hero h1 .o{display:inline-block;background:var(--k);color:var(--y);border-radius:999px;padding:0 .12em;line-height:.9}
+  .hero .sub{font:800 clamp(20px,5.6vw,34px)/1.05 "Unbounded";text-transform:uppercase;margin:14px 0 0;max-width:18ch}
+  .hero p.lead{font-size:18px;max-width:34ch;margin:16px 0 22px}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:56px;padding:0 24px;border-radius:999px;border:3px solid var(--k);
+    background:var(--w);color:var(--k);font:800 15px/1 "Unbounded";text-transform:uppercase;text-decoration:none;cursor:pointer;box-shadow:0 5px 0 var(--k);transition:transform .1s,box-shadow .1s}
+  .btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--k)}
+  .btn.k{background:var(--k);color:var(--y)}
+
+  /* стикеры */
+  .stickers{position:relative;display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .st{display:inline-flex;flex-direction:column;justify-content:center;border:3px solid var(--k);border-radius:22px;padding:12px 16px;font:900 clamp(20px,5.6vw,30px)/1 "Unbounded";
+    background:var(--w);box-shadow:5px 5px 0 var(--k);text-transform:uppercase}
+  .st small{font:700 12px/1.2 "Rubik";text-transform:none;margin-top:6px}
+  .st:nth-child(1){transform:rotate(-6deg);background:var(--k);color:var(--y)}
+  .st:nth-child(2){transform:rotate(4deg)}
+  .st:nth-child(3){transform:rotate(-3deg);background:var(--pink)}
+  .st:nth-child(4){transform:rotate(7deg)}
+  .st a{text-decoration:none}
+
+  /* бегущая строка */
+  .ticker{background:var(--k);color:var(--y);border-top:3px solid var(--k);border-bottom:3px solid var(--k);overflow:hidden;transform:rotate(-2deg);margin:18px -20px;
+    box-shadow:0 8px 0 rgba(0,0,0,.12)}
+  .ticker.alt{background:var(--w);color:var(--k);transform:rotate(1.5deg);margin-top:-8px}
+  .track{display:flex;width:max-content;animation:run 28s linear infinite}
+  .ticker.alt .track{animation-direction:reverse;animation-duration:34s}
+  .track span{font:900 clamp(22px,6vw,40px)/1 "Unbounded";text-transform:uppercase;padding:16px 0;white-space:nowrap}
+  .track span:after{content:"✺";margin:0 .6em;color:var(--pink)}
+  @keyframes run{to{transform:translateX(-50%)}}
+
+  section{padding:56px 0}
+
+  /* меню-плитки */
+  .tiles{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:26px}
+  @media(min-width:760px){.tiles{grid-template-columns:repeat(3,1fr)}}
+  .tile{background:var(--w);border:3px solid var(--k);border-radius:var(--r);padding:20px;box-shadow:6px 6px 0 var(--k);position:relative}
+  .tile h3{font-size:22px;font-weight:800;text-transform:uppercase;line-height:1.05}
+  .tile p{margin:10px 0 0;font-size:15px}
+  .tile .tag{position:absolute;top:-14px;right:14px;background:var(--pink);border:3px solid var(--k);border-radius:999px;padding:4px 10px;font:800 12px/1 "Unbounded";transform:rotate(5deg)}
+  .tile.big{background:var(--k);color:var(--y)}
+  .tile.big .price{font:900 clamp(36px,10vw,72px)/.9 "Unbounded";letter-spacing:-.04em;margin-top:12px}
+
+  /* конструктор записи */
+  .builder{background:var(--k);color:var(--w);border-radius:36px;padding:24px 16px;margin-top:26px}
+  @media(min-width:760px){.builder{padding:36px}}
+  .builder h3{font-size:clamp(22px,6vw,32px);color:var(--y);text-transform:uppercase}
+  .builder .hint{color:#cfcfcf;font-size:15px;margin:8px 0 18px}
+  .pick{display:flex;flex-wrap:wrap;gap:10px}
+  .pick button{appearance:none;border:3px solid var(--y);background:transparent;color:var(--y);border-radius:999px;min-height:50px;padding:0 18px;
+    font:700 15px/1 "Rubik";cursor:pointer;transition:transform .12s}
+  .pick button[aria-pressed="true"]{background:var(--y);color:var(--k);transform:rotate(-3deg)}
+  .pick button:nth-child(even)[aria-pressed="true"]{transform:rotate(3deg)}
+  .lbl{font:800 12px/1 "Unbounded";letter-spacing:.06em;text-transform:uppercase;color:#bdbdbd;margin:22px 0 12px}
+  .ticket{margin-top:22px;background:var(--y);color:var(--k);border-radius:24px;padding:16px;display:grid;gap:12px}
+  @media(min-width:760px){.ticket{grid-template-columns:1fr auto;align-items:center}}
+  .ticket p{margin:0;font-weight:500}
+  .ticket .btn{box-shadow:0 5px 0 rgba(0,0,0,.35)}
+
+  /* удобства */
+  .perks{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .perks span{background:var(--w);border:3px solid var(--k);border-radius:999px;padding:10px 16px;font-weight:700}
+  .perks span:nth-child(3n+1){transform:rotate(-2deg)}
+  .perks span:nth-child(3n){transform:rotate(2deg);background:var(--k);color:var(--y)}
+
+  /* рейтинг */
+  .rate{display:grid;gap:18px;align-items:center;margin-top:24px}
+  @media(min-width:760px){.rate{grid-template-columns:auto 1fr}}
+  .badge{width:min(260px,72vw);aspect-ratio:1;border-radius:50%;background:var(--k);color:var(--y);display:grid;place-items:center;text-align:center;
+    border:3px solid var(--k);box-shadow:8px 8px 0 var(--pink);transform:rotate(-8deg)}
+  .badge b{display:block;font:900 clamp(64px,18vw,96px)/.9 "Unbounded";letter-spacing:-.05em}
+  .badge small{font:700 14px/1.2 "Rubik"}
+
+  /* контакты */
+  .contact{display:grid;gap:14px;margin-top:24px}
+  @media(min-width:860px){.contact{grid-template-columns:1fr 1.3fr}}
+  .card{background:var(--w);border:3px solid var(--k);border-radius:var(--r);padding:20px;box-shadow:6px 6px 0 var(--k)}
+  .card dl{margin:0;display:grid;gap:16px}
+  .card dt{font:800 11px/1 "Unbounded";text-transform:uppercase;letter-spacing:.06em}
+  .card dd{margin:6px 0 0;font-size:18px;font-weight:700}
+  .card dd a{text-decoration:none;border-bottom:3px solid var(--y)}
+  .card dd small{display:block;font-weight:400;font-size:14px}
+  .map{border:3px solid var(--k);border-radius:var(--r);overflow:hidden;min-height:340px;box-shadow:6px 6px 0 var(--k);background:var(--w)}
+  .map iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
+
+  footer{padding:28px 0 32px;font-size:13px;border-top:3px solid var(--k)}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:10px 10px calc(10px + env(safe-area-inset-bottom));
+    background:var(--y);border-top:3px solid var(--k)}
+  .dock .btn{min-height:50px;padding:0 6px;font-size:12px;box-shadow:0 4px 0 var(--k)}
+  @media(min-width:860px){.dock{display:none}body{padding-bottom:0}}
+
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">PATRIK <span>24/7</span></a>
+    <a class="h-tel" href="tel:+79600888997">+7 960 088-89-97</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="status" aria-live="polite"><i></i><span id="status">Открыто сейчас</span></div>
+      <h1>Patr<span class="o">i</span>k</h1>
+      <div class="sub">Мойка на Назарбаева. Днём и ночью</div>
+      <p class="lead">Помоем снаружи, почистим салон, отполируем кузов. Или мойте сами — есть самообслуживание и пылесос.</p>
+      <div class="cta">
+        <a class="btn k" href="#zapis">Записаться</a>
+        <a class="btn" href="https://yandex.ru/maps/?rtext=~55.770624,49.136723&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+      </div>
+      <div class="stickers">
+        <div class="st">24/7<small>круглосуточно</small></div>
+        <div class="st">от 1200 ₽<small>комплексная мойка</small></div>
+        <div class="st"><a href="https://2gis.ru/kazan/firm/70000001057147443/tab/reviews" target="_blank" rel="noopener">4,7 ★</a><small>289 отзывов в 2ГИС</small></div>
+        <div class="st">до 4<small>машин одновременно</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker" aria-hidden="true"><div class="track" id="t1"></div></div>
+  <div class="ticker alt" aria-hidden="true"><div class="track" id="t2"></div></div>
+
+  <section id="uslugi">
+    <div class="wrap">
+      <h2>Что делаем</h2>
+      <div class="tiles">
+        <div class="tile big"><h3>Комплексная мойка</h3><div class="price">от 1200 ₽</div><p>Цена из карточки 2ГИС. Точную назовут на месте.</p></div>
+        <div class="tile"><span class="tag">салон</span><h3>Химчистка салона</h3><p>Что войдёт и сколько стоит — уточните по телефону.</p></div>
+        <div class="tile"><span class="tag">блеск</span><h3>Полировка кузова</h3><p>Запишитесь заранее, чтобы не ждать.</p></div>
+        <div class="tile"><h3>Бесконтактная мойка</h3><p>Без щёток: пена и вода под давлением.</p></div>
+        <div class="tile"><h3>Мойка двигателя</h3><p>Отдельная услуга — скажите при записи.</p></div>
+        <div class="tile"><span class="tag">сами</span><h3>Самообслуживание</h3><p>Тёплая мойка для легковых и пылесос. Моете сами, когда удобно.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="zapis" style="padding-top:0">
+    <div class="wrap">
+      <div class="builder">
+        <h3>Соберите запись</h3>
+        <p class="hint">Отметьте услуги и время — откроется WhatsApp с готовым сообщением.</p>
+        <div class="pick" id="svc" role="group" aria-label="Услуги"></div>
+        <div class="lbl">Когда приедете</div>
+        <div class="pick" id="when" role="group" aria-label="Время"></div>
+        <div class="ticket" aria-live="polite">
+          <p id="preview"></p>
+          <a class="btn k" id="wa" href="#" target="_blank" rel="noopener">В WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <h2>Пока моют</h2>
+      <div class="perks">
+        <span>Зал ожидания</span><span>Кофе с собой</span><span>Wi‑Fi</span><span>Можно записаться</span><span>Оплата переводом с карты</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="otzyvy" style="padding-top:12px">
+    <div class="wrap">
+      <div class="rate">
+        <a class="badge" href="https://2gis.ru/kazan/firm/70000001057147443/tab/reviews" target="_blank" rel="noopener" style="text-decoration:none">
+          <span><b>4,7</b><small>289 отзывов<br>в 2ГИС</small></span></a>
+        <div>
+          <h2>Отзывы — в 2ГИС</h2>
+          <p style="font-size:18px;max-width:36ch">Рейтинг подтверждён. Почитайте, что пишут водители, и приезжайте сами.</p>
+          <a class="btn" href="https://2gis.ru/kazan/firm/70000001057147443/tab/reviews" target="_blank" rel="noopener">Читать отзывы</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakty" style="padding-top:12px">
+    <div class="wrap">
+      <h2>Как найти</h2>
+      <div class="contact">
+        <div class="card">
+          <dl>
+            <div><dt>Адрес</dt><dd>Казань, улица Нурсултана Назарбаева, 41Б<small>Приволжский район</small></dd></div>
+            <div><dt>Часы</dt><dd>Круглосуточно, без выходных</dd></div>
+            <div><dt>Телефон</dt><dd><a href="tel:+79600888997">+7 960 088-89-97</a></dd></div>
+            <div><dt>WhatsApp</dt><dd><a href="https://wa.me/79673679537" target="_blank" rel="noopener">+7 967 367-95-37</a></dd></div>
+            <div><dt>Почта</dt><dd><a href="mailto:avtofart07@mail.ru">avtofart07@mail.ru</a></dd></div>
+          </dl>
+          <div class="cta" style="margin-top:20px">
+            <a class="btn k" href="https://yandex.ru/maps/?rtext=~55.770624,49.136723&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+            <a class="btn" href="https://2gis.ru/kazan/firm/70000001057147443" target="_blank" rel="noopener">2ГИС</a>
+          </div>
+        </div>
+        <div class="map">
+          <iframe title="Patrik car wash на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=49.136723%2C55.770624&z=16&pt=49.136723%2C55.770624%2Cpm2rdm"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Patrik car wash, автомойка, Казань. Демо-версия сайта, подготовлена для владельца по данным 2ГИС.</div>
+</footer>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a class="btn" href="tel:+79600888997">Позвонить</a>
+  <a class="btn k" href="https://yandex.ru/maps/?rtext=~55.770624,49.136723&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn" href="https://wa.me/79673679537" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  const $ = s => document.querySelector(s);
+
+  // 24/7: всегда открыто, показываем время в Казани
+  function tick(){
+    const t = new Intl.DateTimeFormat("ru-RU",{hour:"2-digit",minute:"2-digit",hourCycle:"h23",timeZone:"Europe/Moscow"}).format(new Date());
+    $("#status").textContent = "Открыто сейчас · в Казани " + t;
+  }
+  tick(); setInterval(tick, 20000);
+
+  // бегущие строки
+  const LINE1 = ["Комплексная мойка от 1200 ₽","Химчистка салона","Полировка кузова","Мойка двигателя","Бесконтактная мойка"];
+  const LINE2 = ["Круглосуточно","Самообслуживание","Пылесос","Кофе с собой","Зал ожидания","Wi‑Fi"];
+  function fill(el, arr){ const html = arr.map(x=>"<span>"+x+"</span>").join(""); el.innerHTML = html + html; }
+  fill($("#t1"), LINE1); fill($("#t2"), LINE2);
+
+  // конструктор записи
+  const SVC = ["Комплексная мойка","Бесконтактная мойка","Химчистка салона","Полировка кузова","Мойка двигателя"];
+  const WHEN = ["Сейчас","Через час","Вечером","Ночью","Завтра"];
+  const sel = new Set(["Комплексная мойка"]); let when = 0;
+  SVC.forEach(s=>{
+    const b = document.createElement("button"); b.type="button"; b.textContent=s;
+    b.onclick = () => { sel.has(s) ? sel.delete(s) : sel.add(s); render(); };
+    $("#svc").appendChild(b);
+  });
+  WHEN.forEach((w,i)=>{
+    const b = document.createElement("button"); b.type="button"; b.textContent=w;
+    b.onclick = () => { when = i; render(); };
+    $("#when").appendChild(b);
+  });
+  function render(){
+    $("#svc").querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed", String(sel.has(b.textContent))));
+    $("#when").querySelectorAll("button").forEach((b,i)=>b.setAttribute("aria-pressed", String(i===when)));
+    const list = SVC.filter(s=>sel.has(s));
+    const wa = $("#wa");
+    if(!list.length){ $("#preview").textContent = "Выберите хотя бы одну услугу."; wa.removeAttribute("href"); wa.style.opacity=.5; return; }
+    wa.style.opacity = 1;
+    const text = "Здравствуйте! Хочу записаться в Patrik: " + list.join(", ").toLowerCase() + ". Приеду: " + WHEN[when].toLowerCase() + ". Есть место?";
+    $("#preview").textContent = "«" + text + "»";
+    wa.href = "https://wa.me/79673679537?text=" + encodeURIComponent(text);
+  }
+  render();
+</script>
+</body>
+</html>
