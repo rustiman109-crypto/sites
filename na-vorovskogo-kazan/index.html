@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>На Воровского — мойка и шиномонтаж 24 часа, Казань</title>
+<meta name="description" content="Автомоечно-шиномонтажный комплекс «На Воровского» в Ново-Савиновском районе Казани: круглосуточно, комплексная мойка от 1000 ₽, химчистка, ремонт порезов, ошиповка, правка дисков, выездной шиномонтаж.">
+<meta name="theme-color" content="#006b3f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;800&family=PT+Sans+Narrow:wght@400;700&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --g:#006b3f;
+    --g-dark:#00502f;
+    --w:#ffffff;
+    --sky:#e8ece9;
+    --asph:#2b2e30;
+    --ink:#14181a;
+    --grey:#5d6563;
+    --amber:#ffc72c;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--sky);color:var(--ink);font:17px/1.5 "PT Sans Narrow","Roboto Condensed",sans-serif;-webkit-font-smoothing:antialiased;
+    padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  @media(min-width:860px){body{padding-bottom:0}}
+  a{color:inherit}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{font-family:"Roboto Condensed",sans-serif;font-weight:800;margin:0;line-height:1.05}
+  h2{font-size:clamp(28px,7vw,44px)}
+
+  .demo{background:var(--amber);color:var(--ink);font:700 14px/1.35 "Roboto Condensed",sans-serif;text-align:center;padding:8px 16px}
+
+  header{position:sticky;top:0;z-index:20;background:var(--g);color:var(--w);border-bottom:3px solid var(--w);box-shadow:0 2px 0 var(--g)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
+  .logo{font:800 19px/1 "Roboto Condensed",sans-serif;text-decoration:none;display:flex;align-items:center;gap:8px;text-transform:uppercase}
+  .logo b{border:2px solid var(--w);border-radius:4px;padding:3px 6px;font-size:13px}
+  .h-nav{display:none;gap:22px;font:700 15px/1 "Roboto Condensed",sans-serif}
+  .h-nav a{text-decoration:none}.h-nav a:hover{text-decoration:underline}
+  .h-tel{font:700 16px/1 "Roboto Condensed",sans-serif;text-decoration:none;white-space:nowrap}
+  @media(min-width:860px){.h-nav{display:flex}}
+
+  /* знак */
+  .sign{background:var(--g);color:var(--w);border-radius:14px;padding:8px;box-shadow:0 10px 24px -14px rgba(0,0,0,.5)}
+  .sign>.in{border:4px solid var(--w);border-radius:9px;padding:16px}
+  .tabsign{display:inline-block;background:var(--g);color:var(--w);border:4px solid var(--w);outline:6px solid var(--g);border-radius:6px;padding:4px 12px;
+    font:800 15px/1.1 "Roboto Condensed",sans-serif;text-transform:uppercase;letter-spacing:.04em;margin:0 0 12px 6px}
+  .white{background:var(--w);color:var(--ink);border-radius:10px;padding:6px}
+  .white>.in{border:3px solid var(--ink);border-radius:7px;padding:14px}
+
+  /* дорога-разделитель */
+  .road{height:44px;background:var(--asph);position:relative;margin:0}
+  .road::before{content:"";position:absolute;left:0;right:0;top:50%;height:4px;margin-top:-2px;background:repeating-linear-gradient(90deg,var(--w) 0 38px,transparent 38px 70px)}
+  .road::after{content:"";position:absolute;left:0;right:0;top:5px;bottom:5px;border-top:2px solid rgba(255,255,255,.7);border-bottom:2px solid rgba(255,255,255,.7)}
+
+  section{padding:56px 0}
+  .hero{padding:28px 0 0}
+  .gantry{max-width:760px}
+  .gantry h1{font-size:clamp(40px,11vw,84px);text-transform:uppercase;letter-spacing:-.01em;line-height:.95}
+  .gantry .kind{font:700 clamp(17px,4.4vw,22px)/1.2 "Roboto Condensed",sans-serif;margin:8px 0 14px;opacity:.95}
+  .dir{display:grid;gap:8px;margin-top:6px}
+  .dir a{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:62px;border-top:3px solid var(--w);padding:8px 0 4px;text-decoration:none;
+    font:800 clamp(24px,7vw,40px)/1 "Roboto Condensed",sans-serif;text-transform:uppercase}
+  .dir a .ar{font-size:1.15em;line-height:.8}
+  .dir a .h{border:3px solid var(--w);border-radius:6px;font-size:.5em;padding:4px 8px;white-space:nowrap}
+  .addr{margin-top:12px;font:700 17px/1.3 "Roboto Condensed",sans-serif;border-top:3px solid var(--w);padding-top:10px}
+  .posts{display:flex;justify-content:space-around;max-width:760px;height:64px}
+  .posts i{width:16px;background:linear-gradient(90deg,#8b9195,#c8cdd0 45%,#7a8084);display:block}
+  .hero-side{display:grid;gap:14px;margin-top:20px}
+  @media(min-width:900px){.hero-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:28px;align-items:start}.hero-side{margin-top:58px}}
+  .status{font:800 22px/1.15 "Roboto Condensed",sans-serif;text-transform:uppercase}
+  .status small{display:block;font:400 16px/1.3 "PT Sans Narrow",sans-serif;text-transform:none;color:var(--grey);margin-top:4px}
+  .status .clock{font-size:44px;display:block;margin-top:6px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 20px;font:800 17px/1 "Roboto Condensed",sans-serif;
+    text-transform:uppercase;text-decoration:none;border-radius:8px;border:3px solid var(--g);background:var(--w);color:var(--g);cursor:pointer}
+  .btn.g{background:var(--g);color:var(--w);box-shadow:inset 0 0 0 2px var(--w)}
+  .btn:active{transform:translateY(1px)}
+  .stack{display:grid;gap:8px}
+
+  /* услуги */
+  .boards{display:grid;gap:22px;margin-top:26px}
+  @media(min-width:860px){.boards{grid-template-columns:1fr 1fr}}
+  .board h3{font-size:clamp(28px,7vw,38px);text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:3px solid var(--w);padding-bottom:10px;margin-bottom:6px}
+  .board ul{list-style:none;margin:0;padding:0}
+  .board li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.35);font:700 19px/1.2 "Roboto Condensed",sans-serif}
+  .board li:last-child{border-bottom:0}
+  .board li span:last-child{font-weight:400;white-space:nowrap;opacity:.9}
+  .board li .price{background:var(--w);color:var(--g);padding:2px 8px;border-radius:4px;font-weight:800;opacity:1}
+
+  .infos{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
+  @media(min-width:760px){.infos{grid-template-columns:repeat(4,1fr)}}
+  .info{background:var(--w);border-radius:10px;padding:5px}
+  .info>.in{border:3px solid var(--g);border-radius:7px;padding:12px;height:100%;display:flex;flex-direction:column;gap:8px}
+  .info svg{width:42px;height:42px;background:var(--g);border-radius:6px;padding:7px;color:var(--w)}
+  .info b{font:800 18px/1.1 "Roboto Condensed",sans-serif}
+  .info span{color:var(--grey);font-size:16px;line-height:1.25}
+
+  /* выбор направления */
+  .route{display:grid;gap:12px;margin-top:24px}
+  @media(min-width:760px){.route{grid-template-columns:repeat(3,1fr)}}
+  .route button{min-height:84px;background:var(--g);color:var(--w);border:0;border-radius:12px;padding:6px;cursor:pointer;font:800 22px/1.05 "Roboto Condensed",sans-serif;text-transform:uppercase;text-align:left}
+  .route button span{display:flex;align-items:center;justify-content:space-between;gap:10px;border:3px solid var(--w);border-radius:8px;padding:12px 14px;min-height:72px}
+  .route button[aria-pressed="false"]{background:#9aa6a1}
+  .route button[aria-pressed="true"]{outline:4px solid var(--amber);outline-offset:3px}
+  .pickwrap{display:grid;gap:18px;margin-top:22px}
+  @media(min-width:900px){.pickwrap{grid-template-columns:1.3fr 1fr;align-items:start}}
+  .panel{background:var(--w);border-radius:12px;padding:18px 14px}
+  .lbl{display:block;font:800 13px/1 "Roboto Condensed",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin:0 0 10px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+  .chip{min-height:48px;padding:0 14px;border:3px solid var(--g);background:var(--w);color:var(--g);border-radius:8px;font:700 17px/1.1 "Roboto Condensed",sans-serif;cursor:pointer}
+  .chip[aria-pressed="true"]{background:var(--g);color:var(--w)}
+  input{width:100%;min-height:52px;border:3px solid #c7cfcb;border-radius:8px;padding:0 12px;font:400 18px "PT Sans Narrow",sans-serif;color:var(--ink);background:#fff}
+  input:focus{outline:none;border-color:var(--g)}
+  .fld{margin-bottom:16px}
+  .hide{display:none}
+  .msg{white-space:pre-wrap;font:400 17px/1.45 "PT Sans Narrow",sans-serif;margin:0 0 14px}
+  .note{color:var(--grey);font-size:15px;margin:0 0 12px}
+
+  .contacts{display:grid;gap:22px;margin-top:24px}
+  @media(min-width:860px){.contacts{grid-template-columns:1fr 1.3fr}}
+  .kv{margin:0}
+  .kv dt{font:800 13px/1 "Roboto Condensed",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin-top:16px}
+  .kv dt:first-child{margin-top:0}
+  .kv dd{margin:6px 0 0;font-size:20px}
+  .map{border-radius:12px;overflow:hidden;position:relative;min-height:320px;border:6px solid var(--g)}
+  .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  footer{background:var(--asph);color:#c9cfcc;padding:22px 0 30px;font-size:15px}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--g);border-top:3px solid var(--w)}
+  .dock .btn{padding:0 4px;font-size:15px;border-color:var(--w)}
+  .dock .btn.g{box-shadow:none}
+  @media(min-width:860px){.dock{display:none}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><b>24</b>На Воровского</a>
+    <nav class="h-nav"><a href="#services">Услуги</a><a href="#pick">Записаться</a><a href="#contacts">Как доехать</a></nav>
+    <a class="h-tel" href="tel:+79867246955">+7 986 724-69-55</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="gantry">
+          <span class="tabsign">Съезд 15Б</span>
+          <div class="sign"><div class="in">
+            <h1>На Воровского</h1>
+            <div class="kind">Автомойка и шиномонтаж · круглосуточно</div>
+            <div class="dir">
+              <a href="#tyres"><span class="ar">←</span><span>Шиномонтаж</span><span class="h">24 ч</span></a>
+              <a href="#wash"><span class="h">24 ч</span><span>Мойка</span><span class="ar">→</span></a>
+            </div>
+            <div class="addr">ул. Воровского, 15Б · Ново-Савиновский район</div>
+          </div></div>
+        </div>
+        <div class="posts" aria-hidden="true"><i></i><i></i></div>
+      </div>
+      <div class="hero-side">
+        <div class="white"><div class="in">
+          <div class="status">Открыто сейчас<small>Работаем круглосуточно, без выходных</small><span class="clock" id="clock">--:--</span><small>московское время</small></div>
+        </div></div>
+        <div class="stack">
+          <a class="btn g" href="#pick">Выбрать услугу</a>
+          <a class="btn" href="https://yandex.ru/maps/?rtext=~55.842804,49.08653&rtt=auto" target="_blank" rel="noopener">Маршрут сюда</a>
+          <a class="btn" href="https://2gis.ru/kazan/firm/70000001082890335/tab/reviews" target="_blank" rel="noopener">4,7 ★ · 57 отзывов в 2ГИС</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="road" aria-hidden="true" style="margin-top:0"></div>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>Куда едем</h2>
+      <p style="color:var(--grey);margin:8px 0 0">Два направления на одной площадке. Цена в 2ГИС указана только у комплексной мойки — остальное уточняйте по телефону.</p>
+      <div class="boards">
+        <div class="sign board" id="wash"><div class="in">
+          <h3><span>Мойка</span><span>→</span></h3>
+          <ul>
+            <li><span>Комплексная мойка</span><span class="price">от 1000 ₽</span></li>
+            <li><span>Химчистка салона</span><span></span></li>
+            <li><span>Мойка двигателя</span><span></span></li>
+            <li><span>Мойка днища</span><span></span></li>
+            <li><span>Мойка шин</span><span></span></li>
+          </ul>
+        </div></div>
+        <div class="sign board" id="tyres"><div class="in">
+          <h3><span>←</span><span>Шиномонтаж</span></h3>
+          <ul>
+            <li><span>Ремонт порезов</span><span></span></li>
+            <li><span>Наварка шин</span><span></span></li>
+            <li><span>Ошиповка шин</span><span></span></li>
+            <li><span>Правка и прокатка дисков</span><span></span></li>
+            <li><span>Сварка дисков</span><span></span></li>
+            <li><span>Покраска дисков</span><span></span></li>
+            <li><span>Мотошиномонтаж</span><span></span></li>
+            <li><span>Выездной шиномонтаж</span><span>приедут к вам</span></li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="infos">
+        <div class="info"><div class="in">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <b>24 часа</b><span>Каждый день, ночью тоже</span></div></div>
+        <div class="info"><div class="in">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="8" height="10" rx="1"/><rect x="13" y="7" width="8" height="10" rx="1"/></svg>
+          <b>До 2 машин</b><span>Одновременно на мойке</span></div></div>
+        <div class="info"><div class="in">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 20v-6h14v6M7 14V9a5 5 0 0 1 10 0v5"/></svg>
+          <b>Зал ожидания</b><span>Есть где подождать</span></div></div>
+        <div class="info"><div class="in">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>
+          <b>Оплата</b><span>Наличными или переводом с карты</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="road" aria-hidden="true"></div>
+
+  <section id="pick">
+    <div class="wrap">
+      <h2>Выберите направление</h2>
+      <p style="color:var(--grey);margin:8px 0 0">Возможна запись. Отметьте, что нужно, — сообщение уйдёт в WhatsApp.</p>
+      <div class="route" id="route">
+        <button type="button" data-r="wash" aria-pressed="true"><span>Мойка <b>→</b></span></button>
+        <button type="button" data-r="tyre" aria-pressed="false"><span><b>←</b> Шиномонтаж</span></button>
+        <button type="button" data-r="away" aria-pressed="false"><span>Выездной шиномонтаж <b>↑</b></span></button>
+      </div>
+      <div class="pickwrap">
+        <div class="panel">
+          <span class="lbl">Услуги</span>
+          <div class="chips" id="svc"></div>
+          <span class="lbl">Когда</span>
+          <div class="chips" id="when">
+            <button type="button" class="chip" aria-pressed="true">Сейчас</button>
+            <button type="button" class="chip" aria-pressed="false">Сегодня позже</button>
+            <button type="button" class="chip" aria-pressed="false">Завтра</button>
+            <button type="button" class="chip" aria-pressed="false">Ночью</button>
+          </div>
+          <div class="fld"><label class="lbl" for="car">Машина</label><input id="car" placeholder="Марка, модель или мотоцикл" autocomplete="off"></div>
+          <div class="fld hide" id="addrFld"><label class="lbl" for="addr">Куда приехать</label><input id="addr" placeholder="Улица и дом" autocomplete="off"></div>
+        </div>
+        <div class="sign"><div class="in">
+          <span class="lbl" style="color:#cfe5da">Ваше сообщение</span>
+          <p class="msg" id="msg"></p>
+          <p class="note" style="color:#cfe5da">Цены, кроме комплексной мойки, мастер назовёт примерно по телефону или в ответе.</p>
+          <div class="stack">
+            <a class="btn" id="waSend" href="https://wa.me/79867246955" target="_blank" rel="noopener">Отправить в WhatsApp</a>
+            <a class="btn g" href="tel:+79867246955">Позвонить</a>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="road" aria-hidden="true"></div>
+
+  <section id="contacts">
+    <div class="wrap">
+      <h2>Воровского, 15Б</h2>
+      <div class="contacts">
+        <dl class="kv">
+          <dt>Адрес</dt><dd>Казань, улица Воровского, 15Б<br><span style="color:var(--grey);font-size:17px">Ново-Савиновский район</span></dd>
+          <dt>Телефон</dt><dd><a href="tel:+79867246955">+7 986 724-69-55</a></dd>
+          <dt>WhatsApp</dt><dd><a href="https://wa.me/79867246955" target="_blank" rel="noopener">Написать</a></dd>
+          <dt>Часы</dt><dd>Круглосуточно, каждый день</dd>
+          <dt>Отзывы</dt><dd><a href="https://2gis.ru/kazan/firm/70000001082890335/tab/reviews" target="_blank" rel="noopener">4,7 — 57 отзывов в 2ГИС</a></dd>
+          <dd style="margin-top:20px"><a class="btn g" href="https://yandex.ru/maps/?rtext=~55.842804,49.08653&rtt=auto" target="_blank" rel="noopener">Построить маршрут</a></dd>
+        </dl>
+        <div class="map"><iframe title="На Воровского на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=49.08653%2C55.842804&z=16&pt=49.08653%2C55.842804%2Cpm2rdm"></iframe></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">«На Воровского», автомоечно-шиномонтажный комплекс · Казань, ул. Воровского, 15Б. Демо-версия сайта, подготовлена для владельца по данным 2ГИС.</div></footer>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a class="btn" href="tel:+79867246955">Позвонить</a>
+  <a class="btn" href="https://yandex.ru/maps/?rtext=~55.842804,49.08653&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn" href="https://wa.me/79867246955" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  const $ = s => document.querySelector(s);
+  const SVC = {
+    wash:{name:"Мойка", list:["Комплексная мойка (от 1000 ₽)","Химчистка салона","Мойка двигателя","Мойка днища","Мойка шин"]},
+    tyre:{name:"Шиномонтаж", list:["Шиномонтаж","Ремонт порезов","Наварка шин","Ошиповка шин","Правка / прокатка дисков","Сварка дисков","Покраска дисков","Мотошиномонтаж"]},
+    away:{name:"Выездной шиномонтаж", list:["Выездной шиномонтаж","Ремонт пореза — уточнить, возможно ли на выезде"]}
+  };
+  let route = "wash", when = "Сейчас";
+  const picked = new Set();
+
+  function drawSvc(){
+    picked.clear();
+    $("#svc").innerHTML = SVC[route].list.map(s=>`<button type="button" class="chip" aria-pressed="false" data-s="${s}">${s}</button>`).join("");
+    $("#svc").querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>{
+      const on = b.getAttribute("aria-pressed")!=="true"; b.setAttribute("aria-pressed", String(on));
+      on ? picked.add(b.dataset.s) : picked.delete(b.dataset.s); render();
+    });
+    $("#addrFld").classList.toggle("hide", route!=="away");
+    render();
+  }
+  document.querySelectorAll("#route button").forEach(b=>b.onclick=()=>{
+    document.querySelectorAll("#route button").forEach(x=>x.setAttribute("aria-pressed", String(x===b)));
+    route = b.dataset.r; drawSvc();
+  });
+  document.querySelectorAll("#when .chip").forEach(b=>b.onclick=()=>{
+    document.querySelectorAll("#when .chip").forEach(x=>x.setAttribute("aria-pressed", String(x===b)));
+    when = b.textContent; render();
+  });
+  $("#car").oninput = render; $("#addr").oninput = render;
+
+  function render(){
+    const car = $("#car").value.trim(), addr = $("#addr").value.trim(), list = [...picked];
+    let msg = "Здравствуйте! Пишу с сайта «На Воровского».\nНаправление: " + SVC[route].name +
+      "\nУслуги: " + (list.length ? list.join(", ") : "подскажите, что нужно") +
+      "\nКогда: " + when;
+    if(car) msg += "\nМашина: " + car;
+    if(route==="away") msg += "\nАдрес: " + (addr || "напишу отдельно");
+    msg += "\nСколько это будет стоить примерно?";
+    $("#msg").textContent = msg;
+    $("#waSend").href = "https://wa.me/79867246955?text=" + encodeURIComponent(msg);
+  }
+  drawSvc();
+
+  function tick(){ $("#clock").textContent = new Intl.DateTimeFormat("ru-RU",{timeZone:"Europe/Moscow",hour:"2-digit",minute:"2-digit"}).format(new Date()); }
+  tick(); setInterval(tick, 15000);
+</script>
+</body>
+</html>
