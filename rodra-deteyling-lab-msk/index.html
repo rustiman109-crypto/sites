@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Родра-Детейлинг Лаб, Москва: услуги, режим, маршрут (демо)</title>
+<meta name="description" content="Родра-Детейлинг Лаб в Москве, улица Родченко, 2. Полировка кузова, химчистка салона, мойка двигателя и днища. Рейтинг 4.8 по 2ГИС. Демо-версия сайта.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f3f2ee;
+    --paper-2:#e9e8e2;
+    --ink:#161616;
+    --ink-2:#4a4a46;
+    --grid:rgba(22,22,22,.07);
+    --signal:#e0462b;
+    --ok:#1e7b4f;
+    --line:#161616;
+    --sans:"Manrope",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#111211;
+      --paper-2:#181918;
+      --ink:#efeee9;
+      --ink-2:#a9a9a3;
+      --grid:rgba(239,238,233,.06);
+      --line:#efeee9;
+      --signal:#ff6a4d;
+      --ok:#5fd394;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#111211;
+    --paper-2:#181918;
+    --ink:#efeee9;
+    --ink-2:#a9a9a3;
+    --grid:rgba(239,238,233,.06);
+    --line:#efeee9;
+    --signal:#ff6a4d;
+    --ok:#5fd394;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background-color:var(--paper);
+    background-image:
+      linear-gradient(var(--grid) 1px,transparent 1px),
+      linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:24px 24px;
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+  .mono{font-family:var(--mono);font-size:13px;letter-spacing:.02em}
+  .label{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    min-height:48px;padding:12px 20px;border:1.5px solid var(--line);
+    font:700 16px/1 var(--sans);text-decoration:none;color:var(--ink);background:transparent;
+    border-radius:0;cursor:pointer;
+  }
+  .btn-solid{background:var(--ink);color:var(--paper)}
+  .btn:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+
+  /* demo strip */
+  .demo{background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:13px;text-align:center;padding:10px 16px}
+
+  /* header */
+  header.top{border-bottom:1.5px solid var(--line);background:var(--paper)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
+  .brand{font-weight:800;font-size:18px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+  .brand small{display:block;font-family:var(--mono);font-weight:400;font-size:11px;color:var(--ink-2);letter-spacing:.04em}
+  nav.menu{display:flex;gap:20px;font-size:15px}
+  nav.menu a{text-decoration:none;padding:8px 0;border-bottom:1.5px solid transparent}
+  nav.menu a:hover{border-bottom-color:var(--line)}
+  .top .btn{min-height:44px;padding:10px 16px;font-size:15px}
+
+  /* hero */
+  .hero{padding:40px 0 32px;position:relative}
+  .hero h1{
+    font-weight:800;font-size:clamp(40px,9vw,92px);line-height:.95;letter-spacing:-.045em;margin:12px 0 0;
+  }
+  .hero h1 span{display:block;color:var(--ink-2);font-weight:500;letter-spacing:-.03em;font-size:.42em;margin-top:14px}
+  .stamp{
+    position:absolute;right:16px;top:44px;transform:rotate(-7deg);
+    border:2.5px solid var(--signal);color:var(--signal);padding:8px 14px;
+    font-family:var(--mono);font-weight:500;font-size:15px;letter-spacing:.12em;text-transform:uppercase;
+    background:var(--paper);
+  }
+  .card{border:1.5px solid var(--line);background:var(--paper);margin-top:32px}
+  .card dl{margin:0;display:grid;grid-template-columns:1fr}
+  .card .row{display:grid;grid-template-columns:132px 1fr;gap:12px;padding:14px 16px;border-top:1px solid var(--line)}
+  .card .row:first-child{border-top:0}
+  .card dt{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);padding-top:3px}
+  .card dd{margin:0}
+  .status{display:inline-flex;align-items:center;gap:8px;font-weight:700}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--ink-2);display:inline-block;flex:none}
+  .status.open .dot{background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 22%,transparent)}
+  .rating{font-size:22px;font-weight:800;letter-spacing:-.02em}
+  .rating small{font-size:15px;font-weight:500;color:var(--ink-2)}
+  .link{font-weight:700;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
+
+  /* sections */
+  section{padding:48px 0;border-top:1.5px solid var(--line)}
+  .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+  h2{font-size:clamp(28px,5vw,44px);line-height:1.05;letter-spacing:-.035em;margin:6px 0 0;font-weight:800}
+  .lead{color:var(--ink-2);max-width:60ch;margin:12px 0 0}
+
+  /* protocol table (services + interactive) */
+  .proto{border:1.5px solid var(--line);background:var(--paper)}
+  .proto-row{display:grid;grid-template-columns:24px 36px 1fr auto;align-items:center;gap:12px;border-top:1px solid var(--line);padding:10px 16px;min-height:60px;cursor:pointer}
+  .proto-row:first-child{border-top:0}
+  .proto-row:hover{background:var(--paper-2)}
+  .form .proto-row input[type="checkbox"]{width:22px;height:22px;min-height:22px;margin:0;padding:0;accent-color:var(--ink)}
+  .proto-row .code{font-family:var(--mono);font-size:13px;color:var(--ink-2)}
+  .proto-row .name{font-weight:700;padding:12px 0}
+  .proto-row .price{font-family:var(--mono);font-size:14px;white-space:nowrap;text-align:right}
+  .proto-row .price.ask{color:var(--ink-2);font-size:12px;white-space:normal;max-width:9ch;overflow-wrap:anywhere}
+  .note{font-family:var(--mono);font-size:13px;color:var(--ink-2);margin:12px 0 0}
+
+  .form{margin-top:24px;display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
+  .form label.field{display:grid;gap:6px;font-weight:700;font-size:15px}
+  .form input,.form textarea{
+    font:400 16px var(--sans);color:var(--ink);background:var(--paper);
+    border:1.5px solid var(--line);border-radius:0;padding:12px 14px;min-height:48px;width:100%;
+  }
+  .form textarea{min-height:96px;resize:vertical}
+  .form .full{grid-column:1/-1}
+  .preview{
+    grid-column:1/-1;border:1.5px dashed var(--line);padding:16px;background:var(--paper-2);
+    font-family:var(--mono);font-size:14px;white-space:pre-wrap;word-break:break-word;margin:0;min-height:72px;
+  }
+  .actions{grid-column:1/-1;display:flex;gap:12px;flex-wrap:wrap}
+  .actions .btn{flex:1 1 220px}
+
+  /* schedule */
+  .sched{display:grid;grid-template-columns:1fr;border:1.5px solid var(--line);background:var(--paper)}
+  .sched div{display:flex;justify-content:space-between;padding:12px 16px;border-top:1px solid var(--line);font-family:var(--mono);font-size:15px}
+  .sched div:first-child{border-top:0}
+  .sched div.today{background:var(--ink);color:var(--paper)}
+
+  /* map */
+  .map{margin-top:24px;border:1.5px solid var(--line);background:var(--paper)}
+  .map iframe{display:block;width:100%;height:320px;border:0}
+  .addr{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end;margin-top:20px}
+  .addr strong{font-size:22px;letter-spacing:-.02em;display:block}
+
+  /* lists */
+  .grid2{display:grid;grid-template-columns:1fr;gap:0;border:1.5px solid var(--line);background:var(--paper)}
+  .grid2 > div{padding:18px 16px;border-top:1px solid var(--line)}
+  .grid2 > div:first-child{border-top:0}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+  .chips li{border:1px solid var(--line);padding:6px 10px;font-size:15px}
+
+  /* contacts */
+  .contacts{display:grid;gap:12px;grid-template-columns:1fr}
+  .contacts a{display:flex;justify-content:space-between;align-items:center;min-height:56px;padding:12px 16px;border:1.5px solid var(--line);text-decoration:none;font-weight:700;background:var(--paper)}
+  .contacts a span{font-family:var(--mono);font-weight:400;font-size:14px;color:var(--ink-2)}
+
+  footer{border-top:1.5px solid var(--line);padding:28px 0 40px;font-size:14px;color:var(--ink-2)}
+  footer .wrap{display:grid;gap:8px}
+
+  /* mobile bottom bar */
+  .dock{display:none}
+
+  @media (min-width:600px){
+    .form{grid-template-columns:1fr 1fr}
+    .form .full{grid-column:1/-1}
+    .card .row{grid-template-columns:170px 1fr}
+    .sched{grid-template-columns:1fr 1fr}
+    .sched div{border-left:1px solid var(--line)}
+    .sched div:nth-child(2n+1){border-left:0}
+    .sched div:nth-child(-n+2){border-top:0}
+    .contacts{grid-template-columns:1fr 1fr}
+    .grid2{grid-template-columns:1fr 1fr}
+    .grid2 > div:nth-child(2){border-top:0;border-left:1px solid var(--line)}
+    .grid2 > div:nth-child(n+3){border-top:1px solid var(--line)}
+    .grid2 > div:nth-child(3){border-top:1px solid var(--line)}
+  }
+  @media (min-width:760px){
+    .stamp{top:56px}
+    .contacts{grid-template-columns:1fr 1fr 1fr}
+  }
+  @media (max-width:759px){
+    nav.menu{display:none}
+    .top .btn.desk{display:none}
+    body{padding-bottom:92px}
+    .dock{
+      display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;position:fixed;left:0;right:0;bottom:0;z-index:10;
+      background:var(--paper);border-top:1.5px solid var(--line);padding:8px 16px calc(8px + env(safe-area-inset-bottom));
+    }
+    .dock a{min-height:48px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700;font-size:15px;border:1.5px solid var(--line);margin:0 4px;background:var(--paper)}
+    .dock a.primary{background:var(--ink);color:var(--paper)}
+    .dock a.dis{opacity:.45;pointer-events:none}
+    .stamp{position:static;display:inline-block;transform:rotate(-3deg);margin-top:18px}
+    .hero{padding-top:28px}
+  }
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС.</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Родра-Детейлинг Лаб<small>Москва · Детейлинг</small></a>
+    <nav class="menu" aria-label="Разделы">
+      <a href="#uslugi">Услуги</a>
+      <a href="#rezhim">Режим</a>
+      <a href="#adres">Адрес</a>
+      <a href="#svyaz">Контакты</a>
+    </nav>
+    <a class="btn desk" href="tel:+74950880008">Позвонить</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <p class="label">Карточка объекта · 2ГИС № 70000001104044176</p>
+    <h1>Родра-Детейлинг Лаб<span>Детейлинг и автомойка в Даниловском районе, Москва</span></h1>
+    <div class="stamp" aria-hidden="true">Демо</div>
+
+    <div class="card">
+      <dl>
+        <div class="row">
+          <dt>Статус</dt>
+          <dd><span class="status" id="status"><span class="dot"></span><span id="status-text">Проверяем время…</span></span></dd>
+        </div>
+        <div class="row">
+          <dt>Рейтинг</dt>
+          <dd>
+            <div class="rating">4.8 <small>из 5</small></div>
+            <a class="link" href="https://2gis.ru/moscow/firm/70000001104044176/tab/reviews" target="_blank" rel="noopener">377 отзывов в 2ГИС →</a>
+          </dd>
+        </div>
+        <div class="row">
+          <dt>Адрес</dt>
+          <dd>Москва, улица Родченко, 2<br><span class="label">Даниловский район</span></dd>
+        </div>
+        <div class="row">
+          <dt>Режим</dt>
+          <dd>Каждый день, 10:00–23:59</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+  <section id="uslugi">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">§1 · Услуги</p>
+          <h2>Соберите свою заявку</h2>
+        </div>
+      </div>
+      <p class="lead">Отметьте нужные услуги, напишите марку авто и задачу. Сообщение сформируется само и откроется в WhatsApp.</p>
+
+      <form class="form" id="order" onsubmit="return false">
+        <div class="proto" role="group" aria-label="Услуги">
+          <label class="proto-row">
+            <input type="checkbox" name="svc" value="Комплексная мойка" data-price="от 3200 ₽">
+            <span class="code">01</span>
+            <span class="name">Комплексная мойка</span>
+            <span class="price">от 3200 ₽</span>
+          </label>
+          <label class="proto-row">
+            <input type="checkbox" name="svc" value="Полировка кузова">
+            <span class="code">02</span>
+            <span class="name">Полировка кузова</span>
+            <span class="price ask">уточняется</span>
+          </label>
+          <label class="proto-row">
+            <input type="checkbox" name="svc" value="Химчистка салона">
+            <span class="code">03</span>
+            <span class="name">Химчистка салона</span>
+            <span class="price ask">уточняется</span>
+          </label>
+          <label class="proto-row">
+            <input type="checkbox" name="svc" value="Мойка двигателя">
+            <span class="code">04</span>
+            <span class="name">Мойка двигателя</span>
+            <span class="price ask">уточняется</span>
+          </label>
+          <label class="proto-row">
+            <input type="checkbox" name="svc" value="Мойка днища">
+            <span class="code">05</span>
+            <span class="name">Мойка днища</span>
+            <span class="price ask">уточняется</span>
+          </label>
+          <label class="proto-row">
+            <input type="checkbox" name="svc" value="Тёплая мойка самообслуживания">
+            <span class="code">06</span>
+            <span class="name">Тёплая мойка самообслуживания</span>
+            <span class="price ask">уточняется</span>
+          </label>
+        </div>
+        <p class="note full" style="margin:0">Цена «от 3200 ₽» указана для комплексной мойки. Цены остальных услуг уточняются у владельца.</p>
+
+        <label class="field">Марка и модель авто
+          <input type="text" id="car" maxlength="80" placeholder="например, Kia Rio">
+        </label>
+        <label class="field">Что нужно сделать
+          <input type="text" id="task" maxlength="200" placeholder="например, вернуть блеск кузову">
+        </label>
+
+        <div class="preview" id="preview" aria-live="polite"></div>
+
+        <div class="actions">
+          <a class="btn btn-solid" id="wa-order" href="https://wa.me/79160880800" target="_blank" rel="noopener">Отправить в WhatsApp</a>
+          <a class="btn" href="tel:+74950880008">Позвонить</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="rezhim">
+    <div class="wrap">
+      <p class="label">§2 · Режим работы</p>
+      <h2>Работаем каждый день</h2>
+      <p class="lead" id="sched-note">Статус считается по времени Москвы.</p>
+      <div class="sched" id="sched" style="margin-top:20px"></div>
+    </div>
+  </section>
+
+  <section id="adres">
+    <div class="wrap">
+      <p class="label">§3 · Адрес</p>
+      <h2>Как проехать</h2>
+      <div class="map">
+        <iframe src="https://yandex.ru/map-widget/v1/?ll=37.632813%2C55.698759&z=16&pt=37.632813%2C55.698759%2Cpm2rdm" title="Карта: Родра-Детейлинг Лаб, улица Родченко, 2" loading="lazy"></iframe>
+      </div>
+      <div class="addr">
+        <div>
+          <strong>Москва, улица Родченко, 2</strong>
+          <span class="label">Даниловский район</span>
+        </div>
+        <a class="btn btn-solid" href="https://yandex.ru/maps/?rtext=~55.698759,37.632813&rtt=auto" target="_blank" rel="noopener">Построить маршрут</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="label">§4 · На месте</p>
+      <h2>Удобства и оплата</h2>
+      <div class="grid2" style="margin-top:20px">
+        <div>
+          <p class="label" style="margin:0 0 12px">Удобства</p>
+          <ul class="chips">
+            <li>Зал ожидания</li>
+            <li>Кофе с собой</li>
+            <li>Чай с собой</li>
+            <li>Wi-Fi для клиентов</li>
+            <li>Возможна запись</li>
+            <li>До 6 машин</li>
+          </ul>
+        </div>
+        <div>
+          <p class="label" style="margin:0 0 12px">Оплата</p>
+          <ul class="chips">
+            <li>Картой</li>
+            <li>Наличными</li>
+            <li>Через банк</li>
+            <li>Эл. кошельком</li>
+            <li>Перевод с карты</li>
+            <li>По QR-коду</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="svyaz">
+    <div class="wrap">
+      <p class="label">§5 · Связь</p>
+      <h2>Напишите или позвоните</h2>
+      <div class="contacts" style="margin-top:20px">
+        <a href="tel:+74950880008">Позвонить <span>+7 (495) 088‒00‒08</span></a>
+        <a href="https://wa.me/79160880800" target="_blank" rel="noopener">WhatsApp <span>+7 916 088‒08‒00</span></a>
+        <a href="https://t.me/+79160880800" target="_blank" rel="noopener">Telegram <span>t.me/+79160880800</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС.</span>
+    <span>Источник карточки: <a class="link" href="https://2gis.ru/moscow/firm/70000001104044176" target="_blank" rel="noopener">2ГИС</a></span>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a href="tel:+74950880008">Позвонить</a>
+  <a href="https://yandex.ru/maps/?rtext=~55.698759,37.632813&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="primary" href="https://wa.me/79160880800" target="_blank" rel="noopener" id="dock-wa">WhatsApp</a>
+</nav>
+
+<script>
+(function(){
+  var SCHEDULE = {
+    Mon:[["10:00","23:59"]], Tue:[["10:00","23:59"]], Wed:[["10:00","23:59"]], Thu:[["10:00","23:59"]],
+    Fri:[["10:00","23:59"]], Sat:[["10:00","23:59"]], Sun:[["10:00","23:59"]]
+  };
+  var DAYS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+  var DAY_RU = {Mon:"Понедельник",Tue:"Вторник",Wed:"Среда",Thu:"Четверг",Fri:"Пятница",Sat:"Суббота",Sun:"Воскресенье"};
+  var DAY_SHORT = {Mon:"пн",Tue:"вт",Wed:"ср",Thu:"чт",Fri:"пт",Sat:"сб",Sun:"вс"};
+  var WA = "https://wa.me/79160880800";
+
+  function toMin(s){ var p = s.split(":"); return (+p[0])*60 + (+p[1]); }
+
+  function mskNow(){
+    try{
+      var parts = new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Moscow",weekday:"short",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());
+      var o = {};
+      parts.forEach(function(x){ o[x.type] = x.value; });
+      return { day: o.weekday.slice(0,3), min: (+o.hour)*60 + (+o.minute) };
+    }catch(e){
+      var d = new Date();
+      return { day: DAYS[(d.getDay()+6)%7], min: d.getHours()*60 + d.getMinutes() };
+    }
+  }
+
+  function statusInfo(){
+    var n = mskNow();
+    var ranges = SCHEDULE[n.day] || [];
+    for (var i=0;i<ranges.length;i++){
+      var a = toMin(ranges[i][0]), b = toMin(ranges[i][1]);
+      if (n.min >= a && n.min < b) return { open:true, text:"Открыто сейчас, до " + ranges[i][1] };
+    }
+    for (var j=0;j<ranges.length;j++){
+      if (toMin(ranges[j][0]) > n.min) return { open:false, text:"Закрыто, откроется сегодня в " + ranges[j][0] };
+    }
+    var idx = DAYS.indexOf(n.day);
+    for (var k=1;k<=7;k++){
+      var day = DAYS[(idx+k)%7];
+      if (SCHEDULE[day] && SCHEDULE[day].length){
+        var when = k===1 ? "завтра" : DAY_RU[day].toLowerCase();
+        return { open:false, text:"Закрыто, откроется " + when + " в " + SCHEDULE[day][0][0] };
+      }
+    }
+    return { open:false, text:"Закрыто" };
+  }
+
+  function renderStatus(){
+    var s = statusInfo();
+    var el = document.getElementById("status");
+    el.className = "status" + (s.open ? " open" : "");
+    document.getElementById("status-text").textContent = s.text;
+  }
+
+  function renderSchedule(){
+    var n = mskNow();
+    var box = document.getElementById("sched");
+    box.innerHTML = "";
+    DAYS.forEach(function(d){
+      var r = SCHEDULE[d][0];
+      var row = document.createElement("div");
+      if (d === n.day) row.className = "today";
+      var l = document.createElement("span"); l.textContent = DAY_RU[d];
+      var v = document.createElement("span"); v.textContent = r[0] + "–" + r[1];
+      row.appendChild(l); row.appendChild(v);
+      box.appendChild(row);
+    });
+  }
+
+  function buildMessage(){
+    var checked = Array.prototype.slice.call(document.querySelectorAll('input[name="svc"]:checked')).map(function(c){ return c.value; });
+    var car = document.getElementById("car").value.trim();
+    var task = document.getElementById("task").value.trim();
+    var lines = ["Здравствуйте! Хочу записаться в «Родра-Детейлинг Лаб» (улица Родченко, 2)."];
+    lines.push("Услуги: " + (checked.length ? checked.join(", ") : "пока не выбрал(а), уточню"));
+    if (car) lines.push("Автомобиль: " + car);
+    if (task) lines.push("Задача: " + task);
+    return lines.join("\n");
+  }
+
+  function renderMessage(){
+    var msg = buildMessage();
+    document.getElementById("preview").textContent = msg;
+    var href = WA + "?text=" + encodeURIComponent(msg);
+    document.getElementById("wa-order").setAttribute("href", href);
+    document.getElementById("dock-wa").setAttribute("href", href);
+  }
+
+  document.getElementById("order").addEventListener("change", renderMessage);
+  document.getElementById("order").addEventListener("input", renderMessage);
+
+  renderSchedule();
+  renderStatus();
+  renderMessage();
+  setInterval(renderStatus, 60000);
+})();
+</script>
+</body>
+</html>
