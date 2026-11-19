@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ваш Бокс — мойка самообслуживания 24/7 на Тихорецкой, Казань</title>
+<meta name="description" content="Мойка самообслуживания «Ваш Бокс» в Казани, Тихорецкая улица, 7 ст2. Круглосуточно, легковые и грузовые, аренда тёплого бокса, комплексная мойка от 55 ₽, зал ожидания и Wi‑Fi.">
+<meta name="theme-color" content="#f3f1ec">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f3f1ec;
+    --paper-2:#e9e6df;
+    --ink:#111111;
+    --ink-2:#55524c;
+    --red:#e2231a;
+    --rule:#111111;
+    --hair:#cfcbc2;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:clip}
+  body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 "Onest",system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+    padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{margin:0;letter-spacing:-.025em;line-height:1}
+  .lbl{font:600 12px/1 "Onest",sans-serif;letter-spacing:.12em;text-transform:uppercase}
+  .num{font-variant-numeric:tabular-nums}
+
+  .demo{background:var(--ink);color:var(--paper);font:500 13px/1.35 "Onest";text-align:center;padding:8px 16px}
+
+  header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:2px solid var(--rule)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:900 18px/1 "Onest";letter-spacing:-.02em;text-transform:uppercase}
+  .logo b{display:inline-grid;place-items:center;width:28px;height:28px;background:var(--red);color:#fff;font-size:15px}
+  .h-nav{display:none;gap:24px;font-size:14px;font-weight:500}
+  .h-nav a{text-decoration:none}.h-nav a:hover{color:var(--red)}
+  .h-tel{font:700 15px/1 "Onest";text-decoration:none;white-space:nowrap}
+  @media(min-width:880px){.h-nav{display:flex}}
+
+  /* модульная сетка: секции с номером слева */
+  section{border-bottom:2px solid var(--rule)}
+  .mod{display:grid;gap:0}
+  @media(min-width:880px){.mod{grid-template-columns:200px 1fr}}
+  .mod-h{padding:28px 0 0}
+  @media(min-width:880px){.mod-h{padding:40px 24px 40px 0;border-right:1px solid var(--hair)}}
+  .mod-h .lbl{color:var(--red)}
+  .mod-h .idx{font:800 44px/1 "Onest";letter-spacing:-.04em;margin-top:10px}
+  .mod-b{padding:18px 0 40px}
+  @media(min-width:880px){.mod-b{padding:40px 0 48px 32px}}
+  h2{font-size:clamp(28px,7vw,48px);font-weight:800}
+
+  /* первый экран */
+  .hero{padding:28px 0 0}
+  .hero-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--hair);padding-bottom:14px}
+  .status{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:14px}
+  .lamp{width:12px;height:12px;background:var(--red);border-radius:50%;box-shadow:0 0 0 3px rgba(226,35,26,.18);animation:blink 1.6s steps(1) infinite}
+  @keyframes blink{50%{opacity:.25}}
+  .addr-mini{font-size:14px;color:var(--ink-2)}
+  .hero h1{font-size:clamp(46px,14vw,132px);font-weight:900;text-transform:uppercase;letter-spacing:-.05em;line-height:.86;margin:22px 0 0}
+  .hero h1 span{color:var(--red)}
+  .hero-sub{display:grid;gap:16px;margin:22px 0 26px}
+  @media(min-width:880px){.hero-sub{grid-template-columns:1.2fr 1fr;align-items:end}}
+  .hero-sub p{margin:0;font-size:clamp(18px,4.6vw,22px);line-height:1.35;max-width:30ch;font-weight:500}
+  .cta{display:flex;flex-wrap:wrap;gap:8px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 20px;border:2px solid var(--ink);background:transparent;color:var(--ink);
+    font:700 16px/1 "Onest";text-decoration:none;cursor:pointer;border-radius:0}
+  .btn.red{background:var(--red);border-color:var(--red);color:#fff}
+  .btn.ink{background:var(--ink);color:var(--paper)}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+  .btn svg{width:18px;height:18px}
+
+  /* ряд ворот */
+  .gates{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+  .gate{appearance:none;border:0;padding:0;background:none;cursor:pointer;text-align:left;color:var(--ink);font:inherit}
+  .gate .plate{display:flex;justify-content:space-between;align-items:center;border:2px solid var(--ink);border-bottom:0;padding:6px 8px;font:800 clamp(16px,4.6vw,26px)/1 "Onest";letter-spacing:-.03em}
+  .gate .plate i{width:9px;height:9px;border-radius:50%;background:var(--red)}
+  .gate[aria-expanded="true"] .plate i{background:#2bb24c}
+  .gate .bay{position:relative;height:clamp(140px,38vw,250px);background:var(--ink);border:2px solid var(--ink);overflow:hidden}
+  .gate .inside{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:10px 8px;color:var(--paper)}
+  .gate .inside b{font:800 clamp(17px,5vw,30px)/1 "Onest";letter-spacing:-.03em;color:#fff}
+  .gate .inside small{font-size:clamp(11px,2.9vw,14px);line-height:1.25;color:#cfcac0;margin-top:4px}
+  .gate .door{position:absolute;inset:0;background:
+      repeating-linear-gradient(180deg,#d9d5cc 0 14px,#bdb8ad 14px 16px,#e4e0d8 16px 17px);
+    transform-origin:top;transition:transform .55s cubic-bezier(.6,.05,.3,1);border-bottom:6px solid var(--ink)}
+  .gate .door:after{content:"";position:absolute;left:50%;bottom:10px;width:30%;height:5px;transform:translateX(-50%);background:var(--ink)}
+  .gate[aria-expanded="true"] .door{transform:translateY(-82%)}
+  .gate:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+  .gates-note{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);padding:10px 0 22px}
+  .floor{height:10px;background:repeating-linear-gradient(90deg,var(--ink) 0 22px,#f2c200 22px 44px)}
+
+  /* таблица фактов */
+  .spec{display:grid;grid-template-columns:repeat(2,1fr);border-top:2px solid var(--ink);border-left:1px solid var(--hair)}
+  @media(min-width:880px){.spec{grid-template-columns:repeat(3,1fr)}}
+  .cell{border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:16px 12px 18px;min-height:132px;display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+  .cell .lbl{color:var(--ink-2);font-size:11px}
+  .cell .v{font:800 clamp(26px,7.4vw,40px)/1 "Onest";letter-spacing:-.04em}
+  .cell .v.red{color:var(--red)}
+  .cell p{margin:0;font-size:14px;line-height:1.35;color:var(--ink-2)}
+
+  /* услуги — список с номерами */
+  .list{list-style:none;margin:22px 0 0;padding:0;border-top:2px solid var(--ink)}
+  .list li{display:grid;grid-template-columns:44px 1fr;gap:4px 12px;padding:16px 0;border-bottom:1px solid var(--hair)}
+  @media(min-width:880px){.list li{grid-template-columns:60px 1fr 1.1fr;align-items:baseline}}
+  .list .n{font:700 14px/1.6 "Onest";color:var(--red)}
+  .list h3{font-size:20px;font-weight:700;letter-spacing:-.02em;line-height:1.2}
+  .list p{grid-column:2;margin:0;color:var(--ink-2);font-size:15px}
+  @media(min-width:880px){.list p{grid-column:3}}
+
+  /* выбор задачи */
+  .seg{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:22px;border:2px solid var(--ink)}
+  @media(min-width:880px){.seg{grid-template-columns:repeat(4,1fr)}}
+  .seg button{appearance:none;border:0;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper);color:var(--ink);
+    min-height:64px;padding:10px 12px;text-align:left;font:700 15px/1.2 "Onest";cursor:pointer;display:flex;gap:8px;align-items:center}
+  .seg button span{font-weight:600;color:var(--red);font-size:13px}
+  .seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .seg button[aria-pressed="true"] span{color:#ff6b63}
+  .out{border:2px solid var(--ink);border-top:0;background:#fff;padding:18px 16px 20px;display:grid;gap:16px}
+  @media(min-width:880px){.out{grid-template-columns:1.3fr 1fr;padding:24px}}
+  .out h3{font-size:24px;font-weight:800}
+  .out ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+  .out li{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:15px;line-height:1.4}
+  .out li:before{content:"";width:10px;height:10px;background:var(--red);margin-top:6px}
+  .out .act{display:flex;flex-direction:column;gap:8px;justify-content:flex-end}
+  .out .act .btn{width:100%}
+  .out .msg{font-size:13px;color:var(--ink-2);background:var(--paper);padding:10px 12px;border-left:3px solid var(--red)}
+
+  /* оплата */
+  .pay{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+  .pay span{border:1px solid var(--ink);padding:8px 12px;font-size:14px;font-weight:600}
+
+  /* рейтинг */
+  .rate{display:grid;gap:18px;margin-top:22px;border-top:2px solid var(--ink);padding-top:22px}
+  @media(min-width:880px){.rate{grid-template-columns:auto 1fr auto;align-items:center;gap:36px}}
+  .rate .score{font:900 clamp(84px,24vw,140px)/.8 "Onest";letter-spacing:-.06em}
+  .rate .score span{color:var(--red)}
+  .bar{height:12px;background:var(--paper-2);border:1px solid var(--ink);margin-top:10px}
+  .bar i{display:block;height:100%;width:98%;background:var(--red)}
+  .rate p{margin:0;font-size:16px}
+
+  /* контакты */
+  .contact{display:grid;gap:0;margin-top:22px;border:2px solid var(--ink)}
+  @media(min-width:880px){.contact{grid-template-columns:1fr 1.3fr}}
+  .info{padding:18px 16px;display:grid;gap:18px;align-content:start;background:#fff}
+  .info dt{color:var(--ink-2)}
+  .info dd{margin:6px 0 0;font-size:18px;font-weight:700;line-height:1.3}
+  .info dd a{text-decoration:none;border-bottom:2px solid var(--red)}
+  .info dd small{display:block;font-weight:400;font-size:14px;color:var(--ink-2)}
+  .map{min-height:340px;border-top:2px solid var(--ink);background:var(--paper-2)}
+  @media(min-width:880px){.map{border-top:0;border-left:2px solid var(--ink)}}
+  .map iframe{width:100%;height:100%;min-height:340px;border:0;display:block;filter:grayscale(1) contrast(1.05)}
+
+  footer{padding:24px 0 28px;font-size:13px;color:var(--ink-2)}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;border-top:2px solid var(--ink);
+    background:var(--paper);padding:8px 8px calc(8px + env(safe-area-inset-bottom));gap:6px}
+  .dock .btn{min-height:52px;padding:0 6px;font-size:15px}
+  .dock .btn:hover{transform:none;box-shadow:none}
+  @media(min-width:880px){.dock{display:none}body{padding-bottom:0}}
+
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><b>В</b>Ваш Бокс</a>
+    <nav class="h-nav" aria-label="Разделы">
+      <a href="#fakty">Факты</a><a href="#uslugi">Услуги</a><a href="#zadacha">Зачем едете</a><a href="#kontakty">Как добраться</a>
+    </nav>
+    <a class="h-tel" href="tel:+78432163232">+7 (843) 216-32-32</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <div class="status" aria-live="polite"><span class="lamp" aria-hidden="true"></span><span id="status">Открыто круглосуточно</span></div>
+        <div class="addr-mini">Казань · Тихорецкая, 7 ст2</div>
+      </div>
+      <h1>Ваш<br>Бокс<span>.</span></h1>
+      <div class="hero-sub">
+        <p>Мойка самообслуживания на Тихорецкой. Моем легковые и грузовые, сдаём тёплый бокс. Открыты 24/7.</p>
+        <div class="cta">
+          <a class="btn red" href="https://yandex.ru/maps/?rtext=~55.730225,49.117835&rtt=auto" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>Маршрут</a>
+          <a class="btn" href="tel:+78432163232">Позвонить</a>
+        </div>
+      </div>
+
+      <div class="gates" id="gates" role="group" aria-label="Ворота боксов: нажмите, чтобы закрыть или открыть">
+        <button type="button" class="gate" aria-expanded="true" aria-label="Ворота 01: 24/7, Открыто днём и ночью"><div class="plate"><span>01</span><i></i></div><div class="bay"><div class="inside"><b>24/7</b><small>Открыто днём и ночью</small></div><div class="door"></div></div></button>
+        <button type="button" class="gate" aria-expanded="true" aria-label="Ворота 02: от 55 ₽, Комплексная мойка"><div class="plate"><span>02</span><i></i></div><div class="bay"><div class="inside"><b>от 55 ₽</b><small>Комплексная мойка</small></div><div class="door"></div></div></button>
+        <button type="button" class="gate" aria-expanded="true" aria-label="Ворота 03: Грузовики, Моем не только легковые"><div class="plate"><span>03</span><i></i></div><div class="bay"><div class="inside"><b>Грузовики</b><small>Моем не только легковые</small></div><div class="door"></div></div></button>
+        <button type="button" class="gate" aria-expanded="true" aria-label="Ворота 04: Тёплый бокс, Можно взять в аренду"><div class="plate"><span>04</span><i></i></div><div class="bay"><div class="inside"><b>Тёплый бокс</b><small>Можно взять в аренду</small></div><div class="door"></div></div></button>
+      </div>
+      <div class="floor" aria-hidden="true"></div>
+      <div class="gates-note"><span>До 4 машин одновременно. Ворота можно закрыть и открыть.</span><span id="clock" class="num"></span></div>
+    </div>
+  </section>
+
+  <section id="fakty">
+    <div class="wrap mod">
+      <div class="mod-h"><div class="lbl">Раздел</div><div class="idx">01</div></div>
+      <div class="mod-b">
+        <h2>Коротко о мойке</h2>
+        <div class="spec" style="margin-top:22px">
+          <div class="cell"><div class="lbl">Режим</div><div class="v">24/7</div><p>Без выходных и перерывов</p></div>
+          <div class="cell"><div class="lbl">Комплексная мойка</div><div class="v red">от 55 ₽</div><p>Цена из карточки 2ГИС</p></div>
+          <div class="cell"><div class="lbl">Одновременно</div><div class="v">до 4</div><p>машин на мойке</p></div>
+          <div class="cell"><div class="lbl">Транспорт</div><div class="v">Л + Г</div><p>Легковые и грузовые</p></div>
+          <div class="cell"><div class="lbl">Аренда</div><div class="v">+°C</div><p>Тёплый бокс в аренду</p></div>
+          <div class="cell"><div class="lbl">Пока ждёте</div><div class="v">Wi‑Fi</div><p>Зал ожидания и интернет</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="uslugi">
+    <div class="wrap mod">
+      <div class="mod-h"><div class="lbl">Раздел</div><div class="idx">02</div></div>
+      <div class="mod-b">
+        <h2>Что здесь можно сделать</h2>
+        <ol class="list">
+          <li><span class="n">01</span><h3>Бесконтактная мойка</h3><p>Моете сами, без щёток. Мойка тёплая.</p></li>
+          <li><span class="n">02</span><h3>Мойка грузовиков</h3><p>Самообслуживание для грузовых машин, не только для легковых.</p></li>
+          <li><span class="n">03</span><h3>Аренда тёплого бокса</h3><p>Тёплый бокс можно взять в аренду. Условия — по телефону.</p></li>
+          <li><span class="n">04</span><h3>Мойка двигателя</h3><p>Отдельная услуга в списке мойки.</p></li>
+          <li><span class="n">05</span><h3>Пылесос</h3><p>Для салона и ковриков, прямо у бокса.</p></li>
+          <li><span class="n">06</span><h3>Автоароматизаторы</h3><p>Можно купить на месте, в розницу.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="zadacha">
+    <div class="wrap mod">
+      <div class="mod-h"><div class="lbl">Раздел</div><div class="idx">03</div></div>
+      <div class="mod-b">
+        <h2>Зачем едете?</h2>
+        <p style="margin:10px 0 0;color:var(--ink-2);max-width:52ch">Выберите задачу — покажем, что для неё есть, и подготовим сообщение в WhatsApp.</p>
+        <div class="seg" id="seg" role="group" aria-label="Задача"></div>
+        <div class="out" aria-live="polite">
+          <div>
+            <h3 id="oTitle"></h3>
+            <ul id="oList"></ul>
+          </div>
+          <div class="act">
+            <div class="msg" id="oMsg"></div>
+            <a class="btn red" id="oWa" href="#" target="_blank" rel="noopener">Написать в WhatsApp</a>
+            <a class="btn" href="https://yandex.ru/maps/?rtext=~55.730225,49.117835&rtt=auto" target="_blank" rel="noopener">Ехать сейчас</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap mod">
+      <div class="mod-h"><div class="lbl">Раздел</div><div class="idx">04</div></div>
+      <div class="mod-b">
+        <h2>Оплата</h2>
+        <p style="margin:10px 0 0;color:var(--ink-2)">Как удобно — так и платите.</p>
+        <div class="pay"><span>Карта</span><span>Наличные</span><span>QR-код</span><span>Перевод с карты</span><span>Электронный кошелёк</span><span>Через банк</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="otzyvy">
+    <div class="wrap mod">
+      <div class="mod-h"><div class="lbl">Раздел</div><div class="idx">05</div></div>
+      <div class="mod-b">
+        <h2>Что говорят водители</h2>
+        <div class="rate">
+          <div class="score num">4<span>,</span>9</div>
+          <div>
+            <p><b>584 отзыва</b> в 2ГИС, рейтинг подтверждён.</p>
+            <div class="bar" aria-hidden="true"><i></i></div>
+          </div>
+          <a class="btn ink" href="https://2gis.ru/kazan/firm/70000001061105283/tab/reviews" target="_blank" rel="noopener">Читать отзывы →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakty">
+    <div class="wrap mod">
+      <div class="mod-h"><div class="lbl">Раздел</div><div class="idx">06</div></div>
+      <div class="mod-b">
+        <h2>Тихорецкая, 7 ст2</h2>
+        <div class="contact">
+          <dl class="info">
+            <div><dt class="lbl">Адрес</dt><dd>Казань, Тихорецкая улица, 7 ст2<small>Приволжский район</small></dd></div>
+            <div><dt class="lbl">Часы</dt><dd>Круглосуточно, каждый день</dd></div>
+            <div><dt class="lbl">Телефон</dt><dd><a href="tel:+78432163232">+7 (843) 216-32-32</a></dd></div>
+            <div><dt class="lbl">Написать</dt><dd><a href="https://wa.me/79950955523" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://t.me/+79950955523" target="_blank" rel="noopener">Telegram</a><small><a href="mailto:adel9@yandex.ru" style="border:0">adel9@yandex.ru</a></small></dd></div>
+            <div class="cta">
+              <a class="btn red" href="https://yandex.ru/maps/?rtext=~55.730225,49.117835&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+              <a class="btn" href="https://2gis.ru/kazan/firm/70000001061105283" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+            </div>
+          </dl>
+          <div class="map">
+            <iframe title="Ваш Бокс на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=49.117835%2C55.730225&z=16&pt=49.117835%2C55.730225%2Cpm2rdm"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">«Ваш Бокс», мойка самообслуживания, Казань. Демо-версия сайта, подготовлена для владельца по данным 2ГИС.</div>
+</footer>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a class="btn" href="tel:+78432163232">Позвонить</a>
+  <a class="btn red" href="https://yandex.ru/maps/?rtext=~55.730225,49.117835&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn ink" href="https://wa.me/79950955523" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  const $ = s => document.querySelector(s);
+
+  // Время в Казани (Europe/Moscow). Мойка работает 24/7 — всегда открыто.
+  function tick(){
+    const t = new Intl.DateTimeFormat("ru-RU",{hour:"2-digit",minute:"2-digit",hourCycle:"h23",timeZone:"Europe/Moscow"}).format(new Date());
+    $("#status").textContent = "Открыто сейчас · круглосуточно";
+    $("#clock").textContent = "В Казани сейчас " + t;
+  }
+  tick(); setInterval(tick, 20000);
+
+  // Ворота открыты по умолчанию (видно и без JS). С JS — короткая анимация подъёма и клик открывает/закрывает.
+  const gates = [...document.querySelectorAll("#gates .gate")];
+  gates.forEach(el=>{
+    el.onclick = () => el.setAttribute("aria-expanded", el.getAttribute("aria-expanded")==="true" ? "false" : "true");
+  });
+  if(!matchMedia("(prefers-reduced-motion: reduce)").matches){
+    gates.forEach(g=>g.setAttribute("aria-expanded","false"));
+    gates.forEach((g,i)=>setTimeout(()=>g.setAttribute("aria-expanded","true"), 400+i*240));
+  }
+
+  // Выбор задачи
+  const TASKS = [
+    {id:"car", t:"Помыть легковую", h:"Мойка легковой",
+      items:["Бесконтактная мойка","Тёплая мойка самообслуживания","Пылесос для салона","Комплексная мойка от 55 ₽","Круглосуточно, без записи"],
+      msg:"Здравствуйте! Хочу помыть легковую. Сейчас есть свободный бокс?"},
+    {id:"truck", t:"Помыть грузовик", h:"Мойка грузовика",
+      items:["Самообслуживание для грузовых машин","Бесконтактная мойка","Можно ночью — работаем 24/7","Перед поездкой лучше уточнить, свободен ли бокс"],
+      msg:"Здравствуйте! Хочу помыть грузовую машину. Когда удобнее подъехать?"},
+    {id:"rent", t:"Арендовать тёплый бокс", h:"Аренда тёплого бокса",
+      items:["Тёплый бокс в аренду","Зал ожидания и Wi‑Fi","Условия и стоимость аренды — уточняются у администратора"],
+      msg:"Здравствуйте! Интересует аренда тёплого бокса. Подскажите условия и когда есть свободное время?"},
+    {id:"engine", t:"Двигатель или салон", h:"Двигатель и салон",
+      items:["Мойка двигателя","Пылесос для салона","Автоароматизаторы на месте"],
+      msg:"Здравствуйте! Хочу помыть двигатель. Подскажите, когда можно подъехать?"}
+  ];
+  const seg = $("#seg");
+  function pick(i){
+    const t = TASKS[i];
+    seg.querySelectorAll("button").forEach((b,j)=>b.setAttribute("aria-pressed", String(j===i)));
+    $("#oTitle").textContent = t.h;
+    $("#oList").innerHTML = t.items.map(x=>"<li><span>"+x+"</span></li>").join("");
+    $("#oMsg").textContent = "Сообщение: «" + t.msg + "»";
+    $("#oWa").href = "https://wa.me/79950955523?text=" + encodeURIComponent(t.msg);
+  }
+  TASKS.forEach((t,i)=>{
+    const b = document.createElement("button");
+    b.type = "button"; b.innerHTML = "<span>0"+(i+1)+"</span>"+t.t;
+    b.onclick = () => pick(i);
+    seg.appendChild(b);
+  });
+  pick(0);
+</script>
+</body>
+</html>
