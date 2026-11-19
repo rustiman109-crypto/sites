@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rafi — барбершоп на Даурской, 11 в Казани</title>
+<meta name="description" content="Барбершоп Rafi в Казани, Даурская улица, 11. Мужская стрижка от 800 ₽, детская стрижка, мужская химзавивка. Ежедневно 10:00–21:00. Рейтинг 4,9 в 2ГИС.">
+<meta name="theme-color" content="#2b1d14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700&family=Inter:wght@400;500;600&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --wood:#2b1d14;
+    --wood-2:#3a281b;
+    --wood-3:#4a3424;
+    --cream:#f2e8d5;
+    --cream-2:#e6d8bd;
+    --ink:#2b1d14;
+    --brass:#c39a52;
+    --brass-hi:#e2c27f;
+    --brass-lo:#8a6a32;
+    --muted:#bfae93;
+    --ok:#9fc27a;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;color:var(--cream);
+    font:16px/1.55 "Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+    background:
+      repeating-linear-gradient(91deg,rgba(255,235,200,.018) 0 2px,transparent 2px 9px),
+      repeating-linear-gradient(89.3deg,rgba(0,0,0,.10) 0 1px,transparent 1px 17px),
+      radial-gradient(120% 60% at 50% 0%,#3b2717 0%,transparent 60%),
+      var(--wood);
+    overflow-x:hidden;
+    padding-bottom:calc(80px + env(safe-area-inset-bottom));
+  }
+  @media(min-width:860px){body{padding-bottom:0}}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{font-family:"Playfair Display",Georgia,serif;margin:0;line-height:1.08}
+  h2{font-size:clamp(30px,7vw,46px);font-weight:700}
+  .kicker{font:600 12px/1 "Inter",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--brass)}
+  section{padding:64px 0}
+
+  .demo{background:var(--brass);color:var(--wood);text-align:center;font:600 13px/1.35 "Inter",sans-serif;padding:8px 16px}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(43,29,20,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(195,154,82,.35)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+  .mark{font:italic 700 26px/1 "Playfair Display",serif;text-decoration:none;color:var(--brass-hi);display:flex;align-items:baseline;gap:10px}
+  .mark small{font:600 11px/1 "Inter",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-style:normal}
+  .h-tel{font-weight:600;text-decoration:none;white-space:nowrap;font-size:15px}
+  .h-nav{display:none;gap:26px;font-size:14px;color:var(--muted)}
+  .h-nav a{text-decoration:none}.h-nav a:hover{color:var(--cream)}
+  @media(min-width:860px){.h-nav{display:flex}}
+
+  /* hero */
+  .hero{padding:36px 0 40px}
+  .hero .wrap{display:grid;gap:28px;align-items:center}
+  @media(min-width:860px){.hero .wrap{grid-template-columns:400px 1fr;gap:56px}.hero{padding:64px 0}}
+  .emblem{width:100%;max-width:300px;margin:0 auto;display:block;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45))}
+  @media(min-width:860px){.emblem{max-width:380px}}
+  .hero h1{font-size:clamp(34px,8.6vw,58px);font-weight:900}
+  .hero h1 em{color:var(--brass-hi);font-weight:700}
+  .lead{color:var(--muted);font-size:17px;max-width:34ch;margin:16px 0 22px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+  .chip{display:inline-flex;align-items:center;gap:9px;min-height:40px;padding:8px 14px;border:1px solid rgba(195,154,82,.45);border-radius:999px;font-size:14px;text-decoration:none;background:rgba(0,0,0,.18)}
+  .chip .dot{width:9px;height:9px;border-radius:50%;background:#d9805a}
+  .is-open .chip .dot{background:var(--ok);box-shadow:0 0 0 4px rgba(159,194,122,.18)}
+  .chip b{color:var(--brass-hi)}
+  .chip:hover{border-color:var(--brass)}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 24px;border-radius:4px;
+    font:600 16px/1 "Inter",sans-serif;text-decoration:none;cursor:pointer;border:1px solid var(--brass);color:var(--cream);background:transparent}
+  .btn.brass{background:linear-gradient(180deg,var(--brass-hi),var(--brass) 55%,var(--brass-lo));color:var(--wood);border-color:var(--brass-lo);box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
+  .btn:active{transform:translateY(1px)}
+
+  /* латунная табличка */
+  .plaque-wrap{padding:8px 0 24px}
+  .plaque{position:relative;max-width:620px;margin:0 auto;text-align:center;color:var(--wood);
+    background:linear-gradient(180deg,#e9cd8d 0%,#c39a52 45%,#a07a3c 100%);
+    border-radius:6px;padding:22px 44px;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -2px 0 rgba(0,0,0,.2),0 14px 30px rgba(0,0,0,.4)}
+  .plaque::before,.plaque::after{content:"";position:absolute;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#f6e2b0,#7a5a26);box-shadow:0 1px 0 rgba(255,255,255,.4)}
+  .plaque::before{left:16px}.plaque::after{right:16px}
+  .plaque b{display:block;font:italic 700 clamp(22px,5.6vw,32px)/1.1 "Playfair Display",serif}
+  .plaque span{display:block;font:600 11px/1.4 "Inter",sans-serif;letter-spacing:.18em;text-transform:uppercase;margin-top:8px;opacity:.75}
+
+  /* меню */
+  .menu-sec .wrap{display:grid;gap:24px}
+  @media(min-width:900px){.menu-sec .wrap{grid-template-columns:1.15fr .85fr;align-items:start}}
+  .paper{background:var(--cream);color:var(--ink);border-radius:2px;padding:28px 20px 22px;position:relative;
+    box-shadow:0 24px 50px -18px rgba(0,0,0,.6);outline:1px solid var(--cream-2);outline-offset:-8px}
+  @media(min-width:600px){.paper{padding:40px 40px 30px}}
+  .paper::before{content:"";position:absolute;inset:12px;border:1px solid rgba(43,29,20,.35);pointer-events:none}
+  .paper h2{text-align:center;color:var(--ink)}
+  .paper .sub{text-align:center;font:italic 500 16px/1.4 "Playfair Display",serif;color:#7a5f45;margin:6px 0 22px}
+  .orn{display:block;margin:0 auto 6px;width:120px;height:14px}
+  .item{display:flex;align-items:baseline;gap:8px;width:100%;min-height:56px;padding:12px 10px;background:none;border:0;border-radius:2px;
+    font:inherit;color:inherit;text-align:left;cursor:pointer;position:relative}
+  .item + .item{border-top:1px solid rgba(43,29,20,.1)}
+  .item .nm{font:600 19px/1.25 "Playfair Display",serif}
+  .item .nm small{display:block;font:400 13px/1.35 "Inter",sans-serif;color:#7a5f45;margin-top:3px}
+  .item .lead-dots{flex:1;min-width:20px;border-bottom:2px dotted rgba(43,29,20,.45);transform:translateY(-5px)}
+  .item .pr{font:700 17px/1 "Playfair Display",serif;white-space:nowrap}
+  .item .pr.q{font:italic 500 15px/1 "Playfair Display",serif;color:#7a5f45}
+  .item[aria-pressed="true"]{background:rgba(195,154,82,.22)}
+  .item[aria-pressed="true"] .nm::before{content:"✓ ";color:var(--brass-lo)}
+  .item:focus-visible{outline:2px solid var(--brass-lo)}
+  .fine{font-size:13px;color:#7a5f45;text-align:center;margin:18px 0 0;line-height:1.45}
+
+  .slip{background:var(--wood-2);border:1px solid rgba(195,154,82,.4);border-radius:4px;padding:22px 18px}
+  @media(min-width:600px){.slip{padding:26px}}
+  .slip h3{font-size:24px;margin-bottom:4px}
+  .slip .q{font-size:14px;color:var(--muted);margin:18px 0 8px}
+  .seg{display:flex;flex-wrap:wrap;gap:8px}
+  .seg button{min-height:48px;padding:0 16px;border-radius:4px;border:1px solid rgba(195,154,82,.45);background:transparent;color:var(--cream);font:500 15px/1 "Inter",sans-serif;cursor:pointer}
+  .seg button[aria-pressed="true"]{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+  .seg button:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+  .note{margin:22px 0 16px;background:var(--cream);color:var(--ink);padding:16px 16px 14px;border-radius:2px;font:italic 500 16px/1.45 "Playfair Display",serif;position:relative;transform:rotate(-.6deg)}
+  .note::after{content:"будет отправлено в WhatsApp";position:absolute;right:10px;bottom:-20px;font:500 11px/1 "Inter",sans-serif;color:var(--muted);letter-spacing:.06em;font-style:normal;transform:rotate(.6deg)}
+  .slip .btn{width:100%;margin-top:14px}
+  .slip .alt{display:block;text-align:center;margin-top:12px;font-size:14px;color:var(--muted)}
+
+  /* удобства */
+  .tags{display:grid;gap:12px;margin-top:26px}
+  @media(min-width:700px){.tags{grid-template-columns:repeat(3,1fr)}}
+  .tag{border-top:1px solid var(--brass);padding-top:14px}
+  .tag b{display:block;font:700 20px/1.2 "Playfair Display",serif;color:var(--brass-hi)}
+  .tag span{color:var(--muted);font-size:15px}
+
+  /* часы и адрес */
+  .info{display:grid;gap:28px}
+  @media(min-width:900px){.info{grid-template-columns:.8fr 1.2fr}}
+  .hours{list-style:none;margin:20px 0 0;padding:0;font-size:16px}
+  .hours li{display:flex;align-items:baseline;gap:8px;padding:9px 0}
+  .hours li .lead-dots{flex:1;border-bottom:1px dotted rgba(242,232,213,.3);transform:translateY(-4px)}
+  .hours li.today{color:var(--brass-hi);font-weight:600}
+  .hours li.today::after{content:"сегодня";font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-left:6px;color:var(--brass)}
+  dl{margin:20px 0 0;display:grid;gap:16px}
+  dt{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass)}
+  dd{margin:4px 0 0;font-size:17px}
+  dd a{text-decoration:none;border-bottom:1px solid rgba(195,154,82,.5)}
+  .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .map{border:1px solid rgba(195,154,82,.45);border-radius:4px;overflow:hidden;min-height:320px;background:var(--wood-2)}
+  .map iframe{width:100%;height:100%;min-height:320px;border:0;display:block}
+
+  footer{border-top:1px solid rgba(195,154,82,.3);padding:28px 0;color:var(--muted);font-size:13px;text-align:center}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(30,20,13,.96);border-top:1px solid rgba(195,154,82,.45)}
+  .dock .btn{min-height:50px;padding:0 8px;font-size:15px}
+  @media(min-width:860px){.dock{display:none}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<header>
+  <div class="wrap">
+    <a class="mark" href="#top">Rafi <small>барбершоп</small></a>
+    <nav class="h-nav" aria-label="Разделы">
+      <a href="#menu">Меню и запись</a>
+      <a href="#hours">Часы</a>
+      <a href="#where">Как найти</a>
+    </nav>
+    <a class="h-tel" href="tel:+79534943767">+7 953 494-37-67</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <svg class="emblem" viewBox="0 0 320 320" role="img" aria-label="Эмблема барбершопа Rafi">
+        <defs>
+          <linearGradient id="br" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ecd296"/><stop offset=".5" stop-color="#c39a52"/><stop offset="1" stop-color="#8a6a32"/>
+          </linearGradient>
+          <radialGradient id="face" cx=".5" cy=".4" r=".7">
+            <stop offset="0" stop-color="#4a3222"/><stop offset="1" stop-color="#241810"/>
+          </radialGradient>
+          <path id="arcTop" d="M 44 160 A 116 116 0 0 1 276 160"/>
+          <path id="arcBot" d="M 32 160 A 128 128 0 0 0 288 160"/>
+        </defs>
+        <circle cx="160" cy="160" r="154" fill="url(#br)"/>
+        <circle cx="160" cy="160" r="146" fill="url(#face)"/>
+        <circle cx="160" cy="160" r="140" fill="none" stroke="#c39a52" stroke-width="1.5"/>
+        <circle cx="160" cy="160" r="104" fill="none" stroke="#c39a52" stroke-width="1.5"/>
+        <circle cx="160" cy="160" r="99" fill="none" stroke="#c39a52" stroke-width=".8" stroke-dasharray="2 4"/>
+        <text font-family="Inter,sans-serif" font-weight="600" font-size="15" letter-spacing="5" fill="#e2c27f">
+          <textPath href="#arcTop" startOffset="50%" text-anchor="middle">БАРБЕРШОП НА ДАУРСКОЙ</textPath>
+        </text>
+        <text font-family="Inter,sans-serif" font-weight="600" font-size="13" letter-spacing="4" fill="#e2c27f">
+          <textPath href="#arcBot" startOffset="50%" text-anchor="middle">КАЗАНЬ · СОВЕТСКИЙ РАЙОН</textPath>
+        </text>
+        <g fill="#e2c27f"><circle cx="24" cy="160" r="3"/><circle cx="296" cy="160" r="3"/></g>
+        <!-- опасная бритва -->
+        <g transform="translate(160 104)">
+          <path d="M-58 -4 h70 a6 6 0 0 1 6 6 v2 h-76 z" fill="#e2c27f"/>
+          <path d="M-58 -4 l-6 -8 h52 l-4 8 z" fill="#c39a52" opacity=".85"/>
+          <rect x="18" y="-4" width="44" height="8" rx="4" fill="#8a6a32"/>
+          <circle cx="16" cy="0" r="3" fill="#2b1d14"/>
+        </g>
+        <text x="160" y="186" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-style="italic" font-weight="700" font-size="70" fill="#f2e8d5">Rafi</text>
+        <line x1="104" y1="206" x2="216" y2="206" stroke="#c39a52" stroke-width="1"/>
+        <g fill="#c39a52" font-family="Georgia,serif" font-size="16" text-anchor="middle">
+          <text x="132" y="230">✦</text><text x="160" y="230">✦</text><text x="188" y="230">✦</text>
+        </g>
+      </svg>
+
+      <div>
+        <p class="kicker">Казань · Даурская, 11</p>
+        <h1>Барбершоп <em>Rafi</em> на Даурской</h1>
+        <p class="lead">Мужские и детские стрижки, мужская химзавивка. Каждый день с&nbsp;10 до&nbsp;21.</p>
+        <div class="chips">
+          <span class="chip"><i class="dot"></i><span data-status>Часы: 10:00–21:00</span></span>
+          <a class="chip" href="https://2gis.ru/kazan/firm/70000001040738099/tab/reviews" target="_blank" rel="noopener"><b>★ 4,9</b> 318 отзывов в 2ГИС</a>
+        </div>
+        <div class="cta">
+          <a class="btn brass" href="#menu">Выбрать услугу</a>
+          <a class="btn" href="tel:+79534943767">Позвонить</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="plaque-wrap">
+    <div class="wrap">
+      <div class="plaque"><b>Лучший барбершоп 2025</b><span>отметка в карточке Rafi в 2ГИС</span></div>
+    </div>
+  </div>
+
+  <section class="menu-sec" id="menu">
+    <div class="wrap">
+      <div class="paper">
+        <svg class="orn" viewBox="0 0 120 14" aria-hidden="true"><path d="M0 7h46M74 7h46" stroke="#8a6a32" stroke-width="1"/><path d="M60 1l6 6-6 6-6-6z" fill="#8a6a32"/></svg>
+        <h2>Меню</h2>
+        <p class="sub">нажмите на строку, чтобы выбрать</p>
+        <div role="group" aria-label="Услуга">
+          <button class="item" type="button" data-svc="0"><span class="nm">Мужская стрижка</span><span class="lead-dots"></span><span class="pr">от 800 ₽</span></button>
+          <button class="item" type="button" data-svc="1"><span class="nm">Детская стрижка</span><span class="lead-dots"></span><span class="pr q">уточняется</span></button>
+          <button class="item" type="button" data-svc="2"><span class="nm">Мужская химзавивка</span><span class="lead-dots"></span><span class="pr q">уточняется</span></button>
+          <button class="item" type="button" data-svc="3"><span class="nm">Папа и сын<small>мужская и детская стрижка подряд</small></span><span class="lead-dots"></span><span class="pr q">уточняется</span></button>
+        </div>
+        <p class="fine">Цены примерные, уточняются у владельца.<br>В 2ГИС указано: мужская стрижка от 800 ₽.</p>
+      </div>
+
+      <div class="slip">
+        <p class="kicker">Запись</p>
+        <h3 data-svc-name>Мужская стрижка</h3>
+        <p class="q">Когда удобно?</p>
+        <div class="seg" role="group" aria-label="День">
+          <button type="button" data-day="сегодня">Сегодня</button>
+          <button type="button" data-day="завтра">Завтра</button>
+          <button type="button" data-day="на этой неделе">На неделе</button>
+        </div>
+        <p class="q">В какое время?</p>
+        <div class="seg" role="group" aria-label="Время">
+          <button type="button" data-part="утром">Утром</button>
+          <button type="button" data-part="днём">Днём</button>
+          <button type="button" data-part="вечером">Вечером</button>
+          <button type="button" data-part="в любое время">Всё равно</button>
+        </div>
+        <p class="note" data-msg>Здравствуйте! Хочу записаться на мужскую стрижку.</p>
+        <a class="btn brass" data-book href="https://wa.me/79534943767" target="_blank" rel="noopener">Записаться в WhatsApp</a>
+        <a class="alt" href="https://t.me/+79534943767" target="_blank" rel="noopener">или написать в Telegram</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker">Мелочи, которые важны</p>
+      <h2>Как у нас</h2>
+      <div class="tags">
+        <div class="tag"><b>Детей тоже стрижём</b><span>Можно прийти вместе с сыном.</span></div>
+        <div class="tag"><b>Wi-Fi для клиентов</b><span>Скоротать ожидание, если пришли раньше.</span></div>
+        <div class="tag"><b>Как удобно платить</b><span>Картой, наличными или по QR-коду.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hours">
+    <div class="wrap info">
+      <div>
+        <p class="kicker">Часы работы</p>
+        <h2>Каждый день</h2>
+        <ul class="hours">
+          <li data-wd="Mon">Понедельник<span class="lead-dots"></span>10:00–21:00</li>
+          <li data-wd="Tue">Вторник<span class="lead-dots"></span>10:00–21:00</li>
+          <li data-wd="Wed">Среда<span class="lead-dots"></span>10:00–21:00</li>
+          <li data-wd="Thu">Четверг<span class="lead-dots"></span>10:00–21:00</li>
+          <li data-wd="Fri">Пятница<span class="lead-dots"></span>10:00–21:00</li>
+          <li data-wd="Sat">Суббота<span class="lead-dots"></span>10:00–21:00</li>
+          <li data-wd="Sun">Воскресенье<span class="lead-dots"></span>10:00–21:00</li>
+        </ul>
+        <div class="chips" style="margin-top:18px"><span class="chip"><i class="dot"></i><span data-status>10:00–21:00</span></span></div>
+      </div>
+
+      <div id="where">
+        <p class="kicker">Как найти</p>
+        <h2>Даурская, 11</h2>
+        <dl>
+          <div><dt>Адрес</dt><dd>Даурская улица, 11, 1 этаж<br>Советский район, Казань</dd></div>
+          <div><dt>Телефон</dt><dd><a href="tel:+79534943767">+7 953 494-37-67</a></dd></div>
+          <div><dt>Написать</dt><dd class="links">
+            <a href="https://wa.me/79534943767" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="https://t.me/+79534943767" target="_blank" rel="noopener">Telegram</a>
+            <a href="https://vk.ru/rafi_kazan" target="_blank" rel="noopener">ВКонтакте</a>
+          </dd></div>
+        </dl>
+        <div class="cta" style="margin:22px 0">
+          <a class="btn brass" href="https://yandex.ru/maps/?rtext=~55.764966,49.171654&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+          <a class="btn" href="https://2gis.ru/kazan/firm/70000001040738099" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+        </div>
+        <div class="map">
+          <iframe title="Rafi на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=49.171654%2C55.764966&z=16&pt=49.171654%2C55.764966%2Cpm2rdm"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Rafi, барбершоп · Даурская улица, 11, Казань<br>Демо-версия сайта, подготовлена для владельца. Данные из 2ГИС.</div>
+</footer>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a class="btn" href="tel:+79534943767">Позвонить</a>
+  <a class="btn" href="https://yandex.ru/maps/?rtext=~55.764966,49.171654&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn brass" href="https://wa.me/79534943767" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  window.SITE = {
+    open: "10:00", close: "21:00", wa: "79534943767",
+    services: [
+      { name: "Мужская стрижка", acc: "мужскую стрижку", price: "от 800 ₽" },
+      { name: "Детская стрижка", acc: "детскую стрижку", price: "уточняется" },
+      { name: "Мужская химзавивка", acc: "мужскую химзавивку", price: "уточняется" },
+      { name: "Папа и сын", acc: "мужскую и детскую стрижку", price: "уточняется" }
+    ]
+  };
+</script>
+<script>
+(function(){
+  var S = window.SITE;
+  function qa(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); }
+  function tm(s){ var a = s.split(":"); return (+a[0]) * 60 + (+a[1]); }
+  var O = tm(S.open), C = tm(S.close);
+  var st = { svc: 0, day: "сегодня", part: "в любое время" };
+
+  // Текущее время в Казани (Europe/Moscow)
+  function msk(){
+    var o = {};
+    new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Moscow", hour: "2-digit", minute: "2-digit", weekday: "short", hourCycle: "h23" })
+      .formatToParts(new Date()).forEach(function(p){ o[p.type] = p.value; });
+    return { min: (+o.hour) * 60 + (+o.minute), wd: o.weekday };
+  }
+
+  function status(){
+    var n = msk(), open = n.min >= O && n.min < C, t;
+    if (open) t = "Открыто сейчас, до " + S.close;
+    else t = "Закрыто, откроется " + (n.min < O ? "сегодня" : "завтра") + " в " + S.open;
+    document.documentElement.classList.toggle("is-open", open);
+    qa("[data-status]").forEach(function(e){ e.textContent = t; });
+    qa("[data-wd]").forEach(function(e){ e.classList.toggle("today", e.getAttribute("data-wd") === n.wd); });
+    // Сегодня записываться поздно, если до закрытия меньше часа
+    var late = n.min >= C - 60;
+    qa('[data-day="сегодня"]').forEach(function(b){ b.disabled = late; });
+    if (late && st.day === "сегодня") st.day = "завтра";
+    render();
+  }
+
+  function press(attr, val){
+    qa("[" + attr + "]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute(attr) === String(val))); });
+  }
+
+  function render(){
+    var s = S.services[st.svc];
+    press("data-svc", st.svc); press("data-day", st.day); press("data-part", st.part);
+    var name = "";
+    qa("[data-name-input]").forEach(function(i){ if (i.value.trim()) name = i.value.trim().slice(0, 40); });
+    var msg = "Здравствуйте! Хочу записаться на " + s.acc + " — " + st.day + ", " + st.part + ". Подскажете свободное время?";
+    if (name) msg += " Меня зовут " + name + ".";
+    qa("[data-msg]").forEach(function(e){ e.textContent = msg; });
+    qa("[data-book]").forEach(function(e){ e.href = "https://wa.me/" + S.wa + "?text=" + encodeURIComponent(msg); });
+    qa("[data-svc-name]").forEach(function(e){ e.textContent = s.name; });
+    qa("[data-svc-price]").forEach(function(e){ e.textContent = s.price; });
+    qa("[data-day-out]").forEach(function(e){ e.textContent = st.day; });
+    qa("[data-part-out]").forEach(function(e){ e.textContent = st.part; });
+    qa("[data-name-out]").forEach(function(e){ e.textContent = name || e.getAttribute("data-name-out"); });
+  }
+
+  document.addEventListener("click", function(ev){
+    var b = ev.target.closest("[data-svc],[data-day],[data-part]");
+    if (!b || b.disabled) return;
+    if (b.hasAttribute("data-svc")) st.svc = +b.getAttribute("data-svc");
+    if (b.hasAttribute("data-day")) st.day = b.getAttribute("data-day");
+    if (b.hasAttribute("data-part")) st.part = b.getAttribute("data-part");
+    render();
+  });
+  qa("[data-name-input]").forEach(function(i){ i.addEventListener("input", render); });
+
+  status();
+  setInterval(status, 30000);
+})();
+</script>
+</body>
+</html>
