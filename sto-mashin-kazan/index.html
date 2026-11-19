@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>СТО Машин — автосервис на Маршрутной, 12а, Казань</title>
+<meta name="description" content="Легковой автосервис в Кировском районе Казани: компьютерная диагностика, двигатель, инжекторы, ходовая, выхлоп, кондиционер, шиномонтаж и развал-схождение. Ежедневно 9:00–21:00.">
+<meta name="theme-color" content="#0d3b45">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d3b45;
+    --bg-2:#0a313a;
+    --ink:#f2f7f8;
+    --dim:#a9c4ca;
+    --line:rgba(242,247,248,.55);
+    --hair:rgba(242,247,248,.14);
+    --mark:#ffd66b;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;color:var(--ink);background-color:var(--bg);
+    background-image:
+      linear-gradient(var(--hair) 1px,transparent 1px),
+      linear-gradient(90deg,var(--hair) 1px,transparent 1px),
+      linear-gradient(rgba(242,247,248,.05) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(242,247,248,.05) 1px,transparent 1px);
+    background-size:80px 80px,80px 80px,16px 16px,16px 16px;
+    font:16px/1.55 "IBM Plex Sans",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:calc(80px + env(safe-area-inset-bottom));
+  }
+  @media(min-width:860px){body{padding-bottom:0}}
+  a{color:inherit}
+  .mono{font-family:"IBM Plex Mono",monospace}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{margin:0;font-weight:600;line-height:1.1}
+  h2{font-size:clamp(26px,6vw,40px);letter-spacing:-.01em}
+
+  .demo{background:var(--ink);color:var(--bg);font:500 13px/1.35 "IBM Plex Mono",monospace;text-align:center;padding:8px 16px}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(13,59,69,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
+  .logo{font:600 15px/1 "IBM Plex Mono",monospace;text-decoration:none;letter-spacing:.06em;display:flex;align-items:center;gap:10px}
+  .logo svg{width:22px;height:22px}
+  .h-nav{display:none;gap:24px;font:500 13px/1 "IBM Plex Mono",monospace;color:var(--dim)}
+  .h-nav a{text-decoration:none}.h-nav a:hover{color:var(--ink)}
+  .h-tel{font:500 15px/1 "IBM Plex Mono",monospace;text-decoration:none;white-space:nowrap}
+  @media(min-width:860px){.h-nav{display:flex}}
+
+  /* размерная линия — заголовок секции */
+  .dim{display:flex;align-items:center;gap:10px;font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:14px}
+  .dim::before,.dim::after{content:"";height:1px;background:var(--line);flex:1;max-width:120px}
+  .dim::before{max-width:28px}
+  .dim span{white-space:nowrap}
+
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  .hero{border-top:0;padding:36px 0 56px}
+  .status{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);padding:8px 14px;font:500 14px/1.2 "IBM Plex Mono",monospace}
+  .status i{width:8px;height:8px;background:#7cf2a6;display:inline-block}
+  .status.closed i{background:#ff8f7a}
+  .hero h1{font-size:clamp(34px,8.6vw,68px);margin:22px 0 14px;max-width:14ch;letter-spacing:-.02em}
+  .hero h1 em{font-style:normal;font-family:"IBM Plex Mono",monospace;font-weight:500;color:var(--mark)}
+  .lead{color:var(--dim);font-size:17px;max-width:44ch;margin:0 0 24px}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 20px;
+    font:500 15px/1 "IBM Plex Mono",monospace;text-decoration:none;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+  .btn.solid{background:var(--ink);color:var(--bg)}
+  .btn:hover{background:rgba(242,247,248,.1)}.btn.solid:hover{background:#fff}
+  .btn svg{width:18px;height:18px}
+
+  .hero-grid{display:grid;gap:32px}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.25fr 1fr;align-items:end}}
+
+  /* штамп чертежа */
+  .stamp{border:2px solid var(--ink);font:400 13px/1.3 "IBM Plex Mono",monospace;background:var(--bg-2)}
+  .stamp .r{display:grid;grid-template-columns:110px 1fr;border-top:1px solid var(--line)}
+  .stamp .r:first-child{border-top:0}
+  .stamp .k{padding:9px 10px;border-right:1px solid var(--line);color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+  .stamp .v{padding:9px 10px}
+  .stamp .big{font:600 22px/1.1 "IBM Plex Sans",sans-serif}
+  .stamp a{text-decoration-color:var(--mark);text-underline-offset:3px}
+  .stamp .foot{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink);text-align:center}
+  .stamp .foot div{padding:7px 4px;border-left:1px solid var(--line);font-size:11px;color:var(--dim)}
+  .stamp .foot div:first-child{border-left:0}
+  .stamp .foot b{display:block;color:var(--ink);font-weight:500;font-size:13px}
+
+  /* схема */
+  .sheet{border:1px solid var(--line);margin-top:24px;background:rgba(10,49,58,.6);position:relative}
+  .sheet .corner{display:block;padding:8px 10px;border-bottom:1px solid var(--line);font:500 11px/1 "IBM Plex Mono",monospace;color:var(--dim);text-align:right}
+  .sheet svg{display:block;width:100%;height:auto}
+  .draw{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round}
+  .thin{fill:none;stroke:var(--line);stroke-width:1}
+  .lead-l{fill:none;stroke:var(--dim);stroke-width:1;stroke-dasharray:4 4}
+  .ghost{fill:none;stroke:var(--line);stroke-width:1;stroke-dasharray:3 3}
+  .call{cursor:pointer;outline:none}
+  .call circle{fill:var(--bg);stroke:var(--ink);stroke-width:1.4;transition:fill .15s}
+  .call text{fill:var(--ink);font:600 14px "IBM Plex Mono",monospace;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+  .call:hover circle,.call:focus-visible circle,.call.on circle{fill:var(--mark);stroke:var(--mark)}
+  .call:hover text,.call:focus-visible text,.call.on text{fill:var(--bg)}
+  .part{transition:stroke .15s}
+  .part.on{stroke:var(--mark)}
+  .hint{font:400 13px/1.4 "IBM Plex Mono",monospace;color:var(--dim);margin-top:12px}
+
+  .spec{width:100%;border-collapse:collapse;margin-top:24px;font-size:15px}
+  .spec th{font:500 11px/1 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);text-align:left;padding:10px 8px;border-bottom:2px solid var(--ink)}
+  .spec td{padding:12px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  .spec td:first-child{font-family:"IBM Plex Mono",monospace;width:48px;color:var(--mark)}
+  .spec td small{display:block;color:var(--dim);font-size:13px;margin-top:2px}
+  .spec tr{cursor:pointer;transition:background .15s}
+  .spec tr.on td{background:rgba(255,214,107,.1)}
+  .spec .act{white-space:nowrap;text-align:right;width:1%}
+  .spec .act button{min-height:44px;min-width:44px;border:1px solid var(--line);background:transparent;color:var(--ink);font:500 12px "IBM Plex Mono",monospace;cursor:pointer;padding:0 10px}
+  @media(min-width:900px){.schema-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:start}}
+
+  .note{font:400 13px/1.5 "IBM Plex Mono",monospace;color:var(--dim);margin-top:16px;border-left:2px solid var(--mark);padding-left:12px}
+
+  /* форма */
+  .form{border:2px solid var(--ink);background:var(--bg-2);margin-top:24px}
+  .form .head{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font:500 12px/1.3 "IBM Plex Mono",monospace;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+  .form .body{padding:18px 14px;display:grid;gap:18px}
+  @media(min-width:760px){.form .body{grid-template-columns:1fr 1fr;padding:22px}.form .full{grid-column:1/-1}}
+  label.f{display:block;font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+  input,select,textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--ink);color:var(--ink);font:400 17px/1.4 "IBM Plex Sans",sans-serif;padding:10px 2px;border-radius:0;min-height:48px}
+  select option{color:#0d3b45}
+  textarea{resize:vertical;min-height:96px;border:1px solid var(--line);padding:10px}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--mark)}
+  input::placeholder,textarea::placeholder{color:rgba(169,196,202,.7)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{min-height:44px;padding:0 14px;border:1px solid var(--line);background:transparent;color:var(--ink);font:500 14px "IBM Plex Mono",monospace;cursor:pointer}
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .preview{font:400 14px/1.5 "IBM Plex Mono",monospace;white-space:pre-wrap;border:1px dashed var(--line);padding:12px;color:var(--dim);min-height:90px}
+  .send{display:flex;flex-wrap:wrap;gap:10px}
+
+  /* часы */
+  .hours{display:grid;grid-template-columns:repeat(7,1fr);border:1px solid var(--line);margin-top:24px}
+  .hours div{border-left:1px solid var(--line);padding:12px 4px;text-align:center;font:500 13px/1.35 "IBM Plex Mono",monospace}
+  .hours div:first-child{border-left:0}
+  .hours div b{display:block;font-weight:600;font-size:14px;margin-bottom:4px}
+  .hours div span{color:var(--dim);font-size:11px}
+  .hours div.today{background:var(--ink);color:var(--bg)}.hours div.today span{color:var(--bg)}
+  @media(max-width:420px){.hours div span{font-size:10px}}
+
+  .contacts{display:grid;gap:24px;margin-top:24px}
+  @media(min-width:860px){.contacts{grid-template-columns:1fr 1.2fr}}
+  .kv{margin:0;font-size:16px}
+  .kv dt{font:500 11px/1 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-top:18px}
+  .kv dt:first-child{margin-top:0}
+  .kv dd{margin:6px 0 0}
+  .kv a{text-underline-offset:3px}
+  .map{border:1px solid var(--ink);min-height:320px;position:relative}
+  .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.3)}
+
+  footer{border-top:1px solid var(--line);padding:24px 0 32px;font:400 12px/1.5 "IBM Plex Mono",monospace;color:var(--dim)}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--ink)}
+  .dock .btn{padding:0 6px;font-size:14px}
+  @media(min-width:860px){.dock{display:none}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 1v5M12 18v5M1 12h5M18 12h5"/></svg>
+      СТО МАШИН</a>
+    <nav class="h-nav"><a href="#schema">Узлы</a><a href="#problem">Опишите проблему</a><a href="#hours">Часы</a><a href="#contacts">Как доехать</a></nav>
+    <a class="h-tel" href="tel:+79991459016">+7 999 145-90-16</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="status" id="status"><i></i><span id="statusText">Ежедневно 09:00–21:00</span></div>
+        <h1>Разберёмся по&nbsp;узлам <em>[1:1]</em></h1>
+        <p class="lead">Легковой автосервис в Кировском районе. Диагностика, двигатель, ходовая, выхлоп, кондиционер, шиномонтаж и развал-схождение — каждый день с 9 до 21.</p>
+        <div class="cta">
+          <a class="btn solid" href="#problem">Опишите проблему</a>
+          <a class="btn" href="tel:+79991459016">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Позвонить</a>
+        </div>
+      </div>
+
+      <div class="stamp" aria-label="Карточка автосервиса">
+        <div class="r"><div class="k">Наименование</div><div class="v big">СТО Машин</div></div>
+        <div class="r"><div class="k">Назначение</div><div class="v">Легковой автосервис</div></div>
+        <div class="r"><div class="k">Адрес</div><div class="v">Маршрутная улица, 12а, 1 этаж</div></div>
+        <div class="r"><div class="k">Район</div><div class="v">Кировский, Казань</div></div>
+        <div class="r"><div class="k">Режим</div><div class="v">Пн–Вс, 09:00–21:00</div></div>
+        <div class="r"><div class="k">Оценка</div><div class="v"><a href="https://2gis.ru/kazan/firm/70000001102361381/tab/reviews" target="_blank" rel="noopener">5,0 из 5 · 92 отзыва в 2ГИС</a></div></div>
+        <div class="foot">
+          <div>Лист<b>1</b></div><div>Листов<b>1</b></div><div>Масштаб<b>1:1</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="schema">
+    <div class="wrap">
+      <div class="dim"><span>Лист 1 · Схема узлов</span></div>
+      <h2>Что чиним — на одном чертеже</h2>
+      <div class="schema-grid">
+        <div>
+          <div class="sheet">
+            <span class="corner">ВИД СБОКУ · РАЗНЕСЕНО</span>
+            <svg viewBox="0 0 640 470" role="img" aria-label="Разнесённая схема автомобиля с номерами узлов, которые ремонтирует СТО Машин">
+              <!-- кузов -->
+              <path class="draw" d="M44 300 L44 268 Q46 250 70 246 L160 236 L214 190 Q224 182 242 182 L384 182 Q400 182 412 194 L458 236 L532 244 Q556 248 558 268 L558 300 L512 300 A42 42 0 0 0 428 300 L192 300 A42 42 0 0 0 108 300 Z"/>
+              <path class="thin" d="M222 236 L250 198 L310 198 L310 236 Z M322 198 L380 198 Q392 198 400 208 L420 236 L322 236 Z"/>
+              <circle class="draw" cx="150" cy="300" r="34"/><circle class="thin" cx="150" cy="300" r="14"/>
+              <circle class="draw" cx="470" cy="300" r="34"/><circle class="thin" cx="470" cy="300" r="14"/>
+              <!-- места узлов на кузове -->
+              <rect class="ghost" x="66" y="252" width="80" height="38"/>
+              <rect class="ghost" x="300" y="214" width="26" height="18"/>
+              <path class="ghost" d="M250 330 L540 330"/>
+              <!-- центровые и габарит -->
+              <path class="thin" d="M44 440 L558 440 M44 432 L44 448 M558 432 L558 448" />
+              <path class="thin" d="M150 258 L150 342 M108 300 L192 300" stroke-dasharray="10 3 2 3"/>
+              <path class="thin" d="M470 258 L470 342 M428 300 L512 300" stroke-dasharray="10 3 2 3"/>
+              <text x="301" y="462" fill="#a9c4ca" font-family="IBM Plex Mono" font-size="13" text-anchor="middle">легковой автосервис · вид сбоку</text>
+
+              <!-- 1 двигатель -->
+              <g>
+                <rect class="draw part" data-p="1" x="40" y="40" width="120" height="70"/>
+                <circle class="draw" cx="70" cy="64" r="11"/><circle class="draw" cx="100" cy="64" r="11"/><circle class="draw" cx="130" cy="64" r="11"/>
+                <path class="draw" d="M40 90 L160 90"/>
+              </g>
+              <path class="lead-l" d="M100 110 L100 252"/>
+              <!-- 2 инжектор -->
+              <path class="draw part" data-p="2" d="M196 46 L214 46 L214 74 L209 92 L201 92 L196 74 Z M205 92 L205 104"/>
+              <path class="lead-l" d="M205 108 L132 252"/>
+              <!-- 3 стартер / генератор -->
+              <circle class="draw part" data-p="3" cx="276" cy="78" r="28"/><circle class="draw" cx="276" cy="78" r="9"/>
+              <path class="thin" d="M276 50 L276 106 M248 78 L304 78"/>
+              <path class="lead-l" d="M266 104 L128 260"/>
+              <!-- 4 климат -->
+              <circle class="draw part" data-p="4" cx="370" cy="78" r="28"/>
+              <path class="draw" d="M370 52 L370 104 M347 65 L393 91 M347 91 L393 65"/>
+              <path class="lead-l" d="M362 104 L313 214"/>
+              <!-- 5 ходовая: пружина и амортизатор -->
+              <path class="draw part" data-p="5" d="M470 38 L470 48 L452 56 L488 64 L452 72 L488 80 L452 88 L488 96 L452 104 L470 112 L470 124"/>
+              <rect class="draw" x="463" y="124" width="14" height="22"/>
+              <path class="lead-l" d="M470 146 L470 262"/>
+              <!-- 6 электроника -->
+              <rect class="draw part" data-p="6" x="548" y="52" width="56" height="48"/>
+              <path class="draw" d="M556 52 L556 42 M570 52 L570 42 M584 52 L584 42 M598 52 L598 42 M556 100 L556 110 M570 100 L570 110 M584 100 L584 110 M598 100 L598 110"/>
+              <rect class="thin" x="562" y="64" width="28" height="24"/>
+              <path class="lead-l" d="M560 110 L330 224"/>
+              <!-- 7 выхлоп -->
+              <path class="draw part" data-p="7" d="M262 372 L360 372 M360 360 L440 360 Q456 360 456 372 Q456 384 440 384 L360 384 Z M456 372 L560 372 L578 366"/>
+              <path class="lead-l" d="M400 360 L400 332"/>
+              <!-- 8 колесо -->
+              <g>
+                <circle class="draw part" data-p="8" cx="150" cy="392" r="26"/><circle class="draw" cx="150" cy="392" r="10"/>
+                <path class="thin" d="M150 366 L150 418 M124 392 L176 392"/>
+              </g>
+              <path class="lead-l" d="M150 366 L150 334"/>
+
+              <!-- выноски -->
+              <g class="call" tabindex="0" role="button" data-p="1" aria-label="1. Двигатель"><circle cx="22" cy="28" r="15"/><text x="22" y="28">1</text></g>
+              <g class="call" tabindex="0" role="button" data-p="2" aria-label="2. Инжектор"><circle cx="234" cy="40" r="15"/><text x="234" y="40">2</text></g>
+              <g class="call" tabindex="0" role="button" data-p="3" aria-label="3. Стартер и генератор"><circle cx="276" cy="26" r="15"/><text x="276" y="26">3</text></g>
+              <g class="call" tabindex="0" role="button" data-p="4" aria-label="4. Кондиционер"><circle cx="370" cy="26" r="15"/><text x="370" y="26">4</text></g>
+              <g class="call" tabindex="0" role="button" data-p="5" aria-label="5. Ходовая часть"><circle cx="510" cy="40" r="15"/><text x="510" y="40">5</text></g>
+              <g class="call" tabindex="0" role="button" data-p="6" aria-label="6. Электроника и диагностика"><circle cx="618" cy="128" r="15"/><text x="618" y="128">6</text></g>
+              <g class="call" tabindex="0" role="button" data-p="7" aria-label="7. Выхлопная система"><circle cx="240" cy="372" r="15"/><text x="240" y="372">7</text></g>
+              <g class="call" tabindex="0" role="button" data-p="8" aria-label="8. Колёса"><circle cx="196" cy="420" r="15"/><text x="196" y="420">8</text></g>
+            </svg>
+          </div>
+          <p class="hint">Нажмите на номер — узел подставится в заявку.</p>
+        </div>
+
+        <table class="spec" id="spec">
+          <thead><tr><th>Поз.</th><th>Наименование</th><th></th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="note">Запчасти для иномарок и отечественных машин тоже есть. Сварочные работы и замена масла — на месте.</p>
+    </div>
+  </section>
+
+  <section id="problem">
+    <div class="wrap">
+      <div class="dim"><span>Лист 2 · Заявка</span></div>
+      <h2>Опишите проблему — мастер ответит в WhatsApp</h2>
+      <form class="form" id="form" onsubmit="return false">
+        <div class="head"><span>Заявка на ремонт</span><span class="mono" id="stampDate">—</span></div>
+        <div class="body">
+          <div>
+            <label class="f" for="car">Марка и модель</label>
+            <input id="car" autocomplete="off" placeholder="Например, Kia Rio 2016">
+          </div>
+          <div>
+            <label class="f" for="node">Узел</label>
+            <select id="node"></select>
+          </div>
+          <div class="full">
+            <label class="f" for="what">Что случилось</label>
+            <textarea id="what" placeholder="Стучит справа на кочках, загорелся «чек», не холодит кондиционер…"></textarea>
+          </div>
+          <div class="full">
+            <span class="f" style="display:block;font:500 12px/1 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin-bottom:8px">Когда удобно приехать</span>
+            <div class="chips" id="when">
+              <button type="button" class="chip" aria-pressed="true">Сегодня</button>
+              <button type="button" class="chip" aria-pressed="false">Завтра</button>
+              <button type="button" class="chip" aria-pressed="false">На этой неделе</button>
+              <button type="button" class="chip" aria-pressed="false">Сначала узнать цену</button>
+            </div>
+          </div>
+          <div class="full">
+            <span class="f" style="display:block;font:500 12px/1 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin-bottom:8px">Так увидит мастер</span>
+            <div class="preview" id="preview" aria-live="polite"></div>
+          </div>
+          <div class="full send">
+            <a class="btn solid" id="waSend" href="https://wa.me/79991459016" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6z"/></svg>Отправить в WhatsApp</a>
+            <a class="btn" href="tel:+79991459016">Лучше позвоню</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="hours">
+    <div class="wrap">
+      <div class="dim"><span>Лист 3 · Режим работы</span></div>
+      <h2>Без выходных, с 9 до 21</h2>
+      <div class="hours" id="hoursRow"></div>
+    </div>
+  </section>
+
+  <section id="contacts">
+    <div class="wrap">
+      <div class="dim"><span>Лист 4 · Как доехать</span></div>
+      <h2>Маршрутная, 12а</h2>
+      <div class="contacts">
+        <dl class="kv">
+          <dt>Адрес</dt><dd>Казань, Маршрутная улица, 12а, 1 этаж<br><span style="color:var(--dim)">Кировский район</span></dd>
+          <dt>Телефон</dt><dd><a href="tel:+79991459016">+7 999 145-90-16</a></dd>
+          <dt>Написать</dt><dd><a href="https://wa.me/79991459016" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://t.me/+79991459016" target="_blank" rel="noopener">Telegram</a> · <a href="https://vk.ru/stomashin12" target="_blank" rel="noopener">ВКонтакте</a></dd>
+          <dt>Отзывы</dt><dd><a href="https://2gis.ru/kazan/firm/70000001102361381/tab/reviews" target="_blank" rel="noopener">5,0 — 92 отзыва в 2ГИС</a></dd>
+          <dd style="margin-top:22px" class="cta">
+            <a class="btn solid" href="https://yandex.ru/maps/?rtext=~55.822702,49.033769&rtt=auto" target="_blank" rel="noopener">Построить маршрут</a>
+          </dd>
+        </dl>
+        <div class="map">
+          <iframe title="СТО Машин на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=49.033769%2C55.822702&z=16&pt=49.033769%2C55.822702%2Cpm2rdm"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">СТО Машин, автосервис · Казань, Маршрутная ул., 12а. Демо-версия сайта, подготовлена для владельца по данным 2ГИС.</div></footer>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a class="btn" href="tel:+79991459016">Позвонить</a>
+  <a class="btn" href="https://yandex.ru/maps/?rtext=~55.822702,49.033769&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn solid" href="https://wa.me/79991459016" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  const $ = s => document.querySelector(s);
+  const PARTS = [
+    {n:1, t:"Двигатель", d:"Ремонт бензиновых двигателей, замена масла"},
+    {n:2, t:"Инжектор", d:"Ремонт инжекторов"},
+    {n:3, t:"Стартер и генератор", d:"Ремонт стартеров и генераторов"},
+    {n:4, t:"Кондиционер", d:"Обслуживание климатических систем"},
+    {n:5, t:"Ходовая часть", d:"Ремонт ходовой"},
+    {n:6, t:"Электроника", d:"Компьютерная диагностика, ремонт электронных систем"},
+    {n:7, t:"Выхлопная система", d:"Ремонт выхлопа, сварочные работы"},
+    {n:8, t:"Колёса", d:"Шиномонтаж, развал-схождение"}
+  ];
+
+  // таблица позиций и выбор узла
+  const tbody = $("#spec tbody"), sel = $("#node");
+  PARTS.forEach(p=>{
+    const tr = document.createElement("tr"); tr.dataset.p = p.n;
+    tr.innerHTML = `<td>${String(p.n).padStart(2,"0")}</td><td>${p.t}<small>${p.d}</small></td><td class="act"><button type="button" aria-label="Выбрать: ${p.t}">→</button></td>`;
+    tr.onclick = () => pick(p.n, true);
+    tbody.appendChild(tr);
+    sel.add(new Option(p.n + ". " + p.t, p.t));
+  });
+  sel.add(new Option("Не знаю — нужна диагностика", "Не знаю, нужна диагностика"));
+  sel.value = "Не знаю, нужна диагностика";
+
+  function pick(n, scroll){
+    document.querySelectorAll("[data-p]").forEach(el=>el.classList.toggle("on", el.dataset.p == n));
+    const p = PARTS.find(x=>x.n==n); sel.value = p.t; render();
+    if(scroll) $("#problem").scrollIntoView({behavior:"smooth"});
+  }
+  document.querySelectorAll(".call").forEach(c=>{
+    c.addEventListener("click", ()=>pick(c.dataset.p, false));
+    c.addEventListener("keydown", e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); pick(c.dataset.p, false);} });
+  });
+
+  // когда
+  let when = "Сегодня";
+  document.querySelectorAll("#when .chip").forEach(b=>b.onclick=()=>{
+    document.querySelectorAll("#when .chip").forEach(x=>x.setAttribute("aria-pressed", String(x===b)));
+    when = b.textContent; render();
+  });
+
+  function render(){
+    const car = $("#car").value.trim() || "—";
+    const what = $("#what").value.trim() || "—";
+    const msg = `Здравствуйте! Пишу с сайта СТО Машин.\nМашина: ${car}\nУзел: ${sel.value}\nЧто случилось: ${what}\nКогда удобно: ${when}`;
+    $("#preview").textContent = msg;
+    $("#waSend").href = "https://wa.me/79991459016?text=" + encodeURIComponent(msg);
+  }
+  ["#car","#what"].forEach(id=>$(id).addEventListener("input", render));
+  sel.addEventListener("change", ()=>{
+    const p = PARTS.find(x=>x.t===sel.value);
+    document.querySelectorAll("[data-p]").forEach(el=>el.classList.toggle("on", !!p && el.dataset.p == p.n));
+    render();
+  });
+  render();
+
+  // время и статус по Москве (Казань живёт по московскому времени)
+  const OPEN = 9*60, CLOSE = 21*60;
+  const DAYS = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"];
+  const EN = {Mon:0,Tue:1,Wed:2,Thu:3,Fri:4,Sat:5,Sun:6};
+  function msk(){
+    const parts = new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Moscow",weekday:"short",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());
+    const g = t => parts.find(x=>x.type===t).value;
+    return {day:EN[g("weekday")], min:(+g("hour"))*60 + (+g("minute"))};
+  }
+  function status(){
+    const t = msk(), open = t.min>=OPEN && t.min<CLOSE;
+    $("#status").classList.toggle("closed", !open);
+    $("#statusText").textContent = open
+      ? "Открыто сейчас · до 21:00"
+      : (t.min < OPEN ? "Закрыто, откроется сегодня в 09:00" : "Закрыто, откроется завтра в 09:00");
+    $("#hoursRow").innerHTML = DAYS.map((d,i)=>`<div class="${i===t.day?"today":""}"><b>${d}</b>09:00<br><span>21:00</span></div>`).join("");
+    $("#stampDate").textContent = new Intl.DateTimeFormat("ru-RU",{timeZone:"Europe/Moscow",day:"2-digit",month:"2-digit",year:"numeric"}).format(new Date());
+  }
+  status(); setInterval(status, 30000);
+</script>
+</body>
+</html>
