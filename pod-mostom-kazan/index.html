@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Под мостом — техцентр на проспекте Ямашева, Казань</title>
+<meta name="description" content="Техцентр «Под мостом» в Казани, проспект Ямашева, 7 к1. Ремонт ходовой и пневмоподвески, кузовной ремонт и покраска, шиномонтаж, развал-схождение, автозвук, тонировка, мойка от 2500 ₽. Ежедневно 08:00–18:00 по записи.">
+<meta name="theme-color" content="#2a2a28">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter+Tight:wght@700;800;900&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --concrete:#bdbab3;
+    --concrete-2:#a9a59d;
+    --slab:#d2cfc8;
+    --asphalt:#262624;
+    --asphalt-2:#33332f;
+    --ink:#161615;
+    --muted:#55524c;
+    --orange:#ff6a13;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:clip}
+  body{margin:0;color:var(--ink);font:400 15px/1.55 "IBM Plex Mono",ui-monospace,monospace;-webkit-font-smoothing:antialiased;
+    background-color:var(--concrete);
+    background-image:
+      radial-gradient(rgba(0,0,0,.07) 1px,transparent 1.2px),
+      radial-gradient(rgba(255,255,255,.18) 1px,transparent 1.2px);
+    background-size:7px 7px,11px 11px;background-position:0 0,3px 5px;
+    padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{font-family:"Inter Tight",sans-serif;margin:0;line-height:.92;letter-spacing:-.035em;font-weight:900}
+  h2{font-size:clamp(36px,10vw,72px);text-transform:uppercase}
+  .tag{font:600 12px/1 "IBM Plex Mono";letter-spacing:.08em;text-transform:uppercase}
+  .tag b{color:var(--orange)}
+
+  .demo{background:var(--orange);color:var(--ink);font:600 12px/1.35 "IBM Plex Mono";text-align:center;padding:8px 16px}
+
+  header{position:sticky;top:0;z-index:20;background:var(--asphalt);color:#eee;border-bottom:4px solid var(--orange)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
+  .logo{font:900 19px/1 "Inter Tight";text-transform:uppercase;letter-spacing:-.02em;text-decoration:none}
+  .logo span{color:var(--orange)}
+  .h-nav{display:none;gap:22px;font-size:13px}
+  .h-nav a{text-decoration:none}.h-nav a:hover{color:var(--orange)}
+  .h-tel{font:600 14px/1 "IBM Plex Mono";text-decoration:none;white-space:nowrap}
+  @media(min-width:900px){.h-nav{display:flex}}
+
+  /* мост */
+  .bridge{background:var(--asphalt);color:#ececec;position:relative;overflow:hidden}
+  .bridge svg{display:block;width:100%;height:clamp(150px,34vw,300px)}
+  .under{position:relative;padding:0 0 40px}
+  .under:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),transparent 60%);pointer-events:none}
+  .under .wrap{position:relative}
+  .status{display:inline-flex;align-items:center;gap:10px;border:2px solid #555;padding:8px 12px;font-size:13px;font-weight:600}
+  .status i{width:10px;height:10px;background:var(--orange)}
+  .status.closed i{background:#777}
+  .under h1{font-size:clamp(58px,19vw,180px);text-transform:uppercase;letter-spacing:-.06em;margin:18px 0 0;color:#f2f0ea}
+  .under h1 span{color:var(--orange)}
+  .under .kind{font:600 clamp(14px,3.8vw,18px)/1.4 "IBM Plex Mono";margin-top:12px;color:#c9c6bf}
+  .under p.lead{font-size:16px;max-width:44ch;color:#d8d5ce;margin:16px 0 24px}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 20px;border:2px solid currentColor;background:transparent;color:inherit;
+    font:700 14px/1 "IBM Plex Mono";text-transform:uppercase;letter-spacing:.04em;text-decoration:none;cursor:pointer;border-radius:0}
+  .btn.o{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+  .btn.k{background:var(--ink);border-color:var(--ink);color:#f1efe9}
+  .btn:hover{filter:brightness(1.08)}
+
+  /* дорожный указатель */
+  .signpost{display:grid;justify-items:start;margin-top:32px}
+  .sign{position:relative;background:var(--orange);color:var(--ink);border:3px solid var(--ink);outline:3px solid var(--orange);outline-offset:-9px;
+    padding:16px 54px 16px 18px;clip-path:polygon(0 0,calc(100% - 30px) 0,100% 50%,calc(100% - 30px) 100%,0 100%);max-width:100%}
+  .sign .small{font:700 11px/1 "IBM Plex Mono";letter-spacing:.1em;text-transform:uppercase}
+  .sign .street{font:900 clamp(22px,6.4vw,34px)/1 "Inter Tight";text-transform:uppercase;letter-spacing:-.03em;margin-top:8px}
+  .sign .km{font:700 14px/1 "IBM Plex Mono";margin-top:8px}
+  .pole{width:14px;height:60px;margin-left:34px;background:repeating-linear-gradient(180deg,#ececec 0 14px,var(--ink) 14px 28px)}
+
+  section{padding:60px 0;border-top:4px solid var(--ink)}
+  .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px;margin-bottom:26px}
+
+  /* плиты-факты */
+  .slabs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(min-width:900px){.slabs{grid-template-columns:repeat(4,1fr)}}
+  .slab{background:var(--slab);border:2px solid var(--ink);padding:14px;min-height:130px;display:flex;flex-direction:column;justify-content:space-between;
+    box-shadow:inset 0 -8px 0 rgba(0,0,0,.06)}
+  .slab .v{font:900 clamp(30px,8.6vw,48px)/.95 "Inter Tight";letter-spacing:-.04em}
+  .slab .v.o{color:var(--orange)}
+  .slab .l{font-size:12px;color:var(--muted);line-height:1.35}
+
+  /* услуги */
+  .groups{display:grid;gap:10px}
+  @media(min-width:900px){.groups{grid-template-columns:1fr 1fr}}
+  .grp{background:var(--asphalt);color:#e9e7e1;padding:18px 16px;border-left:8px solid var(--orange)}
+  .grp h3{font-size:24px;text-transform:uppercase;color:#fff}
+  .grp h3 small{font:600 12px/1 "IBM Plex Mono";color:var(--orange);display:block;letter-spacing:.06em;margin-bottom:8px}
+  .grp ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:4px;font-size:14px}
+  .grp li:before{content:"— ";color:var(--orange)}
+  .grp .price{display:inline-block;margin-top:12px;background:var(--orange);color:var(--ink);font-weight:700;padding:4px 8px}
+
+  /* марки */
+  .brands{margin-top:22px;border:2px dashed var(--ink);padding:14px;font-size:13px;line-height:1.9;color:var(--muted)}
+  .brands b{color:var(--ink)}
+
+  /* форма проблемы */
+  .form{background:var(--slab);border:3px solid var(--ink);padding:18px 16px;display:grid;gap:18px}
+  @media(min-width:900px){.form{grid-template-columns:1fr 1fr;padding:28px;gap:24px 32px}}
+  .field label,.field .tag{display:block;margin-bottom:10px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chips button{appearance:none;background:transparent;border:2px solid var(--ink);color:var(--ink);min-height:48px;padding:0 12px;font:600 13px/1 "IBM Plex Mono";cursor:pointer}
+  .chips button[aria-pressed="true"]{background:var(--ink);color:var(--orange)}
+  input,textarea{width:100%;background:#f1efea;border:2px solid var(--ink);border-radius:0;padding:12px;font:500 16px/1.4 "IBM Plex Mono";color:var(--ink)}
+  input{min-height:52px}
+  textarea{min-height:120px;resize:vertical}
+  input:focus,textarea:focus{outline:3px solid var(--orange);outline-offset:0}
+  .out{grid-column:1/-1;background:var(--asphalt);color:#e9e7e1;padding:16px;display:grid;gap:14px}
+  @media(min-width:900px){.out{grid-template-columns:1fr auto;align-items:center}}
+  .out pre{margin:0;white-space:pre-wrap;font:500 13px/1.5 "IBM Plex Mono"}
+
+  /* рейтинг */
+  .rate{display:grid;gap:16px;align-items:center}
+  @media(min-width:900px){.rate{grid-template-columns:auto 1fr auto;gap:36px}}
+  .rate .score{font:900 clamp(96px,28vw,170px)/.8 "Inter Tight";letter-spacing:-.07em}
+  .rate .score span{color:var(--orange)}
+
+  /* контакты */
+  .contact{display:grid;gap:0;border:3px solid var(--ink)}
+  @media(min-width:900px){.contact{grid-template-columns:1fr 1.25fr}}
+  .info{background:var(--slab);padding:18px 16px;display:grid;gap:18px;align-content:start}
+  .info dd{margin:6px 0 0;font:800 20px/1.25 "Inter Tight";letter-spacing:-.01em}
+  .info dd a{text-decoration:none;border-bottom:3px solid var(--orange)}
+  .info dd small{display:block;font:400 13px/1.5 "IBM Plex Mono";color:var(--muted)}
+  .map{min-height:340px;border-top:3px solid var(--ink);background:var(--concrete-2)}
+  @media(min-width:900px){.map{border-top:0;border-left:3px solid var(--ink)}}
+  .map iframe{width:100%;height:100%;min-height:340px;border:0;display:block;filter:grayscale(1)}
+
+  footer{background:var(--asphalt);color:#aaa;padding:24px 0;font-size:12px;border-top:4px solid var(--orange)}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;padding:8px 8px calc(8px + env(safe-area-inset-bottom));
+    background:var(--asphalt);border-top:4px solid var(--orange);color:#eee}
+  .dock .btn{min-height:52px;padding:0 4px;font-size:12px}
+  @media(min-width:900px){.dock{display:none}body{padding-bottom:0}}
+
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Под<span>/</span>мостом</a>
+    <nav class="h-nav" aria-label="Разделы">
+      <a href="#raboty">Работы</a><a href="#problema">Описать проблему</a><a href="#otzyvy">Отзывы</a><a href="#adres">Адрес</a>
+    </nav>
+    <a class="h-tel" href="tel:+78435235276">+7 (843) 523-52-76</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="bridge">
+    <svg viewBox="0 0 1200 300" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+      <defs>
+        <pattern id="hz" width="28" height="12" patternUnits="userSpaceOnUse" patternTransform="skewX(-35)">
+          <rect width="14" height="12" fill="#ff6a13"/><rect x="14" width="14" height="12" fill="#161615"/>
+        </pattern>
+        <linearGradient id="conc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8d8a84"/><stop offset="1" stop-color="#5d5b57"/></linearGradient>
+      </defs>
+      <!-- перила -->
+      <g stroke="#7b7873" stroke-width="3">
+        <line x1="0" y1="34" x2="1200" y2="34"/>
+        <g id="posts"></g>
+      </g>
+      <!-- полотно -->
+      <rect x="0" y="52" width="1200" height="44" fill="url(#conc)"/>
+      <rect x="0" y="96" width="1200" height="12" fill="url(#hz)"/>
+      <!-- арки пролётов -->
+      <path d="M0 108 H40 Q220 220 400 108 Q580 220 760 108 Q940 220 1120 108 H1200 V128 H1120 Q940 240 760 128 Q580 240 400 128 Q220 240 40 128 H0 Z" fill="#4d4b47"/>
+      <!-- опоры -->
+      <g fill="#6c6964">
+        <rect x="370" y="108" width="60" height="192"/>
+        <rect x="730" y="108" width="60" height="192"/>
+        <rect x="10" y="108" width="60" height="192"/>
+        <rect x="1090" y="108" width="60" height="192"/>
+      </g>
+      <g fill="#585652"><rect x="370" y="108" width="12" height="192"/><rect x="730" y="108" width="12" height="192"/><rect x="10" y="108" width="12" height="192"/><rect x="1090" y="108" width="12" height="192"/></g>
+      <!-- фонари под мостом -->
+      <g fill="#ff6a13">
+        <circle cx="220" cy="172" r="4"/><circle cx="580" cy="172" r="4"/><circle cx="940" cy="172" r="4"/>
+      </g>
+      <g fill="rgba(255,106,19,.12)">
+        <path d="M216 176 L160 300 H280 L224 176 Z"/><path d="M576 176 L520 300 H640 L584 176 Z"/><path d="M936 176 L880 300 H1000 L944 176 Z"/>
+      </g>
+    </svg>
+    <div class="under">
+      <div class="wrap">
+        <div class="status" id="status" aria-live="polite"><i></i><span>Проверяем часы работы…</span></div>
+        <h1>Под<br>мостом<span>.</span></h1>
+        <div class="kind">// техцентр · Казань · Московский район</div>
+        <p class="lead">Ходовая и пневмоподвеска, кузов и покраска, шиномонтаж, электрика, автозвук, тонировка и мойка. Всё в одном месте, по записи.</p>
+        <div class="cta">
+          <a class="btn o" href="#problema">Описать проблему</a>
+          <a class="btn" href="tel:+79033052095">+7 903 305-20-95</a>
+        </div>
+        <div class="signpost">
+          <a class="sign" href="https://yandex.ru/maps/?rtext=~55.826996,49.092924&rtt=auto" target="_blank" rel="noopener" style="text-decoration:none">
+            <div class="small">Техцентр · маршрут</div>
+            <div class="street">проспект Ямашева, 7&nbsp;к1</div>
+            <div class="km" id="km">Построить маршрут →</div>
+          </a>
+          <div class="pole" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section style="border-top:0">
+    <div class="wrap">
+      <div class="slabs">
+        <div class="slab"><div class="v">08—18</div><div class="l">ежедневно, по предварительной записи</div></div>
+        <div class="slab"><div class="v o">до 6</div><div class="l">машин одновременно</div></div>
+        <div class="slab"><div class="v">от 2500 ₽</div><div class="l">комплексная мойка</div></div>
+        <div class="slab"><div class="v"><a href="https://2gis.ru/kazan/firm/2956015536680522/tab/reviews" target="_blank" rel="noopener" style="text-decoration:none">4,7</a></div><div class="l">197 отзывов в 2ГИС</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="raboty">
+    <div class="wrap">
+      <div class="head"><h2>Работы</h2><span class="tag"><b>■</b> по данным 2ГИС</span></div>
+      <div class="groups">
+        <div class="grp"><h3><small>[01]</small>Ходовая</h3><ul><li>Ремонт ходовой части</li><li>Ремонт пневмоподвески</li><li>Ремонт стоек</li><li>Замена колодок, проточка тормозных дисков</li><li>Развал-схождение</li></ul></div>
+        <div class="grp"><h3><small>[02]</small>Кузов</h3><ul><li>Кузовной ремонт и покраска</li><li>Восстановление геометрии</li><li>Ремонт вмятин</li><li>Сварка</li><li>Полировка</li></ul></div>
+        <div class="grp"><h3><small>[03]</small>Колёса и шины</h3><ul><li>Шиномонтаж и мотошиномонтаж</li><li>Ремонт порезов</li><li>Правка, прокатка и сварка дисков</li><li>Покраска дисков</li><li>Хранение шин</li></ul></div>
+        <div class="grp"><h3><small>[04]</small>Электрика</h3><ul><li>Ремонт электронных систем</li><li>Ремонт стартеров и генераторов</li><li>Обслуживание кондиционера</li><li>Автосигнализации</li></ul></div>
+        <div class="grp"><h3><small>[05]</small>Звук, стёкла, тюнинг</h3><ul><li>Продажа и установка автозвука</li><li>Шумоизоляция салона</li><li>Тонирование, установка и ремонт стёкол</li><li>Тюнинг двигателя, подвески, внедорожников</li></ul></div>
+        <div class="grp"><h3><small>[06]</small>Мойка</h3><ul><li>Бесконтактная мойка</li><li>Химчистка салона</li><li>Мойка двигателя</li><li>Полировка кузова</li></ul><span class="price">комплексная от 2500 ₽</span></div>
+      </div>
+      <div class="brands"><b>Запчасти для иномарок и отечественных машин, автохимия.</b> В карточке 2ГИС отмечены марки: <span id="brands"></span></div>
+    </div>
+  </section>
+
+  <section id="problema">
+    <div class="wrap">
+      <div class="head"><h2>Что стучит?</h2><span class="tag"><b>■</b> сообщение в WhatsApp</span></div>
+      <p style="margin:-10px 0 22px;max-width:60ch;color:var(--muted)">Опишите проблему — соберём сообщение мастеру. Работаем по записи, так что лучше договориться заранее.</p>
+      <div class="form">
+        <div class="field">
+          <span class="tag">01 · Что беспокоит</span>
+          <div class="chips" id="cat" role="group" aria-label="Что беспокоит"></div>
+        </div>
+        <div class="field">
+          <label class="tag" for="brand">02 · Марка и модель</label>
+          <input id="brand" list="brandList" placeholder="Например, Kia Rio" autocomplete="off">
+          <datalist id="brandList"></datalist>
+          <label class="tag" for="desc" style="margin-top:16px">03 · Что происходит</label>
+          <textarea id="desc" placeholder="Стук спереди справа на неровностях"></textarea>
+        </div>
+        <div class="field" style="grid-column:1/-1">
+          <span class="tag">04 · Когда удобно приехать</span>
+          <div class="chips" id="when" role="group" aria-label="Когда удобно"></div>
+        </div>
+        <div class="out" aria-live="polite">
+          <pre id="msg"></pre>
+          <a class="btn o" id="wa" href="#" target="_blank" rel="noopener">Отправить в WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="otzyvy">
+    <div class="wrap">
+      <div class="rate">
+        <div class="score">4<span>,</span>7</div>
+        <div><p style="margin:0;font-size:16px"><b>197 отзывов</b> в 2ГИС. Рейтинг подтверждён.</p><p style="margin:8px 0 0;color:var(--muted)">Почитайте, что пишут водители, прежде чем записаться.</p></div>
+        <a class="btn k" href="https://2gis.ru/kazan/firm/2956015536680522/tab/reviews" target="_blank" rel="noopener">Читать отзывы →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="adres">
+    <div class="wrap">
+      <div class="head"><h2>Адрес</h2><span class="tag"><b>■</b> Московский район</span></div>
+      <div class="contact">
+        <dl class="info">
+          <div><dt class="tag">Адрес</dt><dd>Казань, проспект Ямашева, 7 к1</dd></div>
+          <div><dt class="tag">Часы</dt><dd>Каждый день, 08:00–18:00<small>по предварительной записи</small></dd></div>
+          <div><dt class="tag">Телефоны</dt><dd><a href="tel:+78435235276">+7 (843) 523-52-76</a><br><a href="tel:+79033052095">+7 903 305-20-95</a><small>второй номер — WhatsApp</small></dd></div>
+          <div><dt class="tag">Оплата</dt><dd style="font:500 14px/1.6 'IBM Plex Mono'">карта · наличные · QR-код · через банк</dd></div>
+          <div class="cta">
+            <a class="btn o" href="https://yandex.ru/maps/?rtext=~55.826996,49.092924&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+            <a class="btn" href="https://2gis.ru/kazan/firm/2956015536680522" target="_blank" rel="noopener">2ГИС</a>
+          </div>
+        </dl>
+        <div class="map">
+          <iframe title="Под мостом на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=49.092924%2C55.826996&z=16&pt=49.092924%2C55.826996%2Cpm2rdm"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">«Под мостом», техцентр, Казань. Демо-версия сайта, подготовлена для владельца по данным 2ГИС.</div>
+</footer>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a class="btn" href="tel:+78435235276">Позвонить</a>
+  <a class="btn o" href="https://yandex.ru/maps/?rtext=~55.826996,49.092924&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn" href="https://wa.me/79033052095" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  const $ = s => document.querySelector(s);
+
+  // стойки перил
+  let posts = "";
+  for(let x=12; x<1200; x+=40) posts += '<line x1="'+x+'" y1="34" x2="'+x+'" y2="52"/>';
+  $("#posts").innerHTML = posts;
+
+  // Часы работы: ежедневно 08:00–18:00 по Москве
+  const OPEN = 8*60, CLOSE = 18*60;
+  function mskMinutes(){
+    const p = new Intl.DateTimeFormat("ru-RU",{hour:"2-digit",minute:"2-digit",hourCycle:"h23",timeZone:"Europe/Moscow"}).formatToParts(new Date());
+    return +p.find(x=>x.type==="hour").value*60 + +p.find(x=>x.type==="minute").value;
+  }
+  function status(){
+    const now = mskMinutes(), el = $("#status"), open = now>=OPEN && now<CLOSE;
+    el.classList.toggle("closed", !open);
+    el.querySelector("span").textContent = open
+      ? "Открыто до 18:00 · по записи"
+      : "Закрыто · откроется " + (now<OPEN ? "сегодня" : "завтра") + " в 08:00";
+  }
+  status(); setInterval(status, 30000);
+
+  // марки из карточки 2ГИС
+  const BRANDS = ["Acura","Audi","Bentley","BMW","Brilliance","Bugatti","BYD","Cadillac","Changan","Chery","Chevrolet","Chrysler","Citroen","Daewoo","Daihatsu","Datsun","Dodge","Dongfeng","FAW","Ferrari","Fiat","Ford","Geely","GMC","Great Wall","Haima","Haval","Hawtai","Honda","Hummer","Hyundai","Infiniti","Isuzu","JAC","Jaguar","Jeep","Kia","Lancia","Land Rover","Lexus","Lifan","Lincoln","Luxgen","Maxus","Mazda","Mercedes-Benz","MINI","Mitsubishi","Nissan","Maserati","Opel","Peugeot","Porsche","Ravon","Renault","Rover","Rolls-Royce","Saab","SEAT","Skoda","Smart","SsangYong","Subaru","Suzuki","Tianye","Toyota","Volkswagen","Volvo","Vortex","Zotye","Lada (ВАЗ)","ГАЗ","ЗАЗ","ТагАЗ","УАЗ","Москвич","Exeed","OMODA","GAC","Sollers","Voyah"];
+  $("#brands").textContent = BRANDS.join(" · ") + ".";
+  $("#brandList").innerHTML = BRANDS.map(b=>'<option value="'+b+'">').join("");
+
+  // форма проблемы
+  const CATS = ["Ходовая / подвеска","Тормоза","Кузов / покраска","Шины и диски","Развал-схождение","Электрика","Кондиционер","Автозвук / шумоизоляция","Стёкла / тонировка","Тюнинг","Мойка / химчистка"];
+  const WHEN = ["Сегодня","Завтра","На неделе","Подберите время"];
+  const cats = new Set(); let when = 1;
+  CATS.forEach(c=>{
+    const b=document.createElement("button"); b.type="button"; b.textContent=c;
+    b.onclick=()=>{ cats.has(c)?cats.delete(c):cats.add(c); render(); };
+    $("#cat").appendChild(b);
+  });
+  WHEN.forEach((w,i)=>{
+    const b=document.createElement("button"); b.type="button"; b.textContent=w;
+    b.onclick=()=>{ when=i; render(); };
+    $("#when").appendChild(b);
+  });
+  $("#brand").addEventListener("input", render);
+  $("#desc").addEventListener("input", render);
+
+  function render(){
+    $("#cat").querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed", String(cats.has(b.textContent))));
+    $("#when").querySelectorAll("button").forEach((b,i)=>b.setAttribute("aria-pressed", String(i===when)));
+    const lines = ["Здравствуйте! Хочу записаться в техцентр «Под мостом»."];
+    const brand = $("#brand").value.trim(), desc = $("#desc").value.trim();
+    if(brand) lines.push("Машина: " + brand + ".");
+    if(cats.size) lines.push("Вопрос: " + [...cats].join(", ").toLowerCase() + ".");
+    if(desc) lines.push("Что происходит: " + desc);
+    lines.push(when===3 ? "Подскажите свободное время." : "Удобно приехать: " + WHEN[when].toLowerCase() + ".");
+    const text = lines.join("\n");
+    $("#msg").textContent = text;
+    $("#wa").href = "https://wa.me/79033052095?text=" + encodeURIComponent(text);
+  }
+  render();
+</script>
+</body>
+</html>
