@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Art-service — автосервис на Патриса Лумумбы, 61, Казань</title>
+<meta name="description" content="Автосервис Art-service в Советском районе Казани: ремонт двигателей (шлифовка, расточка, гильзовка), пневмоподвески, АКПП и МКПП, рулевых реек, автооптики. Ежедневно 9:00–20:00.">
+<meta name="theme-color" content="#f7f5f0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f7f5f0;
+    --wall:#efece4;
+    --ink:#111111;
+    --grey:#6b6862;
+    --rule:#d9d5cb;
+    --u:#2a2aff;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 "PT Serif",Georgia,serif;-webkit-font-smoothing:antialiased;
+    padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  @media(min-width:860px){body{padding-bottom:0}}
+  a{color:inherit}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{font-family:"Unbounded",sans-serif;margin:0;line-height:1.02;font-weight:800}
+  h2{font-size:clamp(30px,7.4vw,58px);letter-spacing:-.02em}
+  .cap{font:400 12px/1.3 "Unbounded",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+
+  .demo{background:var(--ink);color:var(--paper);font:400 12px/1.4 "Unbounded",sans-serif;text-align:center;padding:9px 16px;letter-spacing:.02em}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(247,245,240,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--ink)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
+  .logo{font:800 16px/1 "Unbounded",sans-serif;text-decoration:none;letter-spacing:-.01em}
+  .logo i{display:inline-block;width:12px;height:12px;background:var(--u);margin-right:8px;vertical-align:0}
+  .h-nav{display:none;gap:24px;font:400 13px/1 "Unbounded",sans-serif}
+  .h-nav a{text-decoration:none}.h-nav a:hover{color:var(--u)}
+  .h-tel{font:600 14px/1 "Unbounded",sans-serif;text-decoration:none;white-space:nowrap}
+  @media(min-width:860px){.h-nav{display:flex}}
+
+  section{padding:72px 0}
+
+  /* первый зал */
+  .hero{padding:30px 0 70px}
+  .hero-grid{display:grid;gap:28px}
+  @media(min-width:900px){.hero-grid{grid-template-columns:5fr 7fr;gap:40px;align-items:end}}
+  .placard{border-left:3px solid var(--u);padding-left:14px;font-size:15px;line-height:1.5}
+  .placard b{font-family:"Unbounded",sans-serif;font-weight:600;font-size:13px;display:block;margin-bottom:6px}
+  .status{display:inline-flex;align-items:center;gap:8px;font:400 13px/1.3 "Unbounded",sans-serif;margin-top:16px}
+  .status i{width:10px;height:10px;border-radius:50%;background:#0f9d58;display:inline-block}
+  .status.closed i{background:#d93025}
+  .hero h1{font-size:clamp(54px,17vw,150px);letter-spacing:-.05em;margin:26px 0 0;line-height:.9}
+  .hero h1 span{display:block;color:var(--u);margin-left:12vw}
+  @media(min-width:900px){.hero h1 span{margin-left:140px}}
+  .lead{font-size:19px;max-width:34ch;margin:22px 0 26px}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;font:600 14px/1 "Unbounded",sans-serif;
+    text-decoration:none;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;letter-spacing:.01em}
+  .btn.u{background:var(--u);border-color:var(--u);color:#fff}
+  .btn:hover{background:var(--ink);color:var(--paper)}.btn.u:hover{background:var(--ink);border-color:var(--ink)}
+
+  .frame{background:var(--wall);padding:26px;position:relative}
+  .frame svg{display:block;width:100%;height:auto;background:var(--paper);box-shadow:0 14px 30px -18px rgba(0,0,0,.45)}
+  .label{background:#fff;border:1px solid var(--rule);padding:12px 14px;font-size:14px;line-height:1.45;max-width:280px;margin:16px 0 0 auto}
+  .label .t{font-family:"Unbounded",sans-serif;font-weight:600;font-size:13px;display:block;margin-bottom:4px}
+  .label em{color:var(--grey)}
+
+  /* экспозиция */
+  .intro{display:grid;gap:14px;margin-bottom:38px}
+  @media(min-width:900px){.intro{grid-template-columns:1fr 1fr;align-items:end}}
+  .intro p{margin:0;max-width:44ch;color:var(--grey)}
+  .hall{display:grid;gap:44px}
+  @media(min-width:760px){.hall{grid-template-columns:repeat(12,1fr);gap:56px 28px}}
+  .ex{position:relative}
+  .ex .art{background:var(--wall);padding:18px}
+  .ex .art svg{display:block;width:100%;height:auto;background:var(--paper)}
+  .ex .tag{background:#fff;border:1px solid var(--rule);padding:12px 14px;margin-top:12px;max-width:320px;font-size:15px;line-height:1.45}
+  .ex .tag .no{font:400 11px/1 "Unbounded",sans-serif;letter-spacing:.1em;color:var(--u)}
+  .ex .tag h3{font-size:17px;font-weight:600;margin:6px 0 4px;line-height:1.2}
+  .ex .tag em{color:var(--grey);display:block}
+  .ex .tag button{margin-top:10px;min-height:44px;padding:0 12px;border:1px solid var(--ink);background:transparent;font:400 12px "Unbounded",sans-serif;cursor:pointer;color:var(--ink)}
+  .ex .tag button[aria-pressed="true"]{background:var(--u);border-color:var(--u);color:#fff}
+  @media(max-width:759px){.ex:nth-child(even){margin-left:36px}.ex:nth-child(odd){margin-right:36px}}
+  @media(min-width:760px){
+    .ex:nth-child(1){grid-column:1/7}
+    .ex:nth-child(2){grid-column:8/13;margin-top:120px}
+    .ex:nth-child(3){grid-column:2/6}
+    .ex:nth-child(4){grid-column:7/12;margin-top:-40px}
+    .ex:nth-child(5){grid-column:1/5;margin-top:30px}
+    .ex:nth-child(6){grid-column:6/10}
+    .ex:nth-child(7){grid-column:9/13;margin-top:60px}
+    .ex:nth-child(8){grid-column:2/8;margin-top:-20px}
+    .ex .tag.r{margin-left:auto}
+  }
+
+  .catalog{margin-top:64px;border-top:1px solid var(--ink);padding-top:18px;columns:1;column-gap:32px;font-size:16px}
+  @media(min-width:640px){.catalog{columns:2}}
+  @media(min-width:960px){.catalog{columns:3}}
+  .catalog div{break-inside:avoid;padding:7px 0;border-bottom:1px solid var(--rule);display:flex;gap:12px}
+  .catalog span{font:400 11px/2.1 "Unbounded",sans-serif;color:var(--grey);min-width:26px}
+
+  /* лавка и посетителям */
+  .dark{background:var(--ink);color:var(--paper)}
+  .dark .cap{color:#a9a69e}
+  .cols{display:grid;gap:36px;margin-top:30px}
+  @media(min-width:860px){.cols{grid-template-columns:1fr 1fr 1fr}}
+  .cols h3{font-size:18px;font-weight:600;margin-bottom:10px}
+  .cols p{margin:0;color:#cfccc4}
+  .cols ul{margin:0;padding:0;list-style:none}
+  .cols li{padding:6px 0;border-bottom:1px solid #2f2f2f;color:#cfccc4}
+  .u-dot{display:inline-block;width:8px;height:8px;background:var(--u);margin-right:10px}
+
+  /* заявка */
+  .req{display:grid;gap:28px;margin-top:30px}
+  @media(min-width:900px){.req{grid-template-columns:7fr 5fr}}
+  .card{background:#fff;border:1px solid var(--ink);padding:22px 16px}
+  @media(min-width:600px){.card{padding:28px}}
+  .fld{margin-bottom:20px}
+  .fld label,.fld .lbl{display:block;font:400 11px/1 "Unbounded",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin-bottom:8px}
+  input,textarea{width:100%;border:0;border-bottom:1.5px solid var(--ink);background:transparent;font:400 18px/1.4 "PT Serif",serif;padding:10px 0;min-height:48px;color:var(--ink);border-radius:0}
+  textarea{border:1.5px solid var(--ink);padding:10px;min-height:100px;resize:vertical}
+  input:focus,textarea:focus{outline:none;border-color:var(--u)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{min-height:44px;padding:0 14px;border:1px solid var(--ink);background:transparent;font:400 15px "PT Serif",serif;cursor:pointer;color:var(--ink)}
+  .chip[aria-pressed="true"]{background:var(--u);border-color:var(--u);color:#fff}
+  .ticket{background:var(--wall);padding:22px 18px;font-size:16px}
+  .ticket .cap{display:block;margin-bottom:10px}
+  .ticket pre{white-space:pre-wrap;font:italic 400 16px/1.55 "PT Serif",serif;margin:0 0 18px}
+  .ticket .btn{width:100%;margin-top:8px}
+
+  .hours{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin-top:26px}
+  .hours div{padding:14px 2px;text-align:center;font-size:14px;line-height:1.35}
+  .hours div b{display:block;font:600 12px/1 "Unbounded",sans-serif;margin-bottom:6px}
+  .hours div.today{background:var(--u);color:#fff}
+
+  .contacts{display:grid;gap:26px;margin-top:30px}
+  @media(min-width:860px){.contacts{grid-template-columns:5fr 7fr}}
+  .kv{margin:0}
+  .kv dt{font:400 11px/1 "Unbounded",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin-top:18px}
+  .kv dt:first-child{margin-top:0}
+  .kv dd{margin:6px 0 0;font-size:18px}
+  .map{background:var(--wall);padding:18px}
+  .map div{position:relative;min-height:320px}
+  .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05)}
+
+  footer{border-top:1px solid var(--ink);padding:24px 0 34px;font-size:14px;color:var(--grey)}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--paper);border-top:1px solid var(--ink)}
+  .dock .btn{padding:0 4px;font-size:12px}
+  @media(min-width:860px){.dock{display:none}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><i></i>Art-service</a>
+    <nav class="h-nav"><a href="#hall">Экспозиция</a><a href="#visit">Посетителям</a><a href="#request">Заявка</a><a href="#contacts">Адрес</a></nav>
+    <a class="h-tel" href="tel:+78432121441">212-14-41</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="placard">
+          <b>Постоянная экспозиция</b>
+          Легковой автосервис<br>Казань, улица Патриса Лумумбы, 61<br>Ежедневно, 09:00–20:00
+        </div>
+        <div class="status" id="status"><i></i><span id="statusText">Ежедневно 09:00–20:00</span></div>
+        <h1>Art<span>service</span></h1>
+        <p class="lead">Двигатели — вплоть до расточки и гильзовки. Коробки, пневмоподвеска, рулевые рейки, оптика. Каждый день с 9 до 20.</p>
+        <div class="cta">
+          <a class="btn u" href="#request">Оставить заявку</a>
+          <a class="btn" href="tel:+78432121441">Позвонить</a>
+        </div>
+      </div>
+      <div>
+        <div class="frame">
+          <svg viewBox="0 0 400 300" role="img" aria-label="Абстрактная композиция: колесо и линия дороги">
+            <rect x="0" y="0" width="400" height="300" fill="#f7f5f0"/>
+            <rect x="236" y="34" width="130" height="190" fill="#2a2aff"/>
+            <circle cx="170" cy="170" r="96" fill="none" stroke="#111" stroke-width="18"/>
+            <circle cx="170" cy="170" r="34" fill="#111"/>
+            <path d="M170 74 L170 266 M74 170 L266 170" stroke="#111" stroke-width="4"/>
+            <path d="M0 266 L400 266" stroke="#111" stroke-width="2"/>
+            <circle cx="330" cy="70" r="14" fill="#f7f5f0"/>
+          </svg>
+          <div class="label">
+            <span class="t">«Оценка посетителей»</span>
+            <a href="https://2gis.ru/kazan/firm/70000001007215557/tab/reviews" target="_blank" rel="noopener">4,3 из 5 · 77 отзывов в 2ГИС</a><br>
+            <em>Советский район, Казань</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hall" style="border-top:1px solid var(--ink)">
+    <div class="wrap">
+      <div class="intro">
+        <div><div class="cap">Зал 1 · Экспозиция работ</div><h2 style="margin-top:12px">Что здесь ремонтируют</h2></div>
+        <p>Каждая работа — как экспонат с табличкой. Отметьте нужные, и они попадут в заявку внизу страницы.</p>
+      </div>
+
+      <div class="hall" id="hallGrid">
+        <article class="ex">
+          <div class="art"><svg viewBox="0 0 300 200" aria-hidden="true"><rect width="300" height="200" fill="#f7f5f0"/><rect x="40" y="50" width="220" height="110" fill="none" stroke="#111" stroke-width="6"/><circle cx="95" cy="105" r="30" fill="#2a2aff"/><circle cx="150" cy="105" r="30" fill="none" stroke="#111" stroke-width="6"/><circle cx="205" cy="105" r="30" fill="#111"/></svg></div>
+          <div class="tag"><span class="no">ЭКСПОНАТ № 01</span><h3>Двигатель</h3><em>Шлифовка, расточка, гильзовка, опрессовка</em>Ремонт бензиновых двигателей и замена масла.<br><button type="button" data-w="Ремонт двигателя" aria-pressed="false">В заявку</button></div>
+        </article>
+        <article class="ex">
+          <div class="art"><svg viewBox="0 0 300 380" aria-hidden="true"><rect width="300" height="380" fill="#f7f5f0"/><rect x="128" y="30" width="44" height="320" fill="#111"/><path d="M110 80 L190 110 L110 140 L190 170 L110 200 L190 230 L110 260 L190 290" fill="none" stroke="#2a2aff" stroke-width="12" stroke-linejoin="round"/></svg></div>
+          <div class="tag r"><span class="no">ЭКСПОНАТ № 02</span><h3>Пневмоподвеска и стойки</h3><em>Подвеска и ходовая</em>Ремонт пневмоподвески, стоек и ходовой части.<br><button type="button" data-w="Пневмоподвеска / ходовая" aria-pressed="false">В заявку</button></div>
+        </article>
+        <article class="ex">
+          <div class="art"><svg viewBox="0 0 300 300" aria-hidden="true"><rect width="300" height="300" fill="#f7f5f0"/><circle cx="110" cy="130" r="70" fill="#2a2aff"/><circle cx="200" cy="190" r="50" fill="none" stroke="#111" stroke-width="10" stroke-dasharray="14 8"/><circle cx="200" cy="190" r="12" fill="#111"/></svg></div>
+          <div class="tag"><span class="no">ЭКСПОНАТ № 03</span><h3>Коробка передач</h3><em>Трансмиссия</em>Ремонт АКПП и МКПП.<br><button type="button" data-w="Ремонт коробки (АКПП/МКПП)" aria-pressed="false">В заявку</button></div>
+        </article>
+        <article class="ex">
+          <div class="art"><svg viewBox="0 0 300 200" aria-hidden="true"><rect width="300" height="200" fill="#f7f5f0"/><rect x="20" y="92" width="260" height="16" fill="#111"/><path d="M60 92 L60 70 M80 92 L80 70 M100 92 L100 70 M120 92 L120 70 M140 92 L140 70" stroke="#111" stroke-width="6"/><circle cx="220" cy="100" r="40" fill="none" stroke="#2a2aff" stroke-width="14"/></svg></div>
+          <div class="tag r"><span class="no">ЭКСПОНАТ № 04</span><h3>Рулевая рейка</h3><em>Рулевое управление</em>Ремонт рулевых реек.<br><button type="button" data-w="Рулевая рейка" aria-pressed="false">В заявку</button></div>
+        </article>
+        <article class="ex">
+          <div class="art"><svg viewBox="0 0 300 340" aria-hidden="true"><rect width="300" height="340" fill="#f7f5f0"/><path d="M60 170 L260 60 L260 280 Z" fill="#2a2aff"/><circle cx="70" cy="170" r="38" fill="#111"/></svg></div>
+          <div class="tag"><span class="no">ЭКСПОНАТ № 05</span><h3>Свет</h3><em>Автооптика</em>Установка и ремонт автооптики.<br><button type="button" data-w="Автооптика" aria-pressed="false">В заявку</button></div>
+        </article>
+        <article class="ex">
+          <div class="art"><svg viewBox="0 0 300 300" aria-hidden="true"><rect width="300" height="300" fill="#f7f5f0"/><rect x="60" y="60" width="180" height="180" fill="none" stroke="#111" stroke-width="8"/><path d="M60 150 L100 150 L120 100 L150 200 L175 120 L195 150 L240 150" fill="none" stroke="#2a2aff" stroke-width="10" stroke-linejoin="round"/></svg></div>
+          <div class="tag"><span class="no">ЭКСПОНАТ № 06</span><h3>Диагностика</h3><em>Электрика и электроника</em>Компьютерная диагностика, ремонт электронных систем, стартеров и генераторов.<br><button type="button" data-w="Диагностика / электрика" aria-pressed="false">В заявку</button></div>
+        </article>
+        <article class="ex">
+          <div class="art"><svg viewBox="0 0 300 300" aria-hidden="true"><rect width="300" height="300" fill="#f7f5f0"/><circle cx="150" cy="150" r="90" fill="#2a2aff"/><path d="M150 70 L150 230 M81 110 L219 190 M81 190 L219 110" stroke="#f7f5f0" stroke-width="10" stroke-linecap="round"/></svg></div>
+          <div class="tag r"><span class="no">ЭКСПОНАТ № 07</span><h3>Холод и тепло</h3><em>Система отопления и кондиционирования</em>Обслуживание автомобильных климатических систем.<br><button type="button" data-w="Кондиционер / отопление" aria-pressed="false">В заявку</button></div>
+        </article>
+        <article class="ex">
+          <div class="art"><svg viewBox="0 0 400 200" aria-hidden="true"><rect width="400" height="200" fill="#f7f5f0"/><rect x="30" y="80" width="140" height="40" fill="#111"/><rect x="170" y="62" width="130" height="76" rx="38" fill="#2a2aff"/><rect x="300" y="88" width="80" height="24" fill="#111"/></svg></div>
+          <div class="tag"><span class="no">ЭКСПОНАТ № 08</span><h3>Топливо и выхлоп</h3><em>Инжекторы, карбюраторы, выхлопная система</em>Ремонт инжекторов, карбюраторов и выхлопных систем.<br><button type="button" data-w="Топливная система / выхлоп" aria-pressed="false">В заявку</button></div>
+        </article>
+      </div>
+
+      <div class="catalog" aria-label="Ещё в перечне работ">
+        <div><span>09</span>Шиномонтаж</div>
+        <div><span>10</span>Автосигнализации</div>
+        <div><span>11</span>Замена масла</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" class="dark">
+    <div class="wrap">
+      <div class="cap">Зал 2 · Посетителям</div>
+      <h2 style="margin-top:12px">Перед визитом</h2>
+      <div class="cols">
+        <div>
+          <h3><span class="u-dot"></span>Лавка</h3>
+          <p>Запчасти для иномарок в розницу, есть доставка: двигатель, подвеска, тормозная система, кузов, стёкла, салон, автозеркала, крепёж, расходники.</p>
+        </div>
+        <div>
+          <h3><span class="u-dot"></span>Доступность</h3>
+          <ul><li>Пандус</li><li>Вход доступен с детской коляской</li><li>Вход частично доступен на инвалидной коляске</li><li>Wi-Fi для клиентов</li></ul>
+        </div>
+        <div>
+          <h3><span class="u-dot"></span>Оплата</h3>
+          <ul><li>Картой</li><li>Наличными</li><li>По QR-коду</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="request">
+    <div class="wrap">
+      <div class="cap">Зал 3 · Заявка</div>
+      <h2 style="margin-top:12px">Запишите машину на ремонт</h2>
+      <div class="req">
+        <form class="card" onsubmit="return false">
+          <div class="fld"><label for="car">Автомобиль</label><input id="car" placeholder="Марка, модель, год" autocomplete="off"></div>
+          <div class="fld"><span class="lbl">Что ремонтировать</span><div class="chips" id="works"></div></div>
+          <div class="fld"><label for="what">Подробности</label><textarea id="what" placeholder="Что беспокоит, когда началось"></textarea></div>
+          <div class="fld" style="margin-bottom:0"><span class="lbl">Когда удобно</span><div class="chips" id="when">
+            <button type="button" class="chip" aria-pressed="true">Как можно скорее</button><button type="button" class="chip" aria-pressed="false">На этой неделе</button><button type="button" class="chip" aria-pressed="false">Сначала узнать цену</button>
+          </div></div>
+        </form>
+        <div class="ticket" aria-live="polite">
+          <span class="cap">Табличка к вашей заявке</span>
+          <pre id="preview"></pre>
+          <a class="btn u" id="waSend" href="https://wa.me/79625592787" target="_blank" rel="noopener">Отправить в WhatsApp</a>
+          <a class="btn" href="tel:+78432121441">Позвонить: 212-14-41</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hours" style="padding-top:0">
+    <div class="wrap">
+      <div class="cap">Часы работы</div>
+      <h2 style="margin-top:12px">Открыто каждый день</h2>
+      <div class="hours" id="hoursRow"></div>
+    </div>
+  </section>
+
+  <section id="contacts" style="border-top:1px solid var(--ink)">
+    <div class="wrap">
+      <div class="cap">Как найти</div>
+      <h2 style="margin-top:12px">Патриса Лумумбы, 61</h2>
+      <div class="contacts">
+        <dl class="kv">
+          <dt>Адрес</dt><dd>Казань, улица Патриса Лумумбы, 61, 1 этаж<br><span style="color:var(--grey);font-size:16px">Советский район</span></dd>
+          <dt>Телефон</dt><dd><a href="tel:+78432121441">+7 (843) 212-14-41</a></dd>
+          <dt>Написать</dt><dd><a href="https://wa.me/79625592787" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://vk.ru/artautoservis" target="_blank" rel="noopener">ВКонтакте</a> · <a href="mailto:artautoservis@mail.ru">artautoservis@mail.ru</a></dd>
+          <dt>Отзывы</dt><dd><a href="https://2gis.ru/kazan/firm/70000001007215557/tab/reviews" target="_blank" rel="noopener">4,3 — 77 отзывов в 2ГИС</a></dd>
+          <dd style="margin-top:22px"><a class="btn u" href="https://yandex.ru/maps/?rtext=~55.796283,49.186334&rtt=auto" target="_blank" rel="noopener">Построить маршрут</a></dd>
+        </dl>
+        <div class="map"><div><iframe title="Art-service на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=49.186334%2C55.796283&z=16&pt=49.186334%2C55.796283%2Cpm2rdm"></iframe></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Art-service, автосервис · Казань, ул. Патриса Лумумбы, 61. Демо-версия сайта, подготовлена для владельца по данным 2ГИС.</div></footer>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a class="btn" href="tel:+78432121441">Позвонить</a>
+  <a class="btn" href="https://yandex.ru/maps/?rtext=~55.796283,49.186334&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn u" href="https://wa.me/79625592787" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  const $ = s => document.querySelector(s);
+  const WORKS = ["Ремонт двигателя","Пневмоподвеска / ходовая","Ремонт коробки (АКПП/МКПП)","Рулевая рейка","Автооптика","Диагностика / электрика","Кондиционер / отопление","Топливная система / выхлоп","Шиномонтаж","Автосигнализация","Замена масла"];
+  const picked = new Set();
+  $("#works").innerHTML = WORKS.map(w=>`<button type="button" class="chip" aria-pressed="false" data-c="${w}">${w}</button>`).join("");
+
+  function sync(){
+    document.querySelectorAll("[data-c]").forEach(b=>b.setAttribute("aria-pressed", String(picked.has(b.dataset.c))));
+    document.querySelectorAll(".ex [data-w]").forEach(b=>{ const on = picked.has(b.dataset.w); b.setAttribute("aria-pressed", String(on)); b.textContent = on ? "В заявке ✓" : "В заявку"; });
+    render();
+  }
+  function toggle(w){ picked.has(w) ? picked.delete(w) : picked.add(w); sync(); }
+  document.querySelectorAll("[data-c]").forEach(b=>b.onclick=()=>toggle(b.dataset.c));
+  document.querySelectorAll(".ex [data-w]").forEach(b=>b.onclick=()=>toggle(b.dataset.w));
+
+  let when = "Как можно скорее";
+  document.querySelectorAll("#when .chip").forEach(b=>b.onclick=()=>{
+    document.querySelectorAll("#when .chip").forEach(x=>x.setAttribute("aria-pressed", String(x===b)));
+    when = b.textContent; render();
+  });
+  $("#car").oninput = render; $("#what").oninput = render;
+
+  function render(){
+    const car = $("#car").value.trim(), what = $("#what").value.trim(), list = [...picked];
+    const msg = "Здравствуйте! Заявка на ремонт с сайта Art-service.\n" +
+      "Автомобиль: " + (car || "—") + "\n" +
+      "Что ремонтировать: " + (list.length ? list.join(", ") : "нужна консультация") + "\n" +
+      (what ? "Подробности: " + what + "\n" : "") +
+      "Когда удобно: " + when;
+    $("#preview").textContent = msg;
+    $("#waSend").href = "https://wa.me/79625592787?text=" + encodeURIComponent(msg);
+  }
+  sync();
+
+  // часы и статус по Москве
+  const OPEN = 9*60, CLOSE = 20*60;
+  const DAYS = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"], EN = {Mon:0,Tue:1,Wed:2,Thu:3,Fri:4,Sat:5,Sun:6};
+  function msk(){
+    const p = new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Moscow",weekday:"short",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());
+    const g = t => p.find(x=>x.type===t).value;
+    return {day:EN[g("weekday")], min:(+g("hour"))*60 + (+g("minute"))};
+  }
+  function status(){
+    const t = msk(), open = t.min>=OPEN && t.min<CLOSE;
+    $("#status").classList.toggle("closed", !open);
+    $("#statusText").textContent = open ? "Открыто сейчас · до 20:00"
+      : (t.min<OPEN ? "Закрыто, откроется сегодня в 09:00" : "Закрыто, откроется завтра в 09:00");
+    $("#hoursRow").innerHTML = DAYS.map((d,i)=>`<div class="${i===t.day?"today":""}"><b>${d}</b>9:00<br>20:00</div>`).join("");
+  }
+  status(); setInterval(status, 30000);
+</script>
+</body>
+</html>
