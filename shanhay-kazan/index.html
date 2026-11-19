@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Шанхай — автомойка на Мухамедьярова, 31г, Казань</title>
+<meta name="description" content="Автомойка «Шанхай» в Казани: комплексная мойка от 1700 ₽, бесконтактная мойка, химчистка, мойка двигателя, аренда тёплого бокса. Ежедневно 10:00–21:30, по предварительному звонку. Рейтинг 5,0 в 2ГИС.">
+<meta name="theme-color" content="#c8102e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Golos+Text:wght@400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --red:#c8102e;
+    --red-d:#9c0c23;
+    --cream:#f5ecd9;
+    --cream-2:#ebdfc4;
+    --black:#141110;
+    --muted:#6e6253;
+    --line:#d8c8a6;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--cream);color:var(--black);font:16px/1.55 "Golos Text",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+  h1,h2,h3,.serif{font-family:"PT Serif",Georgia,serif;margin:0;line-height:1.05}
+  h2{font-size:clamp(34px,8vw,56px);font-weight:700;margin:8px 0 22px}
+  .eyebrow{font:600 12px/1 "Golos Text",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+  section{padding:60px 0}
+
+  .demo{background:var(--black);color:var(--cream);font:500 13px/1.35 "Golos Text",sans-serif;text-align:center;padding:8px 16px}
+
+  header{position:sticky;top:0;z-index:20;background:var(--red);color:var(--cream)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
+  .logo{font:700 24px/1 "PT Serif",serif;text-decoration:none;letter-spacing:.04em}
+  .h-tel{font-weight:600;text-decoration:none;white-space:nowrap}
+  .h-nav{display:none;gap:24px;font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+  .h-nav a{text-decoration:none;opacity:.85}.h-nav a:hover{opacity:1}
+  @media(min-width:880px){.h-nav{display:flex}}
+
+  /* плакат */
+  .poster{background:var(--red);color:var(--cream);padding:0;position:relative;overflow:hidden}
+  .poster::after{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 110% -10%,transparent 0 38px,rgba(0,0,0,.06) 38px 40px);pointer-events:none}
+  .poster .wrap{display:grid;grid-template-columns:1fr auto;gap:12px;position:relative;z-index:1;padding-top:36px;padding-bottom:48px}
+  .vert{writing-mode:vertical-rl;text-orientation:upright;font:700 clamp(46px,13vw,104px)/1 "PT Serif",serif;letter-spacing:-.06em;color:var(--black);align-self:start;user-select:none}
+  .poster h1{font-size:clamp(40px,11vw,86px);font-weight:700;line-height:.98;margin:18px 0 18px}
+  .poster h1 i{font-weight:400;color:var(--black)}
+  .poster .lead{font-size:18px;max-width:30ch;margin:0 0 24px;color:#ffe9e4}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;font:600 16px/1 "Golos Text",sans-serif;text-decoration:none;border:2px solid var(--black);background:var(--black);color:var(--cream);cursor:pointer}
+  .btn.cream{background:var(--cream);color:var(--black);border-color:var(--cream)}
+  .btn.ghost{background:transparent;color:inherit;border-color:currentColor}
+  .btn.red{background:var(--red);border-color:var(--red);color:var(--cream)}
+  .btn:active{transform:translateY(1px)}
+  .score{display:inline-flex;align-items:center;gap:12px;margin-top:26px;text-decoration:none;border-top:2px solid var(--black);padding-top:10px}
+  .score b{font:700 44px/1 "PT Serif",serif;color:var(--black)}
+  .score span{font-size:14px;line-height:1.3}
+  .score u{font-weight:600;text-underline-offset:3px}
+
+  /* печать */
+  .stamp-row{display:grid;gap:28px;align-items:center}
+  @media(min-width:820px){.stamp-row{grid-template-columns:auto 1fr;gap:56px}}
+  .stamp{width:min(300px,78vw);margin:0 auto;position:relative}
+  .stamp svg{width:100%;height:auto;display:block;transform:rotate(-8deg);transition:transform .4s}
+  .stamp:hover svg{transform:rotate(-2deg)}
+  .stamp .ink{fill:none;stroke:var(--red);stroke-width:4}
+  .stamp text{fill:var(--red);font-family:"PT Serif",serif;font-weight:700}
+  .stamp.closed .ink{stroke:var(--black)}
+  .stamp.closed text{fill:var(--black)}
+  .stamp-note h3{font-size:30px;margin-bottom:10px}
+  .stamp-note p{margin:0 0 12px;color:var(--muted);font-size:17px}
+  .stamp-note .now{font-weight:700;color:var(--black);font-size:18px}
+
+  /* меню */
+  .menu{background:var(--black);color:var(--cream)}
+  .menu .eyebrow{color:#ff6b80}
+  .menu-grid{display:grid;gap:24px}
+  @media(min-width:880px){.menu-grid{grid-template-columns:1.2fr 1fr;gap:40px}}
+  .dish{display:flex;align-items:center;gap:14px;min-height:56px;padding:12px 0;border-bottom:1px dashed rgba(245,236,217,.25);cursor:pointer;width:100%;background:none;border-left:0;border-right:0;border-top:0;color:inherit;text-align:left;font:inherit}
+  .dish .n{font:400 22px/1.2 "PT Serif",serif}
+  .dish .dots{flex:1;border-bottom:2px dotted rgba(245,236,217,.3);transform:translateY(-6px);min-width:16px}
+  .dish .p{font-weight:600;white-space:nowrap;font-size:15px}
+  .dish .box{width:24px;height:24px;border:2px solid var(--cream);flex:none;display:grid;place-items:center;font:700 14px "PT Serif",serif}
+  .dish[aria-pressed="true"] .box{background:var(--red);border-color:var(--red)}
+  .dish[aria-pressed="true"] .box::after{content:"✓"}
+  .dish[aria-pressed="true"] .n{color:#ff8a9a}
+  .ticket{background:var(--cream);color:var(--black);padding:22px 18px;position:relative;
+    -webkit-mask:radial-gradient(circle 10px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 10px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat;
+            mask:radial-gradient(circle 10px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 10px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat}
+  .ticket h3{font-size:26px;border-bottom:2px solid var(--black);padding-bottom:10px;margin-bottom:12px}
+  .ticket .row{display:flex;justify-content:space-between;gap:10px;padding:5px 0;font-size:15px}
+  .ticket .empty{color:var(--muted);font-size:15px}
+  .cars{display:flex;gap:8px;margin:16px 0 10px;align-items:center;flex-wrap:wrap}
+  .cars span{font-size:14px;color:var(--muted);margin-right:4px}
+  .cars button{min-width:52px;min-height:48px;border:2px solid var(--black);background:transparent;font:700 18px "PT Serif",serif;cursor:pointer;color:var(--black)}
+  .cars button[aria-pressed="true"]{background:var(--black);color:var(--cream)}
+  .ticket input{width:100%;min-height:48px;border:2px solid var(--black);background:#fffaf0;padding:0 12px;font:16px "Golos Text",sans-serif;margin:6px 0 14px;color:var(--black)}
+  .ticket label{font-size:14px;color:var(--muted)}
+  .ticket .btn{width:100%}
+  .ticket small{display:block;color:var(--muted);margin-top:10px;font-size:13px;line-height:1.4}
+
+  .cols{display:grid;gap:0;border-top:3px solid var(--black)}
+  @media(min-width:760px){.cols{grid-template-columns:repeat(3,1fr)}}
+  .col{padding:20px 0;border-bottom:1px solid var(--line)}
+  @media(min-width:760px){.col{padding:22px 22px 22px 0;border-bottom:0;border-right:1px solid var(--line);margin-right:22px}.col:last-child{border-right:0;margin-right:0}}
+  .col h3{font-size:24px;margin-bottom:10px}
+  .col ul{list-style:none;margin:0;padding:0}
+  .col li{padding:4px 0}
+  .col li::before{content:"■ ";color:var(--red);font-size:10px;vertical-align:2px}
+
+  .visit{display:grid;gap:22px}
+  @media(min-width:880px){.visit{grid-template-columns:1fr 1.2fr}}
+  .addr{font:700 26px/1.2 "PT Serif",serif;margin:0 0 6px}
+  .addr small{display:block;font:400 15px "Golos Text",sans-serif;color:var(--muted);margin-top:6px}
+  .phones{display:grid;gap:8px;margin:18px 0}
+  .phones a{min-height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border:2px solid var(--black);text-decoration:none;font-weight:600}
+  .phones a span{font-size:13px;color:var(--muted);font-weight:500}
+  .map{border:3px solid var(--black);min-height:320px;position:relative;background:var(--cream-2)}
+  .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  footer{background:var(--red);color:var(--cream);padding:24px 0 34px;font-size:13px}
+
+  .bar{display:none}
+  @media(max-width:760px){
+    body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+    .bar{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:var(--black)}
+    .bar a{min-height:52px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:600;font-size:15px;color:var(--cream);border:1px solid rgba(245,236,217,.3)}
+    .bar a.main{background:var(--red);border-color:var(--red)}
+    .h-tel{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Шанхай</a>
+    <nav class="h-nav"><a href="#hours">Часы</a><a href="#menu">Меню услуг</a><a href="#visit">Адрес</a></nav>
+    <a class="h-tel" href="tel:+79655981981">+7‒965‒598‒19‒81</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="poster">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow" style="color:var(--cream);opacity:.85">Автомойка · Московский район</div>
+        <h1>Чисто.<br>Тепло.<br><i>Без спешки.</i></h1>
+        <p class="lead">Комплексная мойка, химчистка и аренда тёплого бокса на улице Профессора Мухамедьярова, 31г.</p>
+        <div class="cta">
+          <a class="btn" href="tel:+79655981981">Позвонить заранее</a>
+          <a class="btn ghost" href="#menu">Меню услуг</a>
+        </div>
+        <a class="score" href="https://2gis.ru/kazan/firm/70000001055621076/tab/reviews" target="_blank" rel="noopener">
+          <b>5,0</b><span>подтверждённый рейтинг в 2ГИС<br><u>79 отзывов</u></span>
+        </a>
+      </div>
+      <div class="vert" aria-hidden="true">ШАНХАЙ</div>
+    </div>
+  </section>
+
+  <section id="hours">
+    <div class="wrap stamp-row">
+      <div class="stamp" id="stamp">
+        <svg viewBox="0 0 300 300" role="img" aria-label="Часы работы: ежедневно с 10:00 до 21:30">
+          <defs><path id="ring" d="M150,150 m-112,0 a112,112 0 1,1 224,0 a112,112 0 1,1 -224,0"/></defs>
+          <circle class="ink" cx="150" cy="150" r="140" style="stroke-width:6"/>
+          <circle class="ink" cx="150" cy="150" r="128"/>
+          <circle class="ink" cx="150" cy="150" r="90"/>
+          <text font-size="17"><textPath href="#ring" textLength="690" lengthAdjust="spacing">АВТОМОЙКА ШАНХАЙ ✦ ЕЖЕДНЕВНО ✦ ПО ЗВОНКУ ✦</textPath></text>
+          <text x="150" y="126" text-anchor="middle" font-size="34">10:00</text>
+          <line class="ink" x1="104" y1="142" x2="196" y2="142" style="stroke-width:2"/>
+          <text x="150" y="178" text-anchor="middle" font-size="34">21:30</text>
+          <text x="150" y="206" text-anchor="middle" font-size="13" letter-spacing="3" id="stampState">ОТКРЫТО</text>
+        </svg>
+      </div>
+      <div class="stamp-note">
+        <div class="eyebrow">Часы работы</div>
+        <h3>Каждый день, <span style="white-space:nowrap">10:00–21:30</span></h3>
+        <p class="now" id="statusText">Ежедневно 10:00–21:30</p>
+        <p>Мойка работает по предварительному звонку — наберите перед выездом, чтобы вас ждали.</p>
+        <div class="cta">
+          <a class="btn red" href="tel:+79655981981">Позвонить</a>
+          <a class="btn ghost" href="https://wa.me/79655981981" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <div class="eyebrow">Меню услуг</div>
+      <h2>Выберите, что нужно</h2>
+      <div class="menu-grid">
+        <div id="dishes"></div>
+        <div class="ticket">
+          <h3>Ваша заявка</h3>
+          <div id="tlist"><p class="empty">Отметьте услуги слева — они появятся здесь.</p></div>
+          <div class="cars" role="group" aria-label="Сколько машин">
+            <span>Машин:</span>
+            <button type="button" aria-pressed="true" data-n="1">1</button>
+            <button type="button" aria-pressed="false" data-n="2">2</button>
+          </div>
+          <label for="when">Когда удобно приехать</label>
+          <input id="when" type="text" placeholder="Например, завтра после 18:00" autocomplete="off">
+          <a class="btn red" id="wa" href="https://wa.me/79655981981" target="_blank" rel="noopener">Отправить в WhatsApp</a>
+          <small>Цена в 2ГИС указана только для комплексной мойки. Остальное назовут в ответ на сообщение.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="more">
+    <div class="wrap">
+      <div class="eyebrow">Пока моют</div>
+      <h2>Есть где подождать</h2>
+      <div class="cols">
+        <div class="col"><h3>Подождать</h3><ul><li>Зал ожидания</li><li>Кафе</li><li>Кофе и чай с собой</li><li>Wi-Fi для клиентов</li></ul></div>
+        <div class="col"><h3>Доступность</h3><ul><li>Пандус</li><li>Вход с детской коляской</li><li>Частично доступный вход на инвалидной коляске</li></ul></div>
+        <div class="col"><h3>Оплата</h3><ul><li>Наличными</li><li>Переводом с карты</li><li>По QR-коду</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" style="border-top:3px solid var(--black)">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow">Как найти</div>
+        <p class="addr">Казань, улица Профессора Мухамедьярова, 31г<small>Московский район</small></p>
+        <div class="phones">
+          <a href="tel:+79655981981">+7‒965‒598‒19‒81 <span>основной</span></a>
+          <a href="tel:+79063300136">+7‒906‒330‒01‒36 <span>второй номер</span></a>
+        </div>
+        <div class="cta">
+          <a class="btn red" href="https://yandex.ru/maps/?rtext=~55.839717,49.074315&rtt=auto" target="_blank" rel="noopener">Проложить маршрут</a>
+          <a class="btn ghost" href="https://t.me/+79655981981" target="_blank" rel="noopener">Telegram</a>
+        </div>
+      </div>
+      <div class="map">
+        <iframe src="https://yandex.ru/map-widget/v1/?ll=49.074315%2C55.839717&z=16&pt=49.074315%2C55.839717%2Cpm2rdm" title="Автомойка «Шанхай» на карте" loading="lazy" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Шанхай, автомойка · Казань, ул. Профессора Мухамедьярова, 31г · Демо-версия сайта, данные из 2ГИС</div>
+</footer>
+
+<nav class="bar" aria-label="Быстрые действия">
+  <a class="main" href="tel:+79655981981">Позвонить</a>
+  <a href="https://yandex.ru/maps/?rtext=~55.839717,49.074315&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a href="https://wa.me/79655981981" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  const $ = s => document.querySelector(s);
+
+  // Ежедневно 10:00–21:30 по Москве
+  const OPEN = 10*60, CLOSE = 21*60+30;
+  function mskMinutes(){
+    const p = new Intl.DateTimeFormat("ru-RU",{timeZone:"Europe/Moscow",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());
+    return +p.find(x=>x.type==="hour").value*60 + +p.find(x=>x.type==="minute").value;
+  }
+  function updateStatus(){
+    const m = mskMinutes(), open = m>=OPEN && m<CLOSE;
+    $("#statusText").textContent = open ? "Открыто сейчас · до 21:30" : (m<OPEN ? "Закрыто, откроется сегодня в 10:00" : "Закрыто, откроется завтра в 10:00");
+    $("#stampState").textContent = open ? "ОТКРЫТО" : "ЗАКРЫТО";
+    $("#stamp").classList.toggle("closed",!open);
+  }
+  updateStatus(); setInterval(updateStatus,30000);
+
+  // Меню услуг (цены — только те, что в 2ГИС)
+  const DISHES = [
+    {n:"Комплексная мойка", p:"от 1700 ₽"},
+    {n:"Бесконтактная мойка", p:"по звонку"},
+    {n:"Химчистка салона", p:"по звонку"},
+    {n:"Мойка двигателя", p:"по звонку"},
+    {n:"Аренда тёплого бокса", p:"по звонку"}
+  ];
+  const picked = new Set();
+  DISHES.forEach(d=>{
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "dish"; b.setAttribute("aria-pressed","false");
+    b.innerHTML = '<span class="box"></span><span class="n"></span><span class="dots"></span><span class="p"></span>';
+    b.querySelector(".n").textContent = d.n; b.querySelector(".p").textContent = d.p;
+    b.onclick = () => {
+      const on = b.getAttribute("aria-pressed")!=="true";
+      b.setAttribute("aria-pressed",String(on));
+      on ? picked.add(d.n) : picked.delete(d.n);
+      render();
+    };
+    $("#dishes").appendChild(b);
+  });
+
+  let cars = 1;
+  document.querySelectorAll(".cars button").forEach(b=>b.onclick = () => {
+    document.querySelectorAll(".cars button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));
+    cars = +b.dataset.n; render();
+  });
+  $("#when").addEventListener("input",render);
+
+  function render(){
+    const list = $("#tlist"); list.innerHTML = "";
+    if(!picked.size){ list.innerHTML = '<p class="empty">Отметьте услуги слева — они появятся здесь.</p>'; }
+    DISHES.filter(d=>picked.has(d.n)).forEach(d=>{
+      const r = document.createElement("div"); r.className = "row";
+      const a = document.createElement("span"); a.textContent = d.n;
+      const b = document.createElement("span"); b.textContent = d.p;
+      r.append(a,b); list.appendChild(r);
+    });
+    let msg = "Здравствуйте! Хочу записаться на мойку в «Шанхай».";
+    if(picked.size) msg += "\nУслуги: " + [...picked].join(", ") + ".";
+    msg += "\nМашин: " + cars + ".";
+    const w = $("#when").value.trim();
+    if(w) msg += "\nУдобно: " + w + ".";
+    msg += "\nПодскажите, когда можно подъехать?";
+    $("#wa").href = "https://wa.me/79655981981?text=" + encodeURIComponent(msg);
+  }
+  render();
+</script>
+</body>
+</html>
