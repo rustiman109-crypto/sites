@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>СамМой — автомойка 24/7 на шоссе Энтузиастов, Москва</title>
+<meta name="description" content="Тёплая автомойка самообслуживания «СамМой» в Лефортово: круглосуточно, до 6 машин, пылесос, химчистка салона, мойка двигателя и днища, шиномонтаж. Комплексная мойка от 500 ₽.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff;
+    --news:#f4f2ec;
+    --ink:#111111;
+    --grey:#5a5a5a;
+    --hl:#fff200;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--news);color:var(--ink);font:17px/1.55 "PT Serif",Georgia,serif;-webkit-font-smoothing:antialiased;
+    padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  @media(min-width:860px){body{padding-bottom:0}}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{font-family:"Oswald",sans-serif;font-weight:700;margin:0;line-height:1.05;text-transform:uppercase}
+  mark{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 88%,transparent 88%);color:inherit;padding:0 .12em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+  .rubric{font:600 12px/1 "Oswald",sans-serif;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:6px;margin-bottom:12px;display:block}
+
+  .demo{background:var(--ink);color:#fff;font:400 13px/1.35 "Oswald",sans-serif;letter-spacing:.04em;text-align:center;padding:8px 16px}
+
+  .paper{background:var(--paper);max-width:1120px;margin:0 auto;box-shadow:0 0 0 1px #ddd}
+  @media(min-width:1140px){.paper{margin:18px auto}}
+
+  /* шапка газеты */
+  .mast{padding:22px 16px 0;text-align:center}
+  .mast .top{display:flex;justify-content:space-between;gap:10px;font:400 12px/1.3 "Oswald",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--grey)}
+  .mast .name{font:700 clamp(64px,22vw,190px)/.86 "Oswald",sans-serif;letter-spacing:-.02em;text-transform:uppercase;margin:20px 0 12px}
+  .mast .name span{background:linear-gradient(transparent 16%,var(--hl) 16%,var(--hl) 94%,transparent 94%);padding:0 .06em}
+  .strip{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;border-top:3px double var(--ink);border-bottom:3px double var(--ink);
+    padding:8px 0;font:400 13px/1.3 "Oswald",sans-serif;letter-spacing:.06em;text-transform:uppercase}
+  nav.idx{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;padding:10px 0;font:600 13px/1 "Oswald",sans-serif;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--ink)}
+  nav.idx a{text-decoration:none;padding:8px 0}
+  nav.idx a:hover{background:var(--hl)}
+
+  .page{padding:24px 16px 8px}
+  .front{display:grid;gap:24px}
+  @media(min-width:900px){.front{grid-template-columns:2.2fr 1fr;gap:0}.front>article{padding-right:24px;border-right:1px solid var(--ink)}.front>aside{padding-left:24px}}
+  .front h1{font-size:clamp(36px,9vw,72px);letter-spacing:-.01em}
+  .deck{font:italic 400 20px/1.4 "PT Serif",serif;margin:14px 0 18px;color:#222}
+  .cols{columns:1;column-gap:28px;column-rule:1px solid #ccc}
+  @media(min-width:640px){.cols{columns:2}}
+  .cols p{margin:0 0 12px;text-align:justify;hyphens:auto}
+  .drop::first-letter{float:left;font:700 64px/.8 "Oswald",sans-serif;margin:6px 8px 0 0}
+  .byline{font:400 13px/1.3 "Oswald",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);margin-bottom:14px}
+
+  .box{border:2px solid var(--ink);padding:16px;margin-bottom:18px}
+  .box .big{font:700 46px/1 "Oswald",sans-serif}
+  .box p{margin:6px 0 0}
+  .now{background:var(--ink);color:#fff}
+  .now .big{color:var(--hl)}
+  .now small{font:400 13px/1.4 "Oswald",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#bbb}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 20px;font:600 16px/1 "Oswald",sans-serif;letter-spacing:.06em;
+    text-transform:uppercase;text-decoration:none;border:2px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer}
+  .btn.hl{background:var(--hl)}
+  .btn.ink{background:var(--ink);color:#fff}
+  .btn:hover{background:var(--hl);color:var(--ink)}
+  .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+
+  hr.thick{border:0;border-top:4px solid var(--ink);margin:28px 0 0}
+  .row{display:grid;gap:22px;padding:22px 0}
+  @media(min-width:760px){.row{grid-template-columns:repeat(3,1fr);gap:0}.row>div{padding:0 20px;border-left:1px solid #bbb}.row>div:first-child{padding-left:0;border-left:0}.row>div:last-child{padding-right:0}}
+  .row h3{font-size:24px;margin-bottom:8px}
+  .row p{margin:0}
+  .row a.more{display:inline-block;margin-top:8px;font:600 14px/1 "Oswald",sans-serif;letter-spacing:.06em;text-transform:uppercase}
+
+  /* купон-калькулятор */
+  .calc{display:grid;gap:22px;padding:24px 0}
+  @media(min-width:860px){.calc{grid-template-columns:1.3fr 1fr;align-items:start}}
+  .calc h2{font-size:clamp(30px,7vw,52px)}
+  .opts{margin-top:16px;border-top:1px solid var(--ink)}
+  .opt{display:flex;align-items:center;gap:12px;min-height:56px;border-bottom:1px solid #ccc;cursor:pointer;padding:6px 0}
+  .opt input{appearance:none;-webkit-appearance:none;width:26px;height:26px;border:2px solid var(--ink);flex:none;margin:0;display:grid;place-content:center;background:#fff;cursor:pointer}
+  .opt input:checked{background:var(--hl)}
+  .opt input:checked::after{content:"✕";font:700 16px/1 "Oswald",sans-serif}
+  .opt .t{flex:1;line-height:1.3}
+  .opt .p{font:600 15px/1.2 "Oswald",sans-serif;text-align:right;white-space:nowrap}
+  .opt .p.q{color:var(--grey);font-weight:400}
+  .when{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .when button{min-height:46px;padding:0 14px;border:2px solid var(--ink);background:#fff;font:600 14px/1 "Oswald",sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;color:var(--ink)}
+  .when button[aria-pressed="true"]{background:var(--ink);color:#fff}
+  .coupon{border:3px dashed var(--ink);padding:20px 16px;position:relative;background:#fff}
+  .coupon::before{content:"✂";position:absolute;top:-17px;left:18px;background:#fff;font-size:22px;line-height:1;padding:0 4px}
+  .coupon .k{font:600 12px/1 "Oswald",sans-serif;letter-spacing:.16em;text-transform:uppercase}
+  .coupon .sum{font:700 54px/1 "Oswald",sans-serif;margin:10px 0 4px}
+  .coupon .sum mark{padding:0 .1em}
+  .coupon ul{margin:12px 0;padding:0 0 0 18px}
+  .coupon .fine{font-size:14px;color:var(--grey);font-style:italic}
+  .coupon .btn{width:100%;margin-top:8px}
+
+  .classif{columns:1;column-gap:20px;padding:22px 0;column-rule:1px solid #bbb}
+  @media(min-width:640px){.classif{columns:2}}
+  @media(min-width:960px){.classif{columns:4}}
+  .ad{break-inside:avoid;border:1px solid var(--ink);padding:12px;margin-bottom:16px;font-size:15px}
+  .ad b{display:block;font:700 18px/1.1 "Oswald",sans-serif;text-transform:uppercase;margin-bottom:6px}
+
+  .where{display:grid;gap:22px;padding:22px 0 30px}
+  @media(min-width:860px){.where{grid-template-columns:1fr 1.4fr}}
+  .where dl{margin:0}
+  .where dt{font:600 12px/1 "Oswald",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-top:16px}
+  .where dt:first-child{margin-top:0}
+  .where dd{margin:6px 0 0;font-size:18px}
+  .map{border:2px solid var(--ink);position:relative;min-height:320px}
+  .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.1)}
+
+  footer{border-top:3px double var(--ink);padding:16px;font:400 13px/1.4 "Oswald",sans-serif;letter-spacing:.04em;text-transform:uppercase;color:var(--grey);text-align:center}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:3px solid var(--ink)}
+  .dock .btn{padding:0 4px;font-size:15px}
+  @media(min-width:860px){.dock{display:none}}
+</style>
+</head>
+<body>
+
+<div class="demo">Демо-версия сайта. Подготовлена для владельца, данные из 2ГИС</div>
+
+<div class="paper">
+  <header class="mast">
+    <div class="top"><span>Москва · Лефортово</span><span id="today">—</span></div>
+    <div class="name"><span>Сам</span>Мой</div>
+    <div class="strip"><span>Выпуск № 24/7</span><span>Шоссе Энтузиастов, 2 ст56</span><span>Комплексная мойка — от 500 ₽</span></div>
+    <nav class="idx"><a href="#news">Новости</a><a href="#coupon">Купон</a><a href="#ads">Объявления</a><a href="#where">Как проехать</a></nav>
+  </header>
+
+  <main class="page" id="news">
+    <div class="front">
+      <article>
+        <span class="rubric">Главная новость</span>
+        <h1>Мойка на шоссе Энтузиастов <mark>не закрывается</mark> ни днём, ни ночью</h1>
+        <p class="deck">Тёплая мойка самообслуживания работает круглосуточно и без выходных — приезжайте хоть в три часа ночи.</p>
+        <div class="byline">Москва, Лефортово · Шоссе Энтузиастов, 2 ст56</div>
+        <div class="cols">
+          <p class="drop">СамМой — автомойка самообслуживания для легковых машин. Мойка тёплая, так что мыть машину можно и в мороз.</p>
+          <p>Одновременно помещается <mark>до шести машин</mark>. Есть пылесос для салона. Комплексная мойка — <mark>от 500 ₽</mark>.</p>
+          <p>Помимо кузова здесь моют двигатель и днище, делают химчистку салона. Есть и шиномонтаж.</p>
+          <p>Пока ждёте — зал ожидания, Wi-Fi для клиентов, кафе, кофе и чай с собой.</p>
+        </div>
+        <div class="btns">
+          <a class="btn hl" href="https://yandex.ru/maps/?rtext=~55.746663,37.688268&rtt=auto" target="_blank" rel="noopener">Проложить маршрут</a>
+          <a class="btn" href="tel:+79850661214">Позвонить</a>
+        </div>
+      </article>
+      <aside>
+        <div class="box now">
+          <small>Сейчас в Москве</small>
+          <div class="big" id="clock">--:--</div>
+          <p><b>Открыто.</b> Мойка работает круглосуточно, без перерывов и выходных.</p>
+        </div>
+        <div class="box">
+          <span class="rubric">Оценка читателей</span>
+          <div class="big">5,0 из 5</div>
+          <p><a href="https://2gis.ru/moscow/firm/70000001092847471/tab/reviews" target="_blank" rel="noopener">65 отзывов в 2ГИС — читать</a></p>
+        </div>
+        <div class="box">
+          <span class="rubric">Котировки</span>
+          <p style="display:flex;justify-content:space-between;gap:10px"><span>Комплексная мойка</span><b style="font-family:Oswald">от 500 ₽</b></p>
+          <p style="font-size:14px;color:var(--grey);font-style:italic">Другие цены — у администратора.</p>
+        </div>
+      </aside>
+    </div>
+
+    <hr class="thick">
+    <div class="row">
+      <div>
+        <span class="rubric">Погода</span>
+        <h3>Зима? <mark>Боксы тёплые</mark></h3>
+        <p>Мойка самообслуживания тёплая — мыть можно и в мороз.</p>
+      </div>
+      <div>
+        <span class="rubric">Сервис</span>
+        <h3>Двигатель, днище, салон</h3>
+        <p>Мойка двигателя и днища, химчистка салона, пылесос. И шиномонтаж.</p>
+        <a class="more" href="#coupon">Собрать купон →</a>
+      </div>
+      <div>
+        <span class="rubric">Досуг</span>
+        <h3>Пока сохнет — кофе</h3>
+        <p>Зал ожидания, Wi-Fi, кафе. Кофе и чай — с собой.</p>
+      </div>
+    </div>
+
+    <hr class="thick" id="coupon">
+    <section class="calc">
+      <div>
+        <span class="rubric">Купон читателя</span>
+        <h2>Что будем <mark>мыть</mark>?</h2>
+        <p style="margin:10px 0 0;color:var(--grey)">Отметьте услуги — купон посчитает, что известно, и отправит вопрос администратору. Цена точно известна только у комплексной мойки, остальное — <b>примерно</b>, уточняется на месте.</p>
+        <div class="opts" id="opts"></div>
+        <div class="when" id="when">
+          <button type="button" aria-pressed="true">Прямо сейчас</button>
+          <button type="button" aria-pressed="false">Через час</button>
+          <button type="button" aria-pressed="false">Вечером</button>
+          <button type="button" aria-pressed="false">Ночью</button>
+        </div>
+      </div>
+      <div class="coupon" aria-live="polite">
+        <div class="k">Купон «СамМой» · действителен 24/7</div>
+        <div class="sum" id="sum">—</div>
+        <div class="fine" id="sumNote">Отметьте нужные услуги</div>
+        <ul id="list"></ul>
+        <a class="btn ink" id="waSend" href="https://wa.me/79850661214" target="_blank" rel="noopener">Спросить в WhatsApp</a>
+        <a class="btn" href="tel:+79850661214">Позвонить</a>
+      </div>
+    </section>
+
+    <hr class="thick" id="ads">
+    <span class="rubric" style="margin-top:22px">Частные объявления</span>
+    <div class="classif">
+      <div class="ad"><b>Принимаем оплату</b>Картой, наличными, переводом с карты и по QR-коду.</div>
+      <div class="ad"><b>Работаем круглосуточно</b>Понедельник — воскресенье, 00:00–24:00. Без обеда.</div>
+      <div class="ad"><b>Ждём до 6 машин</b>Одновременно моются до шести машин. Хотите знать, есть ли место, — позвоните.</div>
+      <div class="ad"><b>Wi-Fi для клиентов</b>И зал ожидания, чтобы посидеть.</div>
+      <div class="ad"><b>Кофе и чай с собой</b>Есть кафе.</div>
+      <div class="ad"><b>Шиномонтаж</b>Тоже здесь — спросите по телефону.</div>
+      <div class="ad"><b>Пылесос</b>Для салона и ковриков.</div>
+      <div class="ad"><b>Пишите в WhatsApp</b><a href="https://wa.me/79850661214" target="_blank" rel="noopener">+7 985 066-12-14</a></div>
+    </div>
+
+    <hr class="thick" id="where">
+    <section class="where">
+      <div>
+        <span class="rubric" style="margin-top:22px">Как проехать</span>
+        <dl>
+          <dt>Адрес</dt><dd>Москва, шоссе Энтузиастов, 2 ст56<br><span style="color:var(--grey);font-size:16px">район Лефортово</span></dd>
+          <dt>Телефон</dt><dd><a href="tel:+79850661214">+7 985 066-12-14</a></dd>
+          <dt>Часы</dt><dd>Круглосуточно, каждый день</dd>
+          <dt>Отзывы</dt><dd><a href="https://2gis.ru/moscow/firm/70000001092847471/tab/reviews" target="_blank" rel="noopener">5,0 — 65 отзывов в 2ГИС</a></dd>
+        </dl>
+        <div class="btns"><a class="btn hl" href="https://yandex.ru/maps/?rtext=~55.746663,37.688268&rtt=auto" target="_blank" rel="noopener">Маршрут в Яндекс Картах</a></div>
+      </div>
+      <div class="map"><iframe title="СамМой на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=37.688268%2C55.746663&z=16&pt=37.688268%2C55.746663%2Cpm2rdm"></iframe></div>
+    </section>
+  </main>
+
+  <footer>«СамМой», автомойка · Москва, шоссе Энтузиастов, 2 ст56 · Демо-версия сайта, подготовлена для владельца по данным 2ГИС</footer>
+</div>
+
+<nav class="dock" aria-label="Быстрые действия">
+  <a class="btn" href="tel:+79850661214">Позвонить</a>
+  <a class="btn hl" href="https://yandex.ru/maps/?rtext=~55.746663,37.688268&rtt=auto" target="_blank" rel="noopener">Маршрут</a>
+  <a class="btn ink" href="https://wa.me/79850661214" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+  const $ = s => document.querySelector(s);
+  // известная цена только у комплексной мойки (2ГИС), остальное уточняется
+  const OPTS = [
+    {t:"Комплексная мойка", p:500},
+    {t:"Мойка самообслуживания", p:null},
+    {t:"Пылесос", p:null},
+    {t:"Мойка двигателя", p:null},
+    {t:"Мойка днища", p:null},
+    {t:"Химчистка салона", p:null},
+    {t:"Шиномонтаж", p:null}
+  ];
+  $("#opts").innerHTML = OPTS.map((o,i)=>`<label class="opt"><input type="checkbox" data-i="${i}"${i===0?" checked":""}><span class="t">${o.t}</span><span class="p${o.p?"":" q"}">${o.p ? "от " + o.p + " ₽" : "цена уточняется"}</span></label>`).join("");
+  let when = "Прямо сейчас";
+  document.querySelectorAll("#when button").forEach(b=>b.onclick=()=>{
+    document.querySelectorAll("#when button").forEach(x=>x.setAttribute("aria-pressed", String(x===b)));
+    when = b.textContent; render();
+  });
+  document.querySelectorAll("#opts input").forEach(c=>c.onchange=render);
+
+  function render(){
+    const sel = [...document.querySelectorAll("#opts input:checked")].map(c=>OPTS[+c.dataset.i]);
+    const known = sel.filter(o=>o.p).reduce((a,o)=>a+o.p,0);
+    const unknown = sel.filter(o=>!o.p).length;
+    $("#list").innerHTML = sel.map(o=>`<li>${o.t}${o.p ? " — от " + o.p + " ₽" : ""}</li>`).join("");
+    if(!sel.length){ $("#sum").textContent = "—"; $("#sumNote").textContent = "Отметьте нужные услуги"; }
+    else if(known && !unknown){ $("#sum").innerHTML = "<mark>от " + known + " ₽</mark>"; $("#sumNote").textContent = "По данным 2ГИС. Итог зависит от машины."; }
+    else if(known){ $("#sum").innerHTML = "<mark>от " + known + " ₽</mark> + ?"; $("#sumNote").textContent = "Примерно: цену остального назовёт администратор."; }
+    else { $("#sum").textContent = "Уточним"; $("#sumNote").textContent = "Цены на эти услуги на сайте нет — спросите в WhatsApp."; }
+    const msg = "Здравствуйте! Пишу с сайта СамМой.\nХочу: " + (sel.length ? sel.map(o=>o.t).join(", ") : "помыть машину") +
+      "\nКогда: " + when + "\nПодскажите, пожалуйста, сколько будет стоить и есть ли свободный бокс?";
+    $("#waSend").href = "https://wa.me/79850661214?text=" + encodeURIComponent(msg);
+  }
+  render();
+
+  function tick(){
+    const now = new Date();
+    $("#clock").textContent = new Intl.DateTimeFormat("ru-RU",{timeZone:"Europe/Moscow",hour:"2-digit",minute:"2-digit"}).format(now);
+    $("#today").textContent = new Intl.DateTimeFormat("ru-RU",{timeZone:"Europe/Moscow",weekday:"long",day:"numeric",month:"long"}).format(now);
+  }
+  tick(); setInterval(tick, 15000);
+</script>
+</body>
+</html>
